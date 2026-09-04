@@ -33,6 +33,15 @@
       "edges_path": null,
       "source_spider": "spiders/species/genome-spider",
       "description": "Documented empty slot. spiders/species/genome-spider did not exist at the time this receiver was built (checked: C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\spiders\\species\\genome-spider). If that species is later added and made to publish a graph at the path above (or a manifest edit points here at wherever it actually lands), this slot will pick it up automatically — same 'not yet emitted' placeholder behaviour until then."
+    },
+    {
+      "id": "gridatlas-lineage",
+      "title": "GridAtlas cartridge lineage",
+      "path": "https://ventusltd.github.io/spiders/species/genome-spider/data/gridatlas-lineage.json",
+      "edges_path": null,
+      "source_spider": "spiders/species/genome-spider (lineage.mjs)",
+      "description": "GridAtlas's current composition and its ancestry: which cartridges it composed, which parts/modules built each cartridge, and any part whose content has moved on since that cartridge was last built. Read LIVE from the spider's own published output on the same Pages origin, never from a copy - a copied graph goes stale the way a part goes uncomposed.",
+      "verified": "2026-09-04 HTTP 200, 74 nodes / 411 edges over 15 of 58 generations"
     }
   ]
 }
