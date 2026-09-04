@@ -1,0 +1,169 @@
+{
+  "schema": "deeplink-contract.provenance.v1",
+  "generated": "2026-09-04",
+  "note": "start_line/end_line refer to the ORIGINAL source file at head_sha, not to the extract file (which additionally carries a prepended provenance comment block). sha256_of_extract is the hash of the file actually written to disk in this staging directory (header comment included).",
+  "repos": {
+    "pipelinenews": {
+      "path": "C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\pipelinenews",
+      "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515",
+      "working_tree_clean_for_files_used": true,
+      "note": "working tree has unrelated untracked build/ and releases/data/... artifacts from an in-progress 202609010145 build; none of the files copied here are affected"
+    },
+    "gridatlas": {
+      "path": "C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\gridatlas",
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "working_tree_clean_for_files_used": true,
+      "note": "working tree has unrelated untracked grid-run.err/.log, harvest-cache.json, tmp-debug-visibility.mjs; none of the files copied here are affected"
+    },
+    "globalgrid2050": {
+      "path": "C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\globalgrid2050",
+      "head_sha": "7d00781b6993b9038a1a8bedf2c88a4eb0109ad4",
+      "note": "searched; hosts the STANDBY legacy receiver at repd_grid_atlasv8/ (ATLAS_TARGETS.legacy in the emitter) which is NOT the currently active target (ACTIVE_TARGET=\"ported\"). No emitter or receiver code was copied from this repo because the live emitter (pipelinenews) and live receiver (gridatlas/atlas) fully cover the contract; globalgrid2050's own tree only contains build mirrors/estate-scan copies of pipelinenews assets (pipelinenews_intelligence/*, homepage_versions/*), not a distinct source of truth."
+    }
+  },
+  "files": [
+    {
+      "extract_path": "emitter/atlas-pointer-deep-link.mjs",
+      "source_repo": "pipelinenews",
+      "source_path": "releases/202609032329-pipelinenews/assets/202608312037-atlas-pointer-deep-link.mjs",
+      "start_line": 1,
+      "end_line": 249,
+      "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515",
+      "file_last_commit_sha": "face8634f5e750216c06198052b44c01d187b18a",
+      "sha256_of_extract": "000c06b68b9a5faf6ffbb20c283604e27267d5fd93c2cf9285de21a6bac5383e",
+      "description": "THE live URL-construction module. app.mjs imports buildAtlasV9DeepLink from exactly this file. ACTIVE_TARGET='ported' (gridatlas/atlas)."
+    },
+    {
+      "extract_path": "emitter/app-technology-vocabulary.excerpt.mjs",
+      "source_repo": "pipelinenews",
+      "source_path": "releases/202609032329-pipelinenews/assets/202608291447-app.mjs",
+      "start_line": "1; 105-118; 405-419; 488-491 (four non-contiguous ranges concatenated)",
+      "end_line": null,
+      "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515",
+      "file_last_commit_sha": "face8634f5e750216c06198052b44c01d187b18a",
+      "sha256_of_extract": "60a79e343a075e024f6c4052a80473dc04e6d001b653d57ebb4b922f04561d40",
+      "description": "the import of the emitter, the four-member TECHNOLOGIES/LABELS/COLOURS/UNITS bucket vocabulary, how project.technology is produced (dictionary lookup), and the MAP button's call site."
+    },
+    {
+      "extract_path": "emitter/wider-fleet-deep-link.excerpt.mjs",
+      "source_repo": "pipelinenews",
+      "source_path": "tools/intelligence/cartridges/wider-fleet/assets/{GEN}-wider-fleet.mjs",
+      "start_line": 1,
+      "end_line": 80,
+      "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515",
+      "file_last_commit_sha": "bab117e4bff007939a9230079788b8643c650a4e",
+      "sha256_of_extract": "ade7813882cf62a68867ba3c2cff630841c9acecb136d019ecaccffeb1f44f29",
+      "description": "the SECOND emitter (wider-fleet tabs for ~20 non-spine REPD technology types). atlasLink() build's its own URLSearchParams independently of atlas-pointer-deep-link.mjs, hitting the same ported base_url."
+    },
+    {
+      "extract_path": "emitter/wider-fleet-build_payload.excerpt.py",
+      "source_repo": "pipelinenews",
+      "source_path": "tools/intelligence/cartridges/wider-fleet/build_payload.py",
+      "start_line": 155,
+      "end_line": 172,
+      "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515",
+      "file_last_commit_sha": "bab117e4bff007939a9230079788b8643c650a4e",
+      "sha256_of_extract": "0d6c61614d9ac5c512f13a9160247672d0ccd3c79e1e9ecde22d72b0f2b67a35",
+      "description": "where row.t ('technology' query param for the wider-fleet emitter) is set to props.get('tech') or 'other' -- the source of the 'other' bucket."
+    },
+    {
+      "extract_path": "receiver/index-composer.html",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/index.html",
+      "start_line": 1,
+      "end_line": 104,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "e17e4fc233284f0c68467a4cf2b6567e7d2598d8",
+      "sha256_of_extract": "ac60a9dd4d9facaa960c80f51e0080f89ec4b6da3761ba2b25684527eda3e90b",
+      "description": "the composer/loader at the live route /gridatlas/atlas/. Fetches current.json, fetches the pinned immutable shell, verifies+splices the 4 cartridges by SHA-256, document.writes the result. Does not itself touch the query string."
+    },
+    {
+      "extract_path": "receiver/current.json",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/current.json",
+      "start_line": 1,
+      "end_line": 658,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "sha256_of_extract": "4f97c03852dbc38839ed162eefcca6c8d6125cdc796f9e6ac98d3d2d8ee05b04",
+      "description": "the composition manifest: cartridge_order, per-cartridge generation/version/path/sha256, and the full narrative changelog (version_ledger entries v9.16-v9.111) documenting every deep-link fix including the v9.109 bucket-table fix."
+    },
+    {
+      "extract_path": "receiver/place-global-search-arrival-identity.excerpt.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/202609040229-place-global-search-arrival-identity.js",
+      "start_line": 566,
+      "end_line": 747,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "2d8cc7bacf80a3f20ecfb96ea24548fcea43a19d",
+      "sha256_of_extract": "ddce9a1a02a91251b0fcf906cb4007cd78d3a2d3eb6a855480e21beb394cace1",
+      "description": "FIRST parse site: repd_ref identity + advisory-field parse (suppliedArrivalFields), exact-register lookup, state.deep_link publication. Assembled into the live 'uk-gazetteer-flyto' cartridge; fires on DOMContentLoaded, ahead of the engine and sld-sandbox scripts."
+    },
+    {
+      "extract_path": "receiver/ventus-corev8engine-exact-repd-delegation.excerpt.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/202609040229-ventus-corev8engine-exact-repd-delegation.js",
+      "start_line": "61-90; 796-840 (two ranges concatenated)",
+      "end_line": null,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "2d8cc7bacf80a3f20ecfb96ea24548fcea43a19d",
+      "sha256_of_extract": "586a0e0e7da4ab84eeb283cfdca359aaaf0bc378b6d5256e3bd16212958806fb",
+      "description": "REPD_IDS (the engine's real layer-id vocabulary: has 'wind', not 'wind_onshore'/'wind_offshore'/'other') and focusCanonicalProjectDeepLink(), the engine's OWN former deep-link handler, now reduced to a no-op that publishes DEFERRED_TO_EXACT_REPD_RECEIVER and returns. Carried into the live 'substation-intelligence' cartridge, third script loaded."
+    },
+    {
+      "extract_path": "receiver/sld-sandbox-technology-vocabulary.excerpt.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/202609041234-sld-sandbox-technology-buckets.js",
+      "start_line": 145,
+      "end_line": 276,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "sha256_of_extract": "58704acc955378be85b6923446b412d57c9f7ad86d91066180b8744fa0d7bdd5",
+      "description": "THE FIX: PROJECT_TECHS (arrival-acceptance set, includes wind_onshore/wind_offshore/other so the arrival is never abandoned), LAYER_ID_FOR_BUCKET (the one canonical mapping table: wind_onshore->'wind', wind_offshore->'wind', other->null), layerIdForBucket(). This is the v9.109 fix cartridge-side."
+    },
+    {
+      "extract_path": "receiver/sld-sandbox-deep-link-plan.excerpt.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/202609041234-sld-sandbox-technology-buckets.js",
+      "start_line": 1684,
+      "end_line": 1702,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "sha256_of_extract": "9bf38ca78e8732e7ae6efcda1ca8b617c8c77d6e4008e1d9217a13f06327572d",
+      "description": "deepLinkPlan(): pure route decision (MEASURE_LINK_FIRST / WAIT_FOR_REGISTER / NO_USABLE_POINT) from raw longitude/latitude/repd_ref."
+    },
+    {
+      "extract_path": "receiver/sld-sandbox-layer-control.excerpt.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/202609041234-sld-sandbox-technology-buckets.js",
+      "start_line": 2912,
+      "end_line": 3053,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "sha256_of_extract": "c7448d0e894013cfc24b152b0c30aa8039adc198140d9be597e54112d12a04a1",
+      "description": "waitForLayerControls(12000) -- the 12s grid-data budget and 'The grid data has not finished loading yet' banner; enableTechnologyLayer() -- the 'layer control not found: <id>' failure; watchForLayerControls() -- late-arrival recovery via MutationObserver."
+    },
+    {
+      "extract_path": "receiver/sld-sandbox-run-deep-link.excerpt.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/202609041234-sld-sandbox-technology-buckets.js",
+      "start_line": 4178,
+      "end_line": 4607,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "sha256_of_extract": "91041a05ea906e1b70ccf8ec1e8b4805be420530214644ba1774c1a97d83165e",
+      "description": "runDeepLink(): the full arrival sequence -- parses zoom (previously unread by the whole repo), branches MEASURE_LINK_FIRST vs WAIT_FOR_REGISTER, flies the camera, runs arrive() (layer wait+enable), runs runArrivalSelection() (card-before-lines), reconciles against a later-resolved register identity."
+    },
+    {
+      "extract_path": "receiver/sld-sandbox-boot-trigger.excerpt.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/202609041234-sld-sandbox-technology-buckets.js",
+      "start_line": 4623,
+      "end_line": 4664,
+      "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "file_last_commit_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "sha256_of_extract": "d5e491f530235bff5d4b7ff2cee14c25f2fdbfd2c4419c06faa90c71ca779be8",
+      "description": "the visibility-gated call site of runDeepLink() (void runDeepLink()), with up-to-5-attempt retry on visibilitychange -- guards against the iOS Safari background-tab requestAnimationFrame stall."
+    }
+  ]
+}

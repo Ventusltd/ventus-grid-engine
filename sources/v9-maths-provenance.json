@@ -1,0 +1,114 @@
+[
+  {
+    "extract": "extract/geodesy.mjs",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609011950-geodesy.js",
+    "start_line": 1,
+    "end_line": 145,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "extract": "extract/nearest-search.mjs",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609011950-substation-lookup.js",
+    "start_line": 1,
+    "end_line": 82,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+    "note": "This module is committed but not composed into the live Atlas. The live nearest-substation search is a separate, byte-different inline duplicate at atlas/cartridges/202609041330-substation-intelligence-v9-63.js lines 6018-6021 (normalise) and 6083-6092 (state.nearest). See duplication.md 2(a)."
+  },
+  {
+    "extract": "extract/network-topology.mjs",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609012245-network-topology.js",
+    "start_line": 1,
+    "end_line": 384,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+    "note": "Superset of atlas/modules/202609012145-network-topology.js (1-279); at() is byte-identical between the two versions, verified by diff. Not one of the six named extraction targets but included as a required runtime dependency of electrical-distance and rating-envelope."
+  },
+  {
+    "extract": "extract/electrical-distance.mjs",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609012245-electrical-distance.js",
+    "start_line": 1,
+    "end_line": 365,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "extract": "extract/rating-envelope.mjs",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609012250-rating-envelope.js",
+    "start_line": 1,
+    "end_line": 213,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "extract": "extract/corridor-estimate.mjs",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609030205-corridor-estimate.js",
+    "start_line": 1,
+    "end_line": 114,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "extract": "extract/sizing-arithmetic.mjs",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609012205-sizing-arithmetic.js",
+    "start_line": 1,
+    "end_line": 573,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "reference_only": true,
+    "reason": "live runtime inline duplicate of substation-lookup.js, cited in duplication.md 2(a), not extracted",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/cartridges/202609041330-substation-intelligence-v9-63.js",
+    "start_line": 6014,
+    "end_line": 6095,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "reference_only": true,
+    "reason": "hand-rolled nearest-substation/nearest-project search, cited in duplication.md 2(b), not extracted (already a clean full-scan, no ring-search bug)",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/cartridges/202608311910-neon-substation-links-v9-6.js",
+    "start_line": 174,
+    "end_line": 297,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "reference_only": true,
+    "reason": "hand-rolled nearestTransmission() running-min scan, cited in duplication.md 2(b), not extracted (full scan, no ring-search bug)",
+    "source_repo": "gridatlas",
+    "source_path": "atlas/modules/202609012128-declared-connections.js",
+    "start_line": 213,
+    "end_line": 244,
+    "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7"
+  },
+  {
+    "reference_only": true,
+    "reason": "canonical geodesy + SpatialIndex ring-search (correct, with proven early-termination bound), the estate's reference implementation; cited in constants.md and duplication.md, not re-extracted since it is already the canonical source",
+    "source_repo": "grid-distance-maths",
+    "source_path": "src/geodesy.mjs",
+    "start_line": 1,
+    "end_line": 411,
+    "head_sha": "30d2f817a4b007b7c3be334f3aff308331a848b8"
+  },
+  {
+    "reference_only": true,
+    "reason": "hand-rolled haversine_km() + ring-search nearest_segment()/nearest_substations() that do NOT import grid-distance-maths despite a sibling cartridge in the same tools dir doing so; cited in duplication.md 2(b) and constants.md",
+    "source_repo": "pipelinenews",
+    "source_path": "tools/intelligence/cartridges/grid-proximity/build_payload.py",
+    "start_line": 44,
+    "end_line": 296,
+    "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515"
+  },
+  {
+    "reference_only": true,
+    "reason": "correctly imports canonical grid-distance-maths/src/geodesy.py rather than hand-rolling; cited in duplication.md as the counter-example",
+    "source_repo": "pipelinenews",
+    "source_path": "tools/intelligence/cartridges/grid-distance-column/build_payload.py",
+    "start_line": 50,
+    "end_line": 69,
+    "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515"
+  }
+]

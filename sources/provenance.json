@@ -1,0 +1,152 @@
+{
+  "schema": "ventus-grid-engine.provenance.v1",
+  "note": "Every extracted function, where it came from, and the commit it was taken from. A difference in output must always be traceable to a decision somebody recorded, not to a refactor nobody did.",
+  "source_repos": {
+    "globalgrid2050": "7d00781b6993b9038a1a8bedf2c88a4eb0109ad4",
+    "gridatlas": "64268fd0",
+    "pipelinenews": "ade103ae"
+  },
+  "extracts": [
+    {
+      "module": "engine/geo-core.js",
+      "source_repo": "globalgrid2050",
+      "source_path": "repd_grid_atlasv8/ventus-corev8engine.js",
+      "line_ranges": [
+        [
+          32,
+          33
+        ],
+        [
+          36,
+          36
+        ],
+        [
+          45,
+          50
+        ]
+      ],
+      "symbols": [
+        "EARTH_RADIUS_KM",
+        "MAX_RADIUS_KM",
+        "DEG_TO_RAD",
+        "haversine"
+      ],
+      "changes": "export added; optional radiusKm parameter added (defaults to the V8 value, so existing behaviour is bit-identical); EARTH_MEAN_RADIUS_KM and haversineMean added as new, not substituted.",
+      "sha256_of_extracted_module": "8af04d444aae152ab7e821f36662fbcd5ee074e1fa471aca00d4a8516c302b98"
+    },
+    {
+      "module": "engine/geo-area.js",
+      "source_repo": "globalgrid2050",
+      "source_path": "repd_grid_atlasv8/ventus-corev8engine.js",
+      "line_ranges": [
+        [
+          134,
+          149
+        ],
+        [
+          481,
+          490
+        ],
+        [
+          576,
+          582
+        ]
+      ],
+      "symbols": [
+        "polygonAreaKm2",
+        "polylinePerimeterKm",
+        "circleCapAreaKm2"
+      ],
+      "changes": "Implementations A (134-149) and B (481-490) were verified numerically identical and collapsed into polygonAreaKm2. The acre conversion now uses the exact 4046.85642 m2/acre from A rather than B's rounded 247.105 acres/km2. Implementation C (576-582) kept separate and unmerged: different question, correct as written.",
+      "sha256_of_extracted_module": "d097e0998847e86b3414d62fa50ad07009a7312246a2d82b9aca21422cf6a48d"
+    },
+    {
+      "module": "engine/geo-shapes.js",
+      "source_repo": "globalgrid2050",
+      "source_path": "repd_grid_atlasv8/ventus-corev8engine.js",
+      "line_ranges": [
+        [
+          122,
+          132
+        ],
+        [
+          727,
+          740
+        ]
+      ],
+      "symbols": [
+        "destinationCirclePoints",
+        "circleVertexCount",
+        "ZONE_DRAW_VERTICES"
+      ],
+      "changes": "The two identical destination-point implementations (verified 0 absolute difference over 64 points) collapsed into one; the point count became an argument, which was the only real difference between them.",
+      "sha256_of_extracted_module": "30c90efab64feb6c9e3478076d669f2f2fbf92ea993ba83de1438bd8e72b200d"
+    },
+    {
+      "module": "engine/geo-geojson.js",
+      "source_repo": "globalgrid2050",
+      "source_path": "repd_grid_atlasv8/ventus-corev8engine.js",
+      "line_ranges": [
+        [
+          727,
+          740
+        ]
+      ],
+      "symbols": [
+        "circleFeatureCollection"
+      ],
+      "changes": "The FeatureCollection-wrapping half of createGeoJSONCircle, separated from the ring generation so a caller wanting coordinates does not depend on a GeoJSON shape it never reads.",
+      "sha256_of_extracted_module": "fe2431f6bb5c417b1a0e4cd30b6d7b927de4087f8bc6f3e11ec9a500ead8bf62"
+    },
+    {
+      "module": "deeplink/contract.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/parts/.../sld-sandbox-technology-buckets.js and ventus-corev8engine-exact-repd-delegation.js:66",
+      "line_ranges": [
+        [
+          66,
+          66
+        ]
+      ],
+      "symbols": [
+        "IDENTITY_PARAM",
+        "PARAMS",
+        "BUCKETS",
+        "REPD_LAYER_IDS",
+        "LAYER_ID_FOR_BUCKET",
+        "layerIdForBucket",
+        "bucketHasLayer",
+        "buildDeepLink",
+        "parseDeepLink"
+      ],
+      "changes": "LAYER_ID_FOR_BUCKET and layerIdForBucket copied verbatim from the receiver (introduced gridatlas generation 202609041244 / v9.109; first carried to production in generation 202609041330 / v9.111). REPD_LAYER_IDS copied verbatim. buildDeepLink and parseDeepLink are NEW: the emitter and receiver each had their own inline URL handling and neither was a reusable function.",
+      "sha256_of_extracted_module": "e9a72a0b9a65ba5ae8ff5b1d7bd49e485664c00ebaf7c40f89312788e5e88704"
+    },
+    {
+      "module": "engine/v9-geodesy.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/modules/202609011950-geodesy.js",
+      "symbols": [
+        "EARTH_RADIUS_KM",
+        "distanceKm",
+        "representativePoint",
+        "voltagesKv",
+        "destinationPoint",
+        "initialBearingDeg"
+      ],
+      "changes": "The IIFE and the window.__GRIDATLAS_MODULES__ registration were removed; every function is otherwise byte-identical to the source, including the atan2 operand order that the source insists on for numerical parity with V8 haversine(). Parity is asserted bit-for-bit by proofs/v9-engine.proof.mjs rather than assumed.",
+      "sha256_of_extracted_module": "af9b5a8796b51a1e4368491b98961a197adec539f2fa0f3ed226552a876864bb"
+    },
+    {
+      "module": "engine/v9-nearest-search.js",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/modules/202609011950-substation-lookup.js",
+      "symbols": [
+        "normalise",
+        "index"
+      ],
+      "changes": "Import path repointed to ./v9-geodesy.js. NOTE: this module is committed to gridatlas but appears in NO composition manifest — nothing loads it. The live Atlas reimplements normalise()/nearest() inline in its substation-intelligence cartridge, byte-different, and the live copy lacks the `voltages_kv || []` default this one has, so the live copy can throw where this cannot. Neither has a bbox/ring pre-filter; both are exhaustive scans and therefore free of the ring-search bug class.",
+      "sha256_of_extracted_module": "28cc8b973f9c294882ceffa9e27c3a2f14062e5263a8f82a08f5a861fb2b43fc"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+name: verify
+
+# The gate. Nothing in this repository is allowed to be consumed without
+# having passed it, and the ordering below is the reason that sentence is
+# true rather than aspirational: "Verify, fail closed" runs as its own step,
+# with no continue-on-error, before any step that could publish or commit.
+#
+# Copied deliberately from data-grid-gb, where the same step ordering is what
+# makes its fail-closed claim real.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify, fail closed
+        run: node verify.mjs
