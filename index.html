@@ -250,7 +250,14 @@ async function loadManifestScope(entry){
 async function wireReceiver(){
   let manifest=MANIFEST_FALLBACK;
   try{const r=await fetch(RECEIVER_MANIFEST_PATH,{cache:"no-cache"});if(r.ok){const live=await r.json();if(Array.isArray(live.graphs)&&live.graphs.length)manifest=live;}}catch(e){}
-  const extra=(manifest.graphs||[]).filter(g=>g.id==="engine-graph"||g.id==="genome-spider");
+  /* Every graph the manifest lists, except the two the page builds itself.
+     This read `g.id==="engine-graph"||g.id==="genome-spider"` - a hard-coded
+     pair - so a manifest could add graphs for ever and the page would never
+     request them; gridatlas-lineage sat in the live manifest and was never
+     fetched (network trace, 2026-09-04). A receiver that "will constantly
+     also receive cartridges like gridatlas" has to read what it is given. */
+  const BUILT_IN=new Set(["federation","globalgrid2050-contents"]);
+  const extra=(manifest.graphs||[]).filter(g=>g&&g.id&&g.path&&!BUILT_IN.has(g.id));
   for(const entry of extra){
     const scope=await loadManifestScope(entry);
     SCOPES[entry.id]=scope;
