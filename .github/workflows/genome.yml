@@ -1,0 +1,97 @@
+# The genome graph, kept honest and re-derivable.
+#
+# genome/build-graph.mjs regenerates genome/engine-graph.json from its own
+# named node/edge list — the same generator a human runs locally. This
+# workflow exists so that file is never hand-edited stale: it regenerates
+# on every change to the files the graph is built from, runs the SAME
+# fail-closed gate (verify.mjs) that governs everything else in this
+# repository, and commits the regenerated file only when it actually
+# changed — a run that finds nothing new leaves no trace, same discipline
+# as data-grid-gb's refresh_network_products.yml.
+#
+# It does NOT touch .github/workflows/verify.yml, the repo root, or
+# spider/ — those are out of this workflow's scope, same as this
+# repository's own write boundary.
+#
+# VACCINES SATISFIED (read from cvaa/vaccines/ in the estate root):
+#   - 202608301442-pinned-actions.md — every `uses:` below is pinned to a
+#     40-character commit SHA (not a movable tag), matching the SHAs
+#     already used together elsewhere in the estate (gridatlas's
+#     202608312212-cartridge-proof.yml, data-gridatlas's
+#     202608301931-layer-fidelity.yml) so this repository names one
+#     checkout and one setup-node everywhere rather than adding a third
+#     pin nobody asked for.
+#   - 202608301443-least-permissions.md — an explicit `permissions:` block
+#     (contents: write, and nothing else — the only privileged thing this
+#     workflow does is commit a regenerated file), no `write-all`, a
+#     `timeout-minutes:` on the one job, and no `schedule:` trigger (so
+#     the workflow_dispatch companion that vaccine requires for a
+#     schedule does not apply here — this fires on push and dispatch only).
+
+name: genome
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'engine/**'
+      - 'deeplink/**'
+      - 'sources/**'
+      - 'genome/build-graph.mjs'
+      - '.github/workflows/genome.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ventus-grid-engine-genome
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Regenerate genome/engine-graph.json
+        run: node genome/build-graph.mjs
+
+      # The fail-closed gate, run BEFORE the step that could commit
+      # anything — that ordering, not the assertions themselves, is what
+      # stops an unverified product reaching a consumer. Copied
+      # deliberately from this repository's own verify.mjs header comment
+      # and from data-grid-gb, where the same ordering is what makes its
+      # fail-closed claim true.
+      - name: Verify, fail closed
+        run: node verify.mjs
+
+      # The graph is arithmetic over genome/build-graph.mjs's own node/edge
+      # list. If that list has not changed, neither has the derived JSON,
+      # and a run that changes nothing should leave no trace.
+      - name: Commit only if the graph changed
+        run: |
+          set -euo pipefail
+          git add -- genome/engine-graph.json
+          if git diff --cached --quiet; then
+            echo "the graph is unchanged; nothing to commit"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          NODES=$(node -e "console.log(JSON.parse(require('fs').readFileSync('genome/engine-graph.json','utf8')).nodes.length)")
+          EDGES=$(node -e "console.log(JSON.parse(require('fs').readFileSync('genome/engine-graph.json','utf8')).edges.length)")
+          git commit -m "Regenerate genome graph: ${NODES} nodes, ${EDGES} edges
+
+          Derived deterministically from genome/build-graph.mjs's own
+          named node/edge list by node genome/build-graph.mjs. No manual
+          edit to genome/engine-graph.json survives the next run of this
+          workflow — change the generator, not the generated file."
+          git push

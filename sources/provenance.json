@@ -147,6 +147,69 @@
       ],
       "changes": "Import path repointed to ./v9-geodesy.js. NOTE: this module is committed to gridatlas but appears in NO composition manifest — nothing loads it. The live Atlas reimplements normalise()/nearest() inline in its substation-intelligence cartridge, byte-different, and the live copy lacks the `voltages_kv || []` default this one has, so the live copy can throw where this cannot. Neither has a bbox/ring pre-filter; both are exhaustive scans and therefore free of the ring-search bug class.",
       "sha256_of_extracted_module": "28cc8b973f9c294882ceffa9e27c3a2f14062e5263a8f82a08f5a861fb2b43fc"
+    },
+    {
+      "module": "engine/network-topology.js",
+      "generated": "2026-09-04",
+      "promoted_from": "sources/v9-extracts/network-topology.mjs",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/modules/202609012245-network-topology.js",
+      "source_head_sha_at_extraction": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "source_head_sha_verified_current": "b7a40d1f881af202a81f97f65e3d5a895e104391",
+      "verified_unchanged_between_shas": "git log --oneline 64268fd0..HEAD -- atlas/modules/202609012245-network-topology.js in gridatlas returns no commits, so the cited lines are still current against gridatlas HEAD as of this promotion.",
+      "line_range": [1, 384],
+      "symbols": [
+        "ACCEPTS", "NOT_AN_ASSESSMENT", "IMPEDANCE_BASIS", "UNDECLARED",
+        "ratingsOf", "physicalUnits", "parametersOf", "index", "schema"
+      ],
+      "changes": "The IIFE and window.__GRIDATLAS_MODULES__ registration removed. index()/at()/graph() and helpers otherwise byte-identical to the source. No test scaffolding existed for this module before promotion; proofs/network-topology.proof.mjs is new, built against a fixture network (COWL/DIDC/STRA/ISLE/PLCH) constructed for this promotion.",
+      "why_promoted": "Named in docs/v9-maths-inventory.md as load-bearing context for electrical-distance and rating-envelope, both of which require its graph(); promoted alongside them rather than left as an inert dependency.",
+      "sha256_of_extracted_module": "cf04c754e550e594ddd09096ec2b2c04c0082058126897c6e7afdeee92f7561c"
+    },
+    {
+      "module": "engine/electrical-distance.js",
+      "generated": "2026-09-04",
+      "promoted_from": "sources/v9-extracts/electrical-distance.mjs",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/modules/202609012245-electrical-distance.js",
+      "source_head_sha_at_extraction": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "source_head_sha_verified_current": "b7a40d1f881af202a81f97f65e3d5a895e104391",
+      "verified_unchanged_between_shas": "git log --oneline 64268fd0..HEAD -- atlas/modules/202609012245-electrical-distance.js in gridatlas returns no commits.",
+      "line_range": [1, 365],
+      "symbols": ["between", "within", "schema", "requires", "NOT_A_DISTANCE", "NOT_A_CAPACITY", "IMPEDANCE_CARRIED"],
+      "changes": "The IIFE and window.__GRIDATLAS_MODULES__ registration removed. between()/within() otherwise byte-identical to the source. This is one of the six named extraction targets in the task brief (electrical distance).",
+      "depends_on": "engine/network-topology.js .graph() (schema gridatlas.module.network-topology.graph.v1)",
+      "sha256_of_extracted_module": "b6b55e2207e29a7078f0ab9a1ee0575125a0252386907e93434b78aeead2c4a3"
+    },
+    {
+      "module": "engine/rating-envelope.js",
+      "generated": "2026-09-04",
+      "promoted_from": "sources/v9-extracts/rating-envelope.mjs",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/modules/202609012250-rating-envelope.js",
+      "source_head_sha_at_extraction": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "source_head_sha_verified_current": "b7a40d1f881af202a81f97f65e3d5a895e104391",
+      "verified_unchanged_between_shas": "git log --oneline 64268fd0..HEAD -- atlas/modules/202609012250-rating-envelope.js in gridatlas returns no commits.",
+      "line_range": [1, 213],
+      "symbols": ["at", "schema", "requires", "SEASONS", "NEVER_SUMMED", "NOT_A_CAPACITY", "IMPLAUSIBLE_MVA"],
+      "changes": "The IIFE and window.__GRIDATLAS_MODULES__ registration removed. at() and its helpers otherwise byte-identical to the source. This is one of the six named extraction targets in the task brief (rating envelope).",
+      "depends_on": "engine/network-topology.js .graph() (schema gridatlas.module.network-topology.graph.v1)",
+      "sha256_of_extracted_module": "946d4970833154ae75242c5914d8fe0be788cc8a7235e1943a578d6d92382b13"
+    },
+    {
+      "module": "engine/corridor-estimate.js",
+      "generated": "2026-09-04",
+      "promoted_from": "sources/v9-extracts/corridor-estimate.mjs",
+      "source_repo": "gridatlas",
+      "source_path": "atlas/modules/202609030205-corridor-estimate.js",
+      "source_head_sha_at_extraction": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
+      "source_head_sha_verified_current": "b7a40d1f881af202a81f97f65e3d5a895e104391",
+      "verified_unchanged_between_shas": "git log --oneline 64268fd0..HEAD -- atlas/modules/202609030205-corridor-estimate.js in gridatlas returns no commits.",
+      "line_range": [1, 114],
+      "symbols": ["CABLE_FACTOR", "OHL_FACTOR", "MINIMUM_KM", "BASIS", "CAVEAT", "NOT_FOR_OVERHEAD", "forCable", "schema"],
+      "changes": "The IIFE and window.__GRIDATLAS_MODULES__ registration removed. forCable() and its constants otherwise byte-identical to the source. Deliberately no forOverhead() promoted either — the source does not have one and this extraction does not add one. This is one of the six named extraction targets in the task brief (corridor estimate).",
+      "depends_on": "nothing (pure scalar arithmetic on a caller-supplied km)",
+      "sha256_of_extracted_module": "aaad0cbf4fcd9748d5a80099821db183664bf2de1087652a2bbc972d0d4ecf28"
     }
   ]
 }

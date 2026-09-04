@@ -10,6 +10,12 @@
     "./geo-area": "./engine/geo-area.js",
     "./geo-shapes": "./engine/geo-shapes.js",
     "./geo-geojson": "./engine/geo-geojson.js",
+    "./v9-geodesy": "./engine/v9-geodesy.js",
+    "./v9-nearest-search": "./engine/v9-nearest-search.js",
+    "./network-topology": "./engine/network-topology.js",
+    "./electrical-distance": "./engine/electrical-distance.js",
+    "./rating-envelope": "./engine/rating-envelope.js",
+    "./corridor-estimate": "./engine/corridor-estimate.js",
     "./deeplink": "./deeplink/contract.js"
   },
   "scripts": {

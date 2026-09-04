@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Ventus Grid Engine · The Genome Sandbox</title>
+<style>
+  :root{
+    --bg:#0b0d12;--panel:#12151c;--panel2:#151923;--line:#262b36;--text:#eef2fb;--muted:#9aa3b5;--cyan:#00e5ff;
+    --e-duplicates:#ffcc00;--e-supersedes:#00ff88;--e-imports:#00e5ff;--e-should_import:#b47cff;--e-drifts_from:#ff5555;
+    --safe-x:clamp(12px,2.3vw,28px);--shell:1040px;--card:220px;--gap:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%}
+  body{background:radial-gradient(1200px 700px at 50% -10%,rgba(0,229,255,.06),transparent 60%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;height:100dvh;overflow:hidden;display:flex;flex-direction:column}
+  button,select{font:inherit}
+  .top{border-bottom:1px solid var(--line);background:rgba(11,13,18,.92);backdrop-filter:blur(16px)}
+  .bar,.controls,.crumbs,.hint{width:min(var(--shell),calc(100vw - var(--safe-x)*2));margin:0 auto}
+  .bar{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;padding:max(env(safe-area-inset-top),12px) 0 10px}
+  .brand{display:flex;flex-direction:column;line-height:1.05;min-width:190px}
+  .brand .ey{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+  .brand h1{margin:2px 0 0;font-size:1rem;font-weight:650}
+  .pick{display:flex;align-items:center;gap:8px;flex:1 1 280px;min-width:0}
+  .pick label,.grouplabel{font-family:ui-monospace,monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);flex:none}
+  select{flex:1 1 auto;min-width:0;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:9px 32px 9px 12px;font-size:.85rem;cursor:pointer;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 16px) center,calc(100% - 11px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+  select:focus-visible,button:focus-visible{outline:none;border-color:var(--cyan);box-shadow:0 0 0 2px rgba(0,229,255,.18)}
+  .count{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--muted);margin-left:auto;white-space:nowrap}
+  .count b{color:var(--text);font-weight:600}
+  .controls{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;padding:8px 0 4px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none;background:rgba(18,21,28,.7)}
+  .seg button{border:0;background:transparent;color:var(--muted);font-size:.72rem;padding:7px 13px;cursor:pointer;white-space:nowrap}
+  .seg button[aria-pressed="true"]{background:rgba(0,229,255,.16);color:var(--text)}
+  .seg button.gh[aria-pressed="true"]{background:rgba(184,204,255,.18)}
+  .seg button.ext[aria-pressed="true"]{background:rgba(95,118,164,.28)}
+  .seg button:disabled{opacity:.4;cursor:not-allowed}
+  .viewbtn{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:6px 12px;cursor:pointer;font-size:.86rem;line-height:1;display:inline-flex;align-items:center;gap:7px}
+  .viewbtn[aria-pressed="true"]{border-color:var(--cyan);background:rgba(0,229,255,.16);box-shadow:0 0 22px rgba(0,229,255,.12)}
+  .srctag{margin-left:auto;font-family:ui-monospace,monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+  .srctag.live{color:var(--cyan);border-color:rgba(0,229,255,.4)}
+  .crumbs{display:flex;align-items:center;gap:6px;padding:2px 0 0;font-family:ui-monospace,monospace;font-size:.66rem;color:var(--muted);min-height:18px}
+  .hint{padding:4px 0 8px;font-family:ui-monospace,monospace;font-size:.62rem;color:var(--muted)}
+  .hint b{color:var(--text);font-weight:600}
+  .stage{flex:1;min-height:0;position:relative;overflow:hidden}
+  .overlay{position:absolute;inset:0}
+  .overlay.column{overflow-y:auto;overflow-x:hidden;padding:16px var(--safe-x) max(env(safe-area-inset-bottom),22px)}
+  .shell{width:min(var(--shell),100%);margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .card{border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.014));padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-height:74px;box-shadow:0 16px 44px rgba(0,0,0,.12)}
+  .card .row{display:flex;align-items:center;gap:7px}
+  .badge{font-family:ui-monospace,monospace;font-size:.55rem;letter-spacing:.07em;border:1px solid var(--line);border-radius:6px;padding:2px 5px;color:var(--muted);flex:none}
+  .name{font-size:.85rem;font-weight:650;line-height:1.15;overflow-wrap:anywhere}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;margin-left:auto;box-shadow:0 0 8px currentColor}
+  .reason{font-size:.68rem;color:var(--muted);line-height:1.25}
+  .relrow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .reltag{font-family:ui-monospace,monospace;font-size:.55rem;letter-spacing:.05em;text-transform:uppercase;padding:1px 7px;border-radius:999px;border:1px solid currentColor}
+  .arrow{font-family:ui-monospace,monospace;font-size:.62rem;color:var(--muted)}
+  .go{font-family:ui-monospace,monospace;font-size:.6rem;color:var(--cyan);margin-left:auto}
+  .evi{font-size:.62rem;color:var(--muted);line-height:1.35;border-left:2px solid var(--line);padding-left:7px;margin-top:1px}
+  .evi b{color:var(--text);font-weight:600}
+  .is-center{border-color:var(--cyan);box-shadow:0 0 0 1px rgba(0,229,255,.22),0 0 26px rgba(0,229,255,.12)}
+  .is-center .name{font-size:.95rem}
+  .inert{opacity:.34}
+  .sect{font-family:ui-monospace,monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:16px 2px 4px}
+  .branch{position:relative;padding-left:20px;display:flex;flex-direction:column;gap:9px}
+  .branch::before{content:"";position:absolute;left:7px;top:-6px;bottom:14px;width:2px;background:var(--line)}
+  .twig{position:relative;cursor:pointer}
+  .twig::before{content:"";position:absolute;left:-13px;top:28px;width:13px;height:2px;background:var(--twig,var(--line))}
+  .twig .card{border-left:3px solid var(--twig,var(--line))}
+  .empty{color:var(--muted);font-size:.78rem;padding:6px 2px}
+  .overlay.spider{overflow:auto;cursor:grab;background:radial-gradient(circle at center,rgba(0,229,255,.045),transparent 45%)}
+  .overlay.spider.dragging{cursor:grabbing;user-select:none}
+  .spiderCanvas{position:relative;min-width:100%;min-height:100%}
+  .spiderGrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px, transparent 1px);background-size:80px 80px;mask-image:radial-gradient(circle at center,black,transparent 78%);pointer-events:none}
+  .wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+  .spoke{stroke-width:1.8;fill:none;opacity:.88}
+  .place{position:absolute;transform:translate(-50%,-50%);width:var(--card);cursor:pointer}
+  .place.center{width:250px;cursor:default}
+  .legend{position:sticky;left:14px;bottom:10px;display:flex;flex-wrap:wrap;gap:5px 12px;width:max-content;max-width:70%;pointer-events:none;padding:4px 0 10px 14px}
+  .legend span{display:flex;align-items:center;gap:6px;font-family:ui-monospace,monospace;font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .legend i{width:15px;height:0;border-top:2px solid;display:inline-block}
+  .maphint{position:sticky;top:12px;left:14px;width:max-content;max-width:min(560px,calc(100vw - 32px));font-family:ui-monospace,monospace;font-size:.62rem;color:var(--muted);background:rgba(18,21,28,.8);border:1px solid var(--line);border-radius:999px;padding:5px 10px;backdrop-filter:blur(10px);z-index:5}
+  .fixedLegend{width:100%;box-sizing:border-box;flex:none;padding:6px var(--safe-x) max(env(safe-area-inset-bottom),10px);display:flex;flex-wrap:wrap;gap:5px 14px;font-family:ui-monospace,monospace;font-size:.58rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);max-height:34vh;overflow-y:auto}
+  .fixedLegend span{display:flex;align-items:center;gap:6px;flex:none;white-space:nowrap}
+  .fixedLegend i{width:15px;height:0;border-top:2px solid;display:inline-block;flex:none}
+  @media (max-width:680px){:root{--safe-x:14px}.brand{min-width:100%}.bar{gap:8px}.count{width:100%;margin-left:0}.controls{gap:7px 10px}.seg button{padding:7px 10px;font-size:.68rem}.viewbtn{padding:6px 10px}.srctag{margin-left:0}.shell{gap:10px}.card{border-radius:12px}.name{font-size:.82rem}}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="bar">
+      <div class="brand"><span class="ey">Ventus · Grid Engine</span><h1>The Genome Sandbox</h1></div>
+      <div class="pick"><label for="focus">Focus</label><select id="focus"></select></div>
+      <div class="count" id="count"></div>
+    </div>
+    <div class="controls">
+      <span class="grouplabel">Show</span>
+      <div class="seg" id="relSeg" role="group" aria-label="Relationship direction">
+        <button data-mode="both" aria-pressed="true">Both</button>
+        <button data-mode="out" aria-pressed="false">Outgoing</button>
+        <button data-mode="in" aria-pressed="false">Incoming</button>
+      </div>
+      <button class="viewbtn" id="spiderToggle" aria-pressed="false" title="Toggle optional spider view"><span aria-hidden="true">🕷</span><span id="viewLabel">Spider</span></button>
+      <span class="grouplabel">Tap does</span>
+      <div class="seg" id="actSeg" role="group" aria-label="Tap action">
+        <button data-act="explore" aria-pressed="true">Explore</button>
+        <button class="gh" data-act="github" aria-pressed="false">GitHub</button>
+        <button class="ext" data-act="external" aria-pressed="false">External</button>
+        <button data-act="status" aria-pressed="false" disabled title="No live scanner behind this snapshot — the graph is regenerated by CI, not scanned at view time">Status</button>
+      </div>
+      <span class="srctag" id="srcTag" title="Data source for this view">snapshot</span>
+    </div>
+    <div class="crumbs" id="crumbs"></div>
+    <div class="hint" id="hint"></div>
+  </div>
+  <div class="stage" id="stage"><div class="overlay column" id="overlay"></div></div>
+  <div class="fixedLegend" id="fixedLegend"></div>
+
+  <script id="graph-data" type="application/json">{"schema":"ventus-grid-engine.genome.v1","label":"ventus-grid-engine genome · the spider pattern applied to the engine’s own maths","generated_utc":"2026-09-04T21:06:53.448Z","note":"Nodes and edges match the node shape used by the live Spider Sandbox (data-federation-map-for-globalgrid2050-all-repos/dashboard/sandbox/spider_full_po_test.html: SCOPES[key].nodes = [{label,type,rag,reason,gh,ext,child}], edges = [from,to,type]). Edges here are objects, not bare [from,to,type] tuples, because every edge in this genome must carry evidence; edge.type stays a plain string for compatibility with a receiver expecting the tuple shape (read edges[i].type, .from, .to as the tuple).","focus_default":0,"kind_labels":{"duplicates":"duplicates","supersedes":"supersedes","imports":"imports","should_import":"should import","drifts_from":"drifts from"},"nodes":[{"label":"engine/geo-core.js","type":"canonical","rag":"green","reason":"the one haversine + R_ATLAS/R_UK/R_MEAN, (lon,lat) order","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/geo-core.js"},{"label":"engine/geo-area.js","type":"canonical","rag":"green","reason":"polygonAreaKm2, polylinePerimeterKm, circleCapAreaKm2","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/geo-area.js"},{"label":"engine/geo-shapes.js","type":"canonical","rag":"green","reason":"destinationCirclePoints, the deduplicated circle generator","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/geo-shapes.js"},{"label":"engine/geo-geojson.js","type":"canonical","rag":"green","reason":"circleFeatureCollection, GeoJSON shaping kept out of the maths","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/geo-geojson.js"},{"label":"engine/v9-geodesy.js","type":"canonical","rag":"green","reason":"distanceKm, destinationPoint, initialBearingDeg, voltagesKv, representativePoint","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/v9-geodesy.js"},{"label":"engine/v9-nearest-search.js","type":"canonical","rag":"green","reason":"normalise + index, exhaustive scan, proven free of the ring-search bug","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/v9-nearest-search.js"},{"label":"deeplink/contract.js","type":"canonical","rag":"green","reason":"buildDeepLink/parseDeepLink, LAYER_ID_FOR_BUCKET, the MAP button as one testable thing","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/deeplink/contract.js"},{"label":"engine/network-topology.js","type":"canonical","rag":"green","reason":"PROMOTED this session: index/at/graph over one site’s published nodes/branches","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/network-topology.js"},{"label":"engine/electrical-distance.js","type":"canonical","rag":"green","reason":"PROMOTED this session: between/within, BFS hop-count over network-topology.graph()","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/electrical-distance.js"},{"label":"engine/rating-envelope.js","type":"canonical","rag":"green","reason":"PROMOTED this session: at(), per-season lowest/highest range, never summed","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/rating-envelope.js"},{"label":"engine/corridor-estimate.js","type":"canonical","rag":"green","reason":"PROMOTED this session: forCable(), calibrated straight-line-to-corridor multiplier","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/corridor-estimate.js"},{"label":"sources/v9-extracts/sizing-arithmetic.mjs","type":"extract","rag":"blue","reason":"staged verbatim, promotion DECLINED this session — impure + financial-domain, see population-plan.md §4","gh":"https://github.com/Ventusltd/ventus-grid-engine/blob/main/sources/v9-extracts/sizing-arithmetic.mjs"},{"label":"ventus-corev8engine.js haversine()","type":"fragment","rag":"green","reason":"the one distance primitive in the V8 monolith, correctly reused everywhere — not duplicated","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/repd_grid_atlasv8/ventus-corev8engine.js#L45-L50"},{"label":"gridatlas 202609011950-geodesy.js","type":"fragment","rag":"green","reason":"live, composed module; source that engine/v9-geodesy.js was extracted from, byte-identical","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609011950-geodesy.js"},{"label":"substation-intelligence cartridge, geodesy copy #1","type":"fragment","rag":"amber","reason":"inline legacy V8 haversine at line 57 of a 6,277-line composed cartridge","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/cartridges/202609041330-substation-intelligence-v9-63.js#L57-L71"},{"label":"substation-intelligence cartridge, geodesy copy #2","type":"fragment","rag":"amber","reason":"a SECOND inline NS.geodesy IIFE at line 1544 of the SAME file as copy #1","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/cartridges/202609041330-substation-intelligence-v9-63.js#L1541-L1550"},{"label":"neon-substation-links-v9-6.js R_ATLAS/distanceKm","type":"fragment","rag":"amber","reason":"hand-rolled constant and distance function, own comment: “the house constant”","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/cartridges/202608311910-neon-substation-links-v9-6.js#L120"},{"label":"grid-proximity/build_payload.py haversine_km()","type":"fragment","rag":"amber","reason":"hand-rolled A_WGS84/R_ATLAS + haversine_km, does not import grid-distance-maths despite a sibling cartridge doing so","gh":"https://github.com/Ventusltd/pipelinenews/blob/main/tools/intelligence/cartridges/grid-proximity/build_payload.py#L44-L90"},{"label":"grid-distance-column/build_payload.py","type":"fragment","rag":"green","reason":"the POSITIVE control: imports grid-distance-maths/src/geodesy.py directly and refuses to run without it","gh":"https://github.com/Ventusltd/pipelinenews/blob/main/tools/intelligence/cartridges/grid-distance-column/build_payload.py#L50-L69"},{"label":"grid-distance-maths/src/geodesy.mjs","type":"reference","rag":"blue","reason":"the estate’s canonical geodesy repository — R_ATLAS/R_UK/R_MEAN identical to geo-core.js, by design","gh":"https://github.com/Ventusltd/grid-distance-maths/blob/main/src/geodesy.mjs"},{"label":"ventus-corev8engine.js _zoneDrawCalcArea (Impl A)","type":"fragment","rag":"green","reason":"spherical-excess polygon area, Zone Draw tool","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/repd_grid_atlasv8/ventus-corev8engine.js#L134-L149"},{"label":"ventus-corev8engine.js updateMeasureDisplay (Impl B)","type":"fragment","rag":"amber","reason":"the identical shoelace-on-sphere formula, copy-pasted into the Measure tool","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/repd_grid_atlasv8/ventus-corev8engine.js#L481-L490"},{"label":"ventus-corev8engine.js doRadiusAreaMeasure (Impl C)","type":"fragment","rag":"green","reason":"spherical-cap area — a different question, correctly kept separate","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/repd_grid_atlasv8/ventus-corev8engine.js#L576-L582"},{"label":"ventus-corev8engine.js _zoneDrawCirclePoints","type":"fragment","rag":"green","reason":"destination-point circle generator, Zone Draw (n=24)","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/repd_grid_atlasv8/ventus-corev8engine.js#L122-L132"},{"label":"ventus-corev8engine.js createGeoJSONCircle","type":"fragment","rag":"amber","reason":"byte-identical destination-point formula, Radius tool (n=64/96/128), plus FeatureCollection wrapping","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/repd_grid_atlasv8/ventus-corev8engine.js#L727-L740"},{"label":"solar-bess-topology-v5/gis-sld-v5-calculations.js","type":"fragment","rag":"red","reason":"ac_mw_direct double-count bug, line 147, LIVE and unfixed","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/solar-bess-topology-v5/gis-sld-v5-calculations.js#L147"},{"label":"solar-bess-topology-v6/.../gis-sld-v5-calculations.js","type":"fragment","rag":"red","reason":"the same bug, same line number, byte-identical","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/solar-bess-topology-v6/gis-sld-financial-sandbox/gis-sld-v5-calculations.js#L147"},{"label":"solar-bess-topology-v7/.../gis-sld-v5-calculations.js","type":"fragment","rag":"red","reason":"the same bug, same line number, byte-identical","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/solar-bess-topology-v7/gis-sld-financial-sandbox/gis-sld-v5-calculations.js#L147"},{"label":"solar-bess-topology-v8/bess-gis-sld-financial-sandbox/gis-sld-v5-calculations.js","type":"fragment","rag":"red","reason":"the same bug, same line number, byte-identical","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/solar-bess-topology-v8/bess-gis-sld-financial-sandbox/gis-sld-v5-calculations.js#L147"},{"label":"solar-bess-topology-v8/bess-pcs-standalone/gis-sld-v5-calculations.js","type":"fragment","rag":"red","reason":"the same bug, same line number, byte-identical — fifth copy","gh":"https://github.com/Ventusltd/globalgrid2050/blob/main/solar-bess-topology-v8/bess-pcs-standalone/gis-sld-v5-calculations.js#L147"},{"label":"gridatlas 202609012205-sizing-arithmetic.js","type":"fragment","rag":"green","reason":"the CORRECTED port: Math.min(inverter_ac_total, skid_ac_total) — the fix none of the five above has","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609012205-sizing-arithmetic.js#L220-L250"},{"label":"gridatlas 202609011950-substation-lookup.js","type":"fragment","rag":"grey","reason":"committed but DEAD — zero manifests reference it; source engine/v9-nearest-search.js was extracted from","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609011950-substation-lookup.js"},{"label":"substation-intelligence cartridge, inline nearest()","type":"fragment","rag":"red","reason":"live duplicate, LESS defensive than the dead module — can throw on a point with no voltages_kv","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/cartridges/202609041330-substation-intelligence-v9-63.js#L6014-L6095"},{"label":"declared-connections.js nearestTransmission()","type":"fragment","rag":"amber","reason":"hand-rolled running-min scan, correct by construction but not importing the shared search","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609012128-declared-connections.js#L213-L244"},{"label":"grid-proximity/build_payload.py nearest_segment()/nearest_substations()","type":"fragment","rag":"green","reason":"the estate’s REFERENCE ring-search: cell-bucketed with a proven early-termination bound; grid-distance-maths credits it as origin","gh":"https://github.com/Ventusltd/pipelinenews/blob/main/tools/intelligence/cartridges/grid-proximity/build_payload.py#L190-L299"},{"label":"atlas-pointer-deep-link.mjs buildAtlasV9DeepLink()","type":"fragment","rag":"amber","reason":"the LIVE emitter app.mjs actually imports; hand-rolls its own URL construction","gh":"https://github.com/Ventusltd/pipelinenews/blob/main/releases/202609032329-pipelinenews/assets/202608312037-atlas-pointer-deep-link.mjs#L156-L187"},{"label":"wider-fleet.mjs atlasLink()","type":"fragment","rag":"amber","reason":"a SECOND, independent emitter for ~20 non-spine technology types; its own URLSearchParams, own code path","gh":"https://github.com/Ventusltd/pipelinenews/blob/main/tools/intelligence/cartridges/wider-fleet/assets/wider-fleet.mjs#L58-L70"},{"label":"sld-sandbox-technology-buckets.js LAYER_ID_FOR_BUCKET","type":"fragment","rag":"green","reason":"the LIVE source table deeplink/contract.js copied verbatim from; the v9.109 100%-failure fix","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/parts/202609041234-sld-sandbox-technology-buckets.js#L266-L276"},{"label":"ventus-corev8engine-exact-repd-delegation.js","type":"fragment","rag":"grey","reason":"the engine’s OWN former deep-link handler, now inert: publishes DEFERRED_TO_EXACT_REPD_RECEIVER and returns","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/parts/202609040229-ventus-corev8engine-exact-repd-delegation.js#L796-L840"},{"label":"place-global-search-arrival-identity.js receiveExactRepdDeepLink()","type":"fragment","rag":"red","reason":"the LIVE receiver-side parse — its identity regex is BROADER than the emitter’s, a live pattern drift","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/parts/202609040229-place-global-search-arrival-identity.js#L566-L747"},{"label":"gridatlas 202609012245-network-topology.js","type":"fragment","rag":"green","reason":"live, composed module — the direct source engine/network-topology.js was promoted from","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609012245-network-topology.js"},{"label":"gridatlas 202609012245-electrical-distance.js","type":"fragment","rag":"green","reason":"live, composed module — the direct source engine/electrical-distance.js was promoted from","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609012245-electrical-distance.js"},{"label":"gridatlas 202609012250-rating-envelope.js","type":"fragment","rag":"green","reason":"live, composed module — the direct source engine/rating-envelope.js was promoted from","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609012250-rating-envelope.js"},{"label":"gridatlas 202609030205-corridor-estimate.js","type":"fragment","rag":"green","reason":"live, composed module — the direct source engine/corridor-estimate.js was promoted from","gh":"https://github.com/Ventusltd/gridatlas/blob/main/atlas/modules/202609030205-corridor-estimate.js"}],"node_ids":["geo-core","geo-area","geo-shapes","geo-geojson","v9-geodesy","v9-nearest-search","deeplink-contract","network-topology","electrical-distance","rating-envelope","corridor-estimate","sizing-arithmetic-extract","v8-haversine","gridatlas-geodesy-module","gridatlas-cartridge-geodesy-1","gridatlas-cartridge-geodesy-2","neon-links-geodesy","pipelinenews-grid-proximity-geodesy","pipelinenews-grid-distance-column","grid-distance-maths-geodesy","v8-area-a","v8-area-b","v8-area-c","v8-circle-a","v8-circle-b","sld-calc-v5","sld-calc-v6","sld-calc-v7","sld-calc-v8a","sld-calc-v8b","gridatlas-sizing-arithmetic","gridatlas-substation-lookup","gridatlas-cartridge-nearest","declared-connections-nearest","pipelinenews-ring-search","pipelinenews-spine-emitter","pipelinenews-wider-fleet-emitter","gridatlas-bucket-table","gridatlas-v8-delegation","gridatlas-identity-receiver","gridatlas-network-topology-live","gridatlas-electrical-distance-live","gridatlas-rating-envelope-live","gridatlas-corridor-estimate-live"],"edges":[{"from":0,"to":12,"type":"supersedes","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"45-50","method":"verbatim extraction, verified by sha256 in sources/provenance.json; docs/v8-duplication.md confirms this was the one undupliated primitive"}},{"from":4,"to":13,"type":"supersedes","evidence":{"file":"gridatlas/atlas/modules/202609011950-geodesy.js","lines":"1-145","method":"sources/provenance.json: \"otherwise byte-identical to the source\"; parity asserted bit-for-bit by proofs/v9-engine.proof.mjs"}},{"from":13,"to":14,"type":"duplicates","evidence":{"file":"gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js","lines":"50-71","method":"grep -n EARTH_RADIUS_KM across gridatlas; docs/v9-constants.md row \"gridatlas (live cartridge, copy #1)\""}},{"from":14,"to":15,"type":"duplicates","evidence":{"file":"gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js","lines":"57 and 1544","method":"docs/v9-constants.md finding 3: two EARTH_RADIUS_KM definitions in the same 6,277-line file"}},{"from":14,"to":4,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§1, row 1","method":"manual review: this inline copy could be replaced by an import with no behaviour change (constants already agree)"}},{"from":15,"to":4,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§1, row 1","method":"same as copy #1 — second inline copy in the same file"}},{"from":16,"to":4,"type":"duplicates","evidence":{"file":"gridatlas/atlas/cartridges/202608311910-neon-substation-links-v9-6.js","lines":"120, 174-180","method":"docs/v9-duplication.md 2(b) item 2: own comment \"Identical in form and constant to ventus-corev8engine.js haversine()\""}},{"from":16,"to":4,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§1, row 2","method":"manual review"}},{"from":17,"to":19,"type":"duplicates","evidence":{"file":"pipelinenews/tools/intelligence/cartridges/grid-proximity/build_payload.py","lines":"44-47, 90","method":"docs/v9-constants.md row \"pipelinenews\"; A_WGS84/R_ATLAS hard-coded, matches canonical value exactly (no drift)"}},{"from":17,"to":19,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§1, row 3","method":"sibling cartridge grid-distance-column/build_payload.py:50-69 already does this in the same directory"}},{"from":18,"to":19,"type":"imports","evidence":{"file":"pipelinenews/tools/intelligence/cartridges/grid-distance-column/build_payload.py","lines":"50-69","method":"source inspection: sys.path.insert + `from geodesy import ...`, raises SystemExit if the canonical repo is not present"}},{"from":0,"to":19,"type":"duplicates","evidence":{"file":"engine/geo-core.js vs grid-distance-maths/src/geodesy.mjs","lines":"50-60 vs 16-27","method":"value comparison: R_ATLAS/R_UK/R_MEAN identical to the last published digit; README states this repo follows grid-distance-maths/docs/EARTH-MODEL.md by design, so no drift is expected or found"}},{"from":1,"to":20,"type":"supersedes","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"134-149","method":"sources/provenance.json engine/geo-area.js entry"}},{"from":1,"to":21,"type":"supersedes","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"481-490","method":"sources/provenance.json engine/geo-area.js entry: \"Implementations A and B verified numerically identical and collapsed\""}},{"from":20,"to":21,"type":"duplicates","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"134-149 vs 481-490","method":"docs/v8-duplication.md: identical to 8 decimal places on a reference London polygon (0.30664823 km2) and a 1km square"}},{"from":1,"to":22,"type":"supersedes","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"576-582","method":"sources/provenance.json: \"kept separate and unmerged: different question, correct as written\""}},{"from":2,"to":23,"type":"supersedes","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"122-132","method":"sources/provenance.json engine/geo-shapes.js entry"}},{"from":2,"to":24,"type":"supersedes","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"727-740","method":"sources/provenance.json engine/geo-shapes.js entry"}},{"from":23,"to":24,"type":"duplicates","evidence":{"file":"globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js","lines":"122-132 vs 727-740","method":"docs/v8-duplication.md: \"0 absolute difference over 64 points\" between the two destination-point implementations"}},{"from":25,"to":26,"type":"duplicates","evidence":{"file":"globalgrid2050/solar-bess-topology-v{5,6}/.../gis-sld-v5-calculations.js","lines":"147","method":"grep -n \"ac_mw_direct = total_blocks \\* central_skid_mva \\* inv_per_mv\" across both files, both 170 lines, byte-identical"}},{"from":25,"to":27,"type":"duplicates","evidence":{"file":"globalgrid2050/solar-bess-topology-v{5,7}/.../gis-sld-v5-calculations.js","lines":"147","method":"grep -n across both files, both 170 lines, byte-identical"}},{"from":25,"to":28,"type":"duplicates","evidence":{"file":"globalgrid2050/solar-bess-topology-v{5,8}/.../gis-sld-v5-calculations.js","lines":"147","method":"grep -n across both files, both 170 lines, byte-identical"}},{"from":25,"to":29,"type":"duplicates","evidence":{"file":"globalgrid2050/solar-bess-topology-v5 vs v8/bess-pcs-standalone","lines":"147","method":"grep -n across both files, both 170 lines, byte-identical — fifth copy of the same file"}},{"from":25,"to":30,"type":"drifts_from","evidence":{"file":"globalgrid2050/solar-bess-topology-v5/gis-sld-v5-calculations.js:147 vs gridatlas/atlas/modules/202609012205-sizing-arithmetic.js:~230","method":"docs/v9-maths-inventory.md §7: shipped defaults give 211.2 MW (bug: total_blocks double-counts inv_per_mv and multiplies by a transformer rating) vs the corrected Math.min(inverter_ac_total=105.6, skid_ac_total=52.8)=52.8 MW"}},{"from":26,"to":30,"type":"drifts_from","evidence":{"file":"globalgrid2050/solar-bess-topology-v6/.../gis-sld-v5-calculations.js:147","lines":"147","method":"same bug, same worked numbers, confirmed by direct file read of this copy"}},{"from":27,"to":30,"type":"drifts_from","evidence":{"file":"globalgrid2050/solar-bess-topology-v7/.../gis-sld-v5-calculations.js:147","lines":"147","method":"same bug, same worked numbers, confirmed by direct file read of this copy"}},{"from":28,"to":30,"type":"drifts_from","evidence":{"file":"globalgrid2050/solar-bess-topology-v8/bess-gis-sld-financial-sandbox/gis-sld-v5-calculations.js:147","lines":"147","method":"same bug, same worked numbers, confirmed by direct file read of this copy"}},{"from":29,"to":30,"type":"drifts_from","evidence":{"file":"globalgrid2050/solar-bess-topology-v8/bess-pcs-standalone/gis-sld-v5-calculations.js:147","lines":"147","method":"same bug, same worked numbers, confirmed by direct file read of this copy"}},{"from":11,"to":30,"type":"duplicates","evidence":{"file":"sources/v9-maths-provenance.json","lines":"extract/sizing-arithmetic.mjs entry","method":"verbatim staged copy, promotion declined this session (see population-plan.md §4) — correctly carries the FIXED form, not the bug"}},{"from":5,"to":31,"type":"supersedes","evidence":{"file":"gridatlas/atlas/modules/202609011950-substation-lookup.js","lines":"1-82","method":"sources/provenance.json engine/v9-nearest-search.js entry"}},{"from":31,"to":32,"type":"duplicates","evidence":{"file":"gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js","lines":"6014-6095","method":"docs/v9-duplication.md 2(a): full side-by-side diff of normalise() and nearest(), byte-different, semantically near-identical"}},{"from":32,"to":5,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§3, row 1","method":"manual review"}},{"from":32,"to":31,"type":"drifts_from","evidence":{"file":"gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js:6083-6092 vs atlas/modules/202609011950-substation-lookup.js:57-70","method":"docs/v9-duplication.md 2(a) points 2-3: options?.limit ?? 1 vs (options&&options.limit)||1 disagree at limit:0; cartridge lacks the voltages_kv||[] default and can throw where the module cannot — confirmed by proofs/v9-engine.proof.mjs"}},{"from":33,"to":5,"type":"duplicates","evidence":{"file":"gridatlas/atlas/modules/202609012128-declared-connections.js","lines":"213-244","method":"docs/v9-duplication.md 2(b) item 3: running-min scan over every candidate"}},{"from":33,"to":5,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§3, row 2","method":"manual review"}},{"from":34,"to":5,"type":"duplicates","evidence":{"file":"pipelinenews/tools/intelligence/cartridges/grid-proximity/build_payload.py","lines":"190-299","method":"docs/v9-duplication.md 2(b) item 4: same nearest-node concern, but an INDEXED ring-search rather than v9-nearest-search’s exhaustive scan — algorithmically ahead, not a should_import candidate"}},{"from":6,"to":37,"type":"supersedes","evidence":{"file":"gridatlas/atlas/parts/202609041234-sld-sandbox-technology-buckets.js","lines":"266-276","method":"sources/provenance.json deeplink/contract.js entry: \"LAYER_ID_FOR_BUCKET and layerIdForBucket copied verbatim from the receiver\""}},{"from":37,"to":6,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§5, row 3","method":"values already agree byte-for-byte; only packaging (composed, SHA-256-verified cartridge) is open"}},{"from":35,"to":6,"type":"duplicates","evidence":{"file":"pipelinenews/.../202608312037-atlas-pointer-deep-link.mjs","lines":"104-187","method":"docs/deeplink-contract.md §1a; sources/provenance.json: \"buildDeepLink and parseDeepLink are NEW... neither was a reusable function\" before this extraction"}},{"from":35,"to":6,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§5, row 1","method":"manual review"}},{"from":36,"to":35,"type":"duplicates","evidence":{"file":"pipelinenews/tools/intelligence/cartridges/wider-fleet/assets/wider-fleet.mjs","lines":"58-70","method":"docs/deeplink-contract.md §1b: \"a SECOND cartridge... builds its own URLSearchParams independently... own code path\""}},{"from":36,"to":6,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§5, row 1","method":"manual review"}},{"from":38,"to":6,"type":"duplicates","evidence":{"file":"gridatlas/atlas/parts/202609040229-ventus-corev8engine-exact-repd-delegation.js","lines":"796-840","method":"docs/deeplink-contract.md §3 Step 2: re-parses repd_ref/technology, validates, then publishes DEFERRED_TO_EXACT_REPD_RECEIVER and returns — inert but structurally a second parser"}},{"from":39,"to":6,"type":"should_import","evidence":{"file":"genome/population-plan.md","lines":"§5, row 2","method":"manual review"}},{"from":39,"to":35,"type":"drifts_from","evidence":{"file":"gridatlas/atlas/parts/202609040229-place-global-search-arrival-identity.js:604 vs pipelinenews/.../atlas-pointer-deep-link.mjs:161","method":"docs/deeplink-contract.md §3 Step 1 and §1a: receiver regex /^[A-Za-z0-9-]{1,40}$/ vs emitter regex /^\\d+$/ — the receiver silently accepts identities the live emitter would never send"}},{"from":7,"to":40,"type":"supersedes","evidence":{"file":"gridatlas/atlas/modules/202609012245-network-topology.js","lines":"1-384","method":"sources/provenance.json engine/network-topology.js entry (added this session); sha256 recorded"}},{"from":8,"to":41,"type":"supersedes","evidence":{"file":"gridatlas/atlas/modules/202609012245-electrical-distance.js","lines":"1-365","method":"sources/provenance.json engine/electrical-distance.js entry (added this session); sha256 recorded"}},{"from":9,"to":42,"type":"supersedes","evidence":{"file":"gridatlas/atlas/modules/202609012250-rating-envelope.js","lines":"1-213","method":"sources/provenance.json engine/rating-envelope.js entry (added this session); sha256 recorded"}},{"from":10,"to":43,"type":"supersedes","evidence":{"file":"gridatlas/atlas/modules/202609030205-corridor-estimate.js","lines":"1-114","method":"sources/provenance.json engine/corridor-estimate.js entry (added this session); sha256 recorded"}},{"from":8,"to":7,"type":"imports","evidence":{"file":"engine/electrical-distance.js","lines":"21-22, 111-113","method":"source inspection: REQUIRES = \"gridatlas.module.network-topology.graph.v1\"; between()/within() call index.graph() and refuse to run on a mismatched schema; exercised by proofs/electrical-distance.proof.mjs"}},{"from":9,"to":7,"type":"imports","evidence":{"file":"engine/rating-envelope.js","lines":"21-22, 85-87","method":"source inspection: REQUIRES = \"gridatlas.module.network-topology.graph.v1\"; at() calls index.graph() and refuses on schema mismatch; exercised by proofs/rating-envelope.proof.mjs"}}],"edge_kind_counts":{"supersedes":13,"duplicates":18,"should_import":10,"imports":3,"drifts_from":7}}</script>
+  <script>
+(function(){
+"use strict";
+
+const RAG = { green:"#00ff88", amber:"#ffcc00", red:"#ff5555", blue:"#3aa0ff", grey:"#9298a6" };
+const BADGE = { canonical:"ENG", extract:"STG", fragment:"FRAG", reference:"REF" };
+const ECSS = { duplicates:"#ffcc00", supersedes:"#00ff88", imports:"#00e5ff", should_import:"#b47cff", drifts_from:"#ff5555" };
+const REL  = { duplicates:"duplicates", supersedes:"supersedes", imports:"imports", should_import:"should import", drifts_from:"drifts from" };
+const SVGNS = "http://www.w3.org/2000/svg";
+
+let GRAPH = null;        // { label, nodes:[...], edges:[{from,to,type,evidence}] }
+let mode = "both", action = "explore", view = "column", current = 0;
+
+const sel = document.getElementById("focus"), overlay = document.getElementById("overlay"),
+      elCount = document.getElementById("count"), elCrumbs = document.getElementById("crumbs"),
+      elHint = document.getElementById("hint"), spiderToggle = document.getElementById("spiderToggle"),
+      viewLabel = document.getElementById("viewLabel"), fixedLegend = document.getElementById("fixedLegend");
+
+function rebuildSelect(){
+  sel.innerHTML = "";
+  GRAPH.nodes.forEach((n, i) => { const o = document.createElement("option"); o.value = i; o.textContent = n.label; sel.appendChild(o); });
+  sel.value = current;
+}
+sel.addEventListener("change", () => { current = +sel.value; draw(); });
+document.querySelectorAll("#relSeg button").forEach(b => b.addEventListener("click", () => {
+  mode = b.dataset.mode;
+  document.querySelectorAll("#relSeg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  draw();
+}));
+document.querySelectorAll("#actSeg button").forEach(b => b.addEventListener("click", () => {
+  if (b.disabled) return;
+  action = b.dataset.act;
+  document.querySelectorAll("#actSeg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  draw();
+}));
+spiderToggle.addEventListener("click", () => {
+  view = view === "spider" ? "column" : "spider";
+  spiderToggle.setAttribute("aria-pressed", String(view === "spider"));
+  viewLabel.textContent = view === "spider" ? "Column" : "Spider";
+  draw();
+});
+let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(draw, 80); }).observe(document.getElementById("stage"));
+
+function actionable(n){ return action === "explore" ? true : action === "github" ? !!n.gh : action === "external" ? !!n.ext : false; }
+function openUrl(u){ if (u) window.open(u, "_blank", "noopener"); }
+function handleTap(i){
+  const n = GRAPH.nodes[i];
+  if (action === "explore") { current = i; sel.value = i; draw(); }
+  else if (action === "github") openUrl(n.gh);
+  else if (action === "external") openUrl(n.ext);
+}
+function neighbours(idx){
+  const out = [], inc = [];
+  GRAPH.edges.forEach(e => {
+    if (e.from === idx) out.push({ other: e.to, type: e.type, evidence: e.evidence });
+    if (e.to === idx) inc.push({ other: e.from, type: e.type, evidence: e.evidence });
+  });
+  return { out, inc };
+}
+
+function evidenceHTML(evidence){
+  if (!evidence) return "";
+  const file = String(evidence.file || "").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const lines = String(evidence.lines || "").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const method = String(evidence.method || "").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  return `<div class="evi"><b>${file}</b>${lines ? ` : ${lines}` : ""}<br>${method}</div>`;
+}
+
+function cardInner(node, opts){
+  opts = opts || {};
+  const center = opts.center, rel = opts.rel, dim = opts.dim;
+  let relHTML = "";
+  if (rel) {
+    const c = ECSS[rel.type] || "#9298a6";
+    relHTML = `<div class="relrow"><span class="arrow">${rel.dir === "out" ? "depends on →" : "← depended on by"}</span>`
+      + `<span class="reltag" style="color:${c}">${REL[rel.type] || rel.type}</span>`
+      + `${opts.go ? `<span class="go">${opts.go}</span>` : ""}</div>`
+      + evidenceHTML(rel.evidence);
+  }
+  const name = String(node.label || "").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const reason = String(node.reason || "").replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  return `<div class="card${center ? " is-center" : ""}${dim ? " inert" : ""}">`
+    + `<div class="row"><span class="badge">${BADGE[node.type] || "FRAG"}</span><span class="name">${name}</span>`
+    + `<span class="dot" style="color:${RAG[node.rag] || RAG.grey}"></span></div>`
+    + `${center ? `<div class="reason">${reason}</div>` : ""}`
+    + relHTML
+    + `${!rel && opts.go ? `<span class="go">${opts.go}</span>` : ""}`
+    + `</div>`;
+}
+function goLabel(n){ return action === "github" && n.gh ? "open ↗" : action === "external" && n.ext ? "open ↗" : ""; }
+
+function setHint(){
+  const base = {
+    explore: "<b>Explore</b> — tap a card to re-centre.",
+    github: "<b>GitHub</b> — tap a card to open its file on GitHub. Cards with no link are dimmed.",
+    external: "<b>External</b> — no node in this genome is an external system; every card is dimmed in this mode."
+  };
+  elHint.innerHTML = (base[action] || "") + (view === "spider" ? " &nbsp; <b>Spider view</b> — scroll or drag the large canvas." : "");
+}
+function setCrumbs(){
+  elCrumbs.innerHTML = `<strong style="color:var(--text)">${GRAPH.label}</strong>`;
+}
+
+function draw(){
+  const nodes = GRAPH.nodes, focus = nodes[current];
+  const { out, inc } = neighbours(current);
+  const lo = mode === "in" ? [] : out, li = mode === "out" ? [] : inc;
+  elCount.innerHTML = `<b>${out.length}</b> dependencies &nbsp;·&nbsp; <b>${inc.length}</b> dependents`;
+  setHint(); setCrumbs();
+  overlay.innerHTML = ""; overlay.className = "overlay " + view;
+  if (view === "spider") drawSpider(focus, lo, li); else drawColumn(focus, lo, li);
+}
+
+function drawColumn(focus, out, inc){
+  const nodes = GRAPH.nodes;
+  const shell = document.createElement("div"); shell.className = "shell";
+  shell.innerHTML = `<div class="focuswrap">${cardInner(focus, { center: true, dim: !actionable(focus), go: goLabel(focus) })}</div>`;
+  const section = (title, items, dir) => {
+    const s = document.createElement("div"); s.innerHTML = `<div class="sect">${title}</div>`;
+    if (!items.length) { const e = document.createElement("div"); e.className = "empty"; e.textContent = "None"; s.appendChild(e); return s; }
+    const br = document.createElement("div"); br.className = "branch";
+    items.forEach(it => {
+      const node = nodes[it.other], dim = !actionable(node);
+      const t = document.createElement("div"); t.className = "twig";
+      t.style.setProperty("--twig", ECSS[it.type] || "#9298a6");
+      t.innerHTML = cardInner(node, { rel: { type: it.type, dir, evidence: it.evidence }, dim, go: goLabel(node) });
+      t.addEventListener("click", () => handleTap(it.other));
+      br.appendChild(t);
+    });
+    s.appendChild(br); return s;
+  };
+  if (mode !== "in") shell.appendChild(section("Depends on →", out, "out"));
+  if (mode !== "out") shell.appendChild(section("← Depended on by", inc, "in"));
+  overlay.appendChild(shell);
+  shell.querySelector(".focuswrap .card").addEventListener("click", () => handleTap(current));
+}
+
+function marker(defs, type){
+  const m = document.createElementNS(SVGNS, "marker");
+  m.id = "arr-" + type; m.setAttribute("viewBox", "0 0 10 10"); m.setAttribute("refX", "9"); m.setAttribute("refY", "5");
+  m.setAttribute("markerWidth", "8"); m.setAttribute("markerHeight", "8"); m.setAttribute("orient", "auto");
+  const p = document.createElementNS(SVGNS, "path"); p.setAttribute("d", "M0,0 L10,5 L0,10 z"); p.setAttribute("fill", ECSS[type] || "#9298a6");
+  m.appendChild(p); defs.appendChild(m);
+}
+function distribute(items, side, cx, cy, gap, xGap){
+  const n = items.length; if (!n) return [];
+  return items.map((it, k) => {
+    const y = cy + (k - (n - 1) / 2) * gap;
+    const stagger = (n > 5 && k % 2 ? 90 : 0);
+    const x = cx + side * (xGap + stagger);
+    return Object.assign({}, it, { dir: side > 0 ? "out" : "in", x, y });
+  });
+}
+function drawSpider(focus, out, inc){
+  const stage = document.getElementById("stage");
+  const sw = stage.clientWidth, sh = stage.clientHeight;
+  const maxSide = Math.max(out.length, inc.length, 1);
+  const gap = 176;
+  const xGap = Math.max(420, 260 + maxSide * 38);
+  const cw = Math.max(sw, Math.ceil(680 + xGap * 2 + maxSide * 120));
+  const ch = Math.max(sh, Math.ceil(520 + gap * (maxSide + 1)));
+  const cx = cw / 2, cy = ch / 2;
+  const pts = [].concat(distribute(out, 1, cx, cy, gap, xGap), distribute(inc, -1, cx, cy, gap, xGap));
+  const canvas = document.createElement("div"); canvas.className = "spiderCanvas";
+  canvas.style.width = cw + "px"; canvas.style.height = ch + "px";
+  canvas.innerHTML = `<div class="spiderGrid"></div><div class="maphint">🕷 Optional spider view. Cards keep their size; the canvas grows. Drag or scroll through the space.</div>`;
+  const svg = document.createElementNS(SVGNS, "svg"); svg.setAttribute("class", "wires"); svg.setAttribute("viewBox", `0 0 ${cw} ${ch}`);
+  const defs = document.createElementNS(SVGNS, "defs");
+  Array.from(new Set(pts.map(p => p.type))).forEach(t => marker(defs, t));
+  svg.appendChild(defs);
+  pts.forEach(p => {
+    const line = document.createElementNS(SVGNS, "line");
+    const from = p.dir === "out" ? { x: cx + 130, y: cy } : p;
+    const to = p.dir === "out" ? { x: p.x - 112, y: p.y } : { x: cx - 130, y: cy };
+    line.setAttribute("x1", from.x); line.setAttribute("y1", from.y);
+    line.setAttribute("x2", to.x); line.setAttribute("y2", to.y);
+    line.setAttribute("stroke", ECSS[p.type] || "#9298a6"); line.setAttribute("class", "spoke");
+    line.setAttribute("marker-end", `url(#arr-${p.type})`);
+    svg.appendChild(line);
+  });
+  canvas.appendChild(svg);
+  const center = document.createElement("div"); center.className = "place center";
+  center.style.left = cx + "px"; center.style.top = cy + "px";
+  center.dataset.idx = String(current);
+  center.innerHTML = cardInner(focus, { center: true, dim: !actionable(focus), go: goLabel(focus) });
+  canvas.appendChild(center);
+  center.querySelector(".card").addEventListener("click", () => handleTap(current));
+  const nodes = GRAPH.nodes;
+  pts.forEach(p => {
+    const node = nodes[p.other], dim = !actionable(node);
+    const el = document.createElement("div"); el.className = "place";
+    el.style.left = p.x + "px"; el.style.top = p.y + "px";
+    el.dataset.idx = String(p.other);
+    el.innerHTML = cardInner(node, { rel: { type: p.type, dir: p.dir, evidence: p.evidence }, dim, go: goLabel(node) });
+    el.addEventListener("click", () => handleTap(p.other));
+    canvas.appendChild(el);
+  });
+  const legend = document.createElement("div"); legend.className = "legend";
+  Array.from(new Set(pts.map(p => p.type))).sort().forEach(t => {
+    const s = document.createElement("span");
+    s.innerHTML = `<i style="border-color:${ECSS[t] || "#9298a6"}"></i>${REL[t] || t}`;
+    legend.appendChild(s);
+  });
+  canvas.appendChild(legend);
+  overlay.appendChild(canvas);
+  requestAnimationFrame(() => {
+    overlay.scrollLeft = Math.max(0, cx - sw / 2);
+    overlay.scrollTop = Math.max(0, cy - sh / 2);
+    enableDragPan(overlay);
+  });
+}
+// Drag-to-pan the spider canvas, without breaking a plain tap-to-recentre.
+//
+// setPointerCapture() retargets the click a browser synthesises after
+// pointerup to the capturing element rather than whatever the pointer is
+// actually over — verified against this page: capturing on pointerdown
+// unconditionally made every card in spider view unclickable, even a tap
+// with zero movement. The fix is to defer capture until real dragging is
+// detected (movement past a small threshold), so a plain tap never
+// captures the pointer and its native click reaches the card underneath
+// exactly as drawColumn's cards already do.
+function enableDragPan(el){
+  const DRAG_PX = 6;
+  let down = false, dragging = false, sx = 0, sy = 0, sl = 0, st = 0, pid = null;
+  el.onpointerdown = e => {
+    if (e.target.closest("button,select")) return;
+    down = true; dragging = false; sx = e.clientX; sy = e.clientY;
+    sl = el.scrollLeft; st = el.scrollTop; pid = e.pointerId;
+  };
+  el.onpointermove = e => {
+    if (!down) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (!dragging && Math.hypot(dx, dy) >= DRAG_PX) {
+      dragging = true; el.classList.add("dragging");
+      try { el.setPointerCapture(pid); } catch (_) {}
+    }
+    if (dragging) { el.scrollLeft = sl - dx; el.scrollTop = st - dy; }
+  };
+  el.onpointerup = e => {
+    down = false; el.classList.remove("dragging");
+    if (dragging) { try { el.releasePointerCapture(e.pointerId); } catch (_) {} }
+    dragging = false;
+  };
+  el.onpointercancel = () => { down = false; dragging = false; el.classList.remove("dragging"); };
+}
+
+function buildFixedLegend(){
+  fixedLegend.innerHTML = "";
+  Object.keys(REL).sort().forEach(t => {
+    const s = document.createElement("span");
+    s.innerHTML = `<i style="border-color:${ECSS[t]}"></i>${REL[t]} (${(GRAPH.edge_kind_counts && GRAPH.edge_kind_counts[t]) || 0})`;
+    fixedLegend.appendChild(s);
+  });
+  Object.keys(BADGE).forEach(t => {
+    const s = document.createElement("span");
+    s.innerHTML = `<i style="border-top-color:var(--line);color:var(--muted)">[${BADGE[t]}]</i>${t}`;
+    fixedLegend.appendChild(s);
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Load: try a live fetch of ./engine-graph.json first (works over http(s), a
+// dev server, or GitHub Pages); fall back to the graph embedded in this page
+// (works from a bare file:// path, where fetch of a sibling file is blocked
+// by the browser). Either source is read into the exact same GRAPH shape.
+async function loadEmbedded(){
+  const text = document.getElementById("graph-data").textContent;
+  return JSON.parse(text);
+}
+async function loadLive(){
+  const r = await fetch("./engine-graph.json", { cache: "no-cache" });
+  if (!r.ok) throw new Error("engine-graph.json " + r.status);
+  return r.json();
+}
+(async () => {
+  let src = "snapshot";
+  try {
+    const live = await loadLive();
+    if (live && Array.isArray(live.nodes) && live.nodes.length) { GRAPH = live; src = "live"; }
+    else throw new Error("empty");
+  } catch (e) {
+    GRAPH = await loadEmbedded();
+  }
+  current = Number.isInteger(GRAPH.focus_default) ? GRAPH.focus_default : 0;
+  const tag = document.getElementById("srcTag");
+  tag.textContent = src; tag.classList.toggle("live", src === "live");
+  buildFixedLegend();
+  rebuildSelect();
+  draw();
+})();
+
+})();
+  </script>
+</body>
+</html>
