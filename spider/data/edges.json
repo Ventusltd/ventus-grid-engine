@@ -1,0 +1,14 @@
+{
+  "edge_format": "index-array-v1",
+  "status_note": "Compact seed format for sandbox; engine normalises to GeoJSON at runtime.",
+  "edges": [
+    [0,12,"external"],[0,13,"external"],[0,5,"governance"],[0,15,"external"],[0,14,"external"],
+    [1,4,"archive"],[1,5,"governance"],[1,14,"external"],[1,15,"external"],[1,12,"external"],[1,13,"external"],
+    [2,4,"archive"],[2,5,"governance"],[2,14,"external"],[2,13,"external"],[2,1,"repo"],[2,3,"repo"],[2,15,"external"],[2,12,"external"],
+    [3,1,"data"],[3,2,"data"],[3,5,"governance"],[3,15,"external"],
+    [4,14,"external"],[4,15,"external"],[4,16,"repo"],
+    [5,14,"external"],[5,0,"data"],[5,1,"data"],[5,2,"data"],[5,3,"repo"],[5,4,"archive"],[5,12,"external"],[5,13,"external"],[5,15,"external"],[5,16,"repo"],
+    [6,15,"external"],
+    [16,0,"governance"],[16,4,"archive"],[16,5,"governance"],[16,15,"workflow"]
+  ]
+}

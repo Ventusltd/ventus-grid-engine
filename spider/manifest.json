@@ -1,0 +1,38 @@
+{
+  "schema_version": "receiver-manifest-v1",
+  "note": "Lists graphs the ventus-grid-engine Spider Sandbox receiver can load. Each entry's path is relative to the repo root (same root index.html sits in). ?graph=<id> on the page URL selects one directly; otherwise the Federation graph loads by default and the others are reachable from its root cards via the existing '⊕ Contents' control.",
+  "graphs": [
+    {
+      "id": "federation",
+      "title": "Federation",
+      "path": "./spider/data/nodes.json",
+      "edges_path": "./spider/data/edges.json",
+      "source_spider": "federation-spider",
+      "description": "The federation-spider's own root graph, copied verbatim from data-federation-map-for-globalgrid2050-all-repos so the page has something real to show on first load."
+    },
+    {
+      "id": "globalgrid2050-contents",
+      "title": "globalgrid2050 contents",
+      "path": "./spider/data/contents/nodes.json",
+      "edges_path": "./spider/data/contents/edges.json",
+      "source_spider": "federation-spider",
+      "description": "The declared contents cartridge for the globalgrid2050 repo, copied verbatim. Reached by drilling into the 'globalgrid2050' card in the Federation graph, exactly as in the reference sandbox."
+    },
+    {
+      "id": "engine-graph",
+      "title": "Engine population",
+      "path": "./genome/engine-graph.json",
+      "edges_path": null,
+      "source_spider": "genome-spider (population phase)",
+      "description": "The ventus-grid-engine population graph, emitted by a concurrently-running agent to genome/engine-graph.json. Not owned by this page; may not exist yet. When absent, the graph resolves to a single placeholder card reading 'not yet emitted' rather than failing."
+    },
+    {
+      "id": "genome-spider",
+      "title": "genome-spider output",
+      "path": "./spider/data/genome-spider.json",
+      "edges_path": null,
+      "source_spider": "spiders/species/genome-spider",
+      "description": "Documented empty slot. spiders/species/genome-spider did not exist at the time this receiver was built (checked: C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\spiders\\species\\genome-spider). If that species is later added and made to publish a graph at the path above (or a manifest edit points here at wherever it actually lands), this slot will pick it up automatically — same 'not yet emitted' placeholder behaviour until then."
+    }
+  ]
+}
