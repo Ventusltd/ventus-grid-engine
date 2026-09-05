@@ -26,7 +26,12 @@ const GOOD = {
         publication: 'Electricity Ten Year Statement 2025, Appendix D',
         source_url: 'https://www.neso.energy/document/383951/download',
         sha256: 'ad8b54fa0b0562c34295514c150f33913a92fc756ff140e0154d53c181363440',
-        published_date: '2025-11-27',
+        /* The date NESO's ETYS documents page shows against "ETYS 2025
+           Appendix D - Fault Levels Peak": 30 Jun 2026 (read 2026-09-05).
+           The first version of this fixture carried 2025-11-27, a date that
+           was never read anywhere - invented as a plausible fixture value in
+           a proof whose subject is that a figure must be dated. Corrected. */
+        published_date: '2026-06-30',
         study_basis: 'peak demand, winters 2025/26 to 2033/34',
         licence: 'as published by NESO'
     },
@@ -163,7 +168,7 @@ check('quote() prints the site, busbar and voltage the figure is for',
 check('quote() prints the publisher, publication, study basis and date',
     typeof line === 'string' && line.includes('NESO')
     && line.includes('Appendix D') && line.includes('peak demand')
-    && line.includes('published 2025-11-27'));
+    && line.includes('published 2026-06-30'));
 check('quote() never prints the bare words "fault level" for a named current',
     typeof line === 'string' && !/\bfault level\b/i.test(line));
 check('quote() has no default metric — asking for none returns null rather '
