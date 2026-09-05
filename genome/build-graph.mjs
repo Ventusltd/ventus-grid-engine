@@ -54,6 +54,9 @@ const nodes = [
   { id: 'corridor-estimate', label: 'engine/corridor-estimate.js', type: 'canonical', rag: 'green',
     reason: 'PROMOTED this session: forCable(), calibrated straight-line-to-corridor multiplier',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/corridor-estimate.js' },
+  { id: 'published-fault-level', label: 'engine/published-fault-level.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-05: record() and quote() for a fault figure that is published, dated and named by exact metric; no callable computes a current or a headroom, and the proof asserts that absence. Vocabulary copied from data-grid-gb ingest_etys.py FAULT_COLUMNS.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/published-fault-level.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',
