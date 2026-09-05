@@ -266,6 +266,23 @@ async function wireReceiver(){
   const qp=new URLSearchParams(location.search);
   const want=qp.get("graph");
   if(want){const key=want==="federation"?"root":want;if(SCOPES[key]){stack=key==="root"?[]:[{key:"root",current:0}];scopeKey=key;current=0;}}
+  /* ?focus=<node label> centres the graph on one module.
+     ------------------------------------------------------------------------
+     Written 202609050300 so the dashboards can link INTO the maths rather
+     than at it: a File menu in GridAtlas or Pipeline News names a module and
+     lands the reader on that node with its dependencies already drawn. The
+     match is on the node's own label, exact first and then case-insensitively,
+     so a link is written with the same string the graph publishes -- no second
+     naming scheme to drift. An unknown focus is IGNORED, never an error: the
+     graph still opens on its default, which is what a reader following a stale
+     link should get. */
+  const wantFocus=qp.get("focus");
+  if(wantFocus){
+    const ns=S().nodes;
+    let i=ns.findIndex(n=>n.label===wantFocus);
+    if(i<0){const lc=wantFocus.toLowerCase();i=ns.findIndex(n=>String(n.label||"").toLowerCase()===lc);}
+    if(i>=0)current=i;
+  }
   rebuildSelect();draw();
 }
 (async()=>{const src=await loadRoot();await loadContents();const tag=document.getElementById("srcTag");if(tag){tag.textContent=src;tag.classList.toggle("live",src==="live");}await wireReceiver();})();
