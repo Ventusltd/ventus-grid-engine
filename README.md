@@ -137,6 +137,17 @@ depend on, so moving them later is a decision and not an excavation.
 
 ## Verifying
 
+### Actual computation receipts
+
+`engine/compute-observer.js` provides browser-neutral computation receipts for
+the Test Code detector. It distinguishes request, invocation, measured result,
+empty completed search, failure, and unsupported input, correlated to entity,
+location, and selection attempt. It verifies raw distances and rejects stale
+results. See [the integration contract](docs/compute-observer.md). Atlas must
+wrap its actual calculation closure; the live cartridge does not import this
+repository automatically. The receipt does not certify that a project can
+connect to the grid.
+
 ```
 node verify.mjs
 ```

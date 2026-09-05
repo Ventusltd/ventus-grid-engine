@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "exports": {
+    "./compute-observer": "./engine/compute-observer.js",
     "./geo-core": "./engine/geo-core.js",
     "./geo-area": "./engine/geo-area.js",
     "./geo-shapes": "./engine/geo-shapes.js",
