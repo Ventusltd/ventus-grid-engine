@@ -17,6 +17,7 @@
     "./electrical-distance": "./engine/electrical-distance.js",
     "./rating-envelope": "./engine/rating-envelope.js",
     "./corridor-estimate": "./engine/corridor-estimate.js",
+    "./published-fault-level": "./engine/published-fault-level.js",
     "./deeplink": "./deeplink/contract.js"
   },
   "scripts": {
