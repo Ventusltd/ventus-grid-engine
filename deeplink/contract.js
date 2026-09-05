@@ -96,15 +96,119 @@ export function bucketHasLayer(tech) {
 }
 
 /**
+ * Which receiver a deep link must be built against.
+ *
+ * The contract used to take the base from the caller and say nothing about
+ * which one was right. Every consumer therefore chose its own, and on
+ * 2026-09-05 the MAP button in Pipeline News v9.7 was measured pointing at the
+ * V8 overlay -- a page that still serves, so nothing 404'd, but which carries
+ * no cartridge and no current.json, so no arrival there could ever compute a
+ * nearest substation. The route was hard-coded in the consumer and the engine
+ * published nothing for it to disagree with.
+ *
+ * These are the same values as deeplink/receivers.json, which is the published
+ * form for anything that cannot import this module. The proof asserts the two
+ * agree, so they cannot drift apart.
+ */
+export const CANONICAL_RECEIVER = 'https://ventusltd.github.io/gridatlas/atlas/';
+
+export const RETIRED_RECEIVERS = Object.freeze([
+    'https://globalgrid2050.com/repd_grid_atlasv8/'
+]);
+
+/**
+ * True if a base is a receiver that cannot honour a deep link.
+ *
+ * Trailing slashes and query strings are ignored: a consumer that appends its
+ * own parameters must still be caught, and the fault this exists to prevent
+ * would have slipped past an equality test.
+ */
+export function isRetiredReceiver(base) {
+    if (!base) return false;
+    const strip = (value) => String(value).split('?')[0].split('#')[0].replace(/\/+$/, '');
+    const target = strip(base);
+    return RETIRED_RECEIVERS.some((route) => strip(route) === target);
+}
+
+/**
+ * The query: every project row that carries an REPD identity, and the link it
+ * should have.
+ *
+ * "define a query that targets all project rows on pipeline news that have an
+ * REPD id and if they do then the algorithm or spiders or git via cvaa needs to
+ * auto update each of those links" -- the architect, 2026-09-05.
+ *
+ * It is defined HERE, once, rather than in the updater, so that the thing which
+ * proves the links offline and the workflow which rewrites them are running the
+ * same code. An audit that uses different logic from the fix it gates is not a
+ * gate.
+ *
+ * Returns one entry per row. `linkable` is false for a row with no REPD
+ * identity or no usable geometry -- those are reported, never silently skipped,
+ * because a row that quietly gets no link is exactly how 28 projects in the
+ * v9.5.1 corpus ended up with a dead MAP button that nobody saw.
+ *
+ * @param {Array<object>} rows
+ * @param {object} [options] { requireGeometry: true }
+ */
+export function auditProjectRows(rows, options) {
+    const requireGeometry = !options || options.requireGeometry !== false;
+    const list = Array.isArray(rows) ? rows : [];
+    const entries = list.map((row) => {
+        const identity = row ? row[IDENTITY_PARAM] : null;
+        const hasIdentity = identity !== undefined && identity !== null && identity !== '';
+        const hasGeometry = Boolean(row)
+            && row.latitude !== undefined && row.latitude !== null && row.latitude !== ''
+            && row.longitude !== undefined && row.longitude !== null && row.longitude !== '';
+        const linkable = hasIdentity && (!requireGeometry || hasGeometry);
+        return {
+            [IDENTITY_PARAM]: hasIdentity ? identity : null,
+            has_identity: hasIdentity,
+            has_geometry: hasGeometry,
+            linkable,
+            current_href: row && row.href ? String(row.href) : null,
+            current_is_retired: Boolean(row && row.href && isRetiredReceiver(row.href)),
+            expected_href: linkable ? buildDeepLink(row) : null
+        };
+    });
+    return {
+        total: entries.length,
+        with_identity: entries.filter((e) => e.has_identity).length,
+        linkable: entries.filter((e) => e.linkable).length,
+        no_geometry: entries.filter((e) => e.has_identity && !e.has_geometry).length,
+        on_retired_receiver: entries.filter((e) => e.current_is_retired).length,
+        needs_update: entries.filter((e) => e.linkable && e.current_href && e.current_href !== e.expected_href).length,
+        entries
+    };
+}
+
+/**
  * Build a deep link. The emitter's job, expressed once.
  *
- * @param {string} base    e.g. 'https://ventusltd.github.io/gridatlas/atlas/'
- * @param {object} project { repd_ref, technology, latitude, longitude, zoom }
+ * Call it with one argument and the contract supplies the canonical receiver,
+ * which is the form every consumer should use. The two-argument form is kept
+ * for a caller that genuinely needs another base -- a local harness, a staged
+ * copy -- and it REFUSES a retired receiver rather than quietly building a
+ * link that lands somewhere inert.
+ *
+ * @param {string|object} base    the receiver, or the project when omitted
+ * @param {object} [project]      { repd_ref, technology, latitude, longitude, zoom }
  * @returns {string}
  */
 export function buildDeepLink(base, project) {
+    if (project === undefined && base && typeof base === 'object') {
+        project = base;
+        base = CANONICAL_RECEIVER;
+    }
     if (!project || project[IDENTITY_PARAM] == null || project[IDENTITY_PARAM] === '') {
         throw new Error('buildDeepLink: ' + IDENTITY_PARAM + ' is required and is the project identity');
+    }
+    if (isRetiredReceiver(base)) {
+        throw new Error(
+            'buildDeepLink: ' + base + ' is a retired receiver and carries no engine; '
+            + 'a link built against it cannot compute anything. Use the canonical receiver '
+            + CANONICAL_RECEIVER + ' (call buildDeepLink(project) and the contract supplies it).'
+        );
     }
     const url = new URL(base);
     for (const key of Object.keys(PARAMS)) {

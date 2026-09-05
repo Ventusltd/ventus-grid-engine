@@ -1,0 +1,75 @@
+name: deeplink receiver audit
+
+# Auto-update project deep links — but ONLY after they are proven offline first.
+#
+# "the algorithm or spiders or git via cvaa needs to auto update each of those
+# links via workflows that auto run on github BUT ONLY AFTER they have been
+# proven to work offline on the machine first" — the architect, 2026-09-05.
+#
+# That ordering is the whole design, and it is enforced by step order with no
+# continue-on-error, exactly as verify.yml enforces the main gate:
+#
+#   1. verify, fail closed          — the engine's own 9 proofs, offline
+#   2. the receiver proof, offline  — no socket is opened; the contract is
+#                                     asserted against itself and against
+#                                     deeplink/receivers.json
+#   3. audit, read-only             — the query runs over the rows and REPORTS
+#                                     what would change
+#   4. (not implemented here)       — any step that rewrites a consumer's links
+#                                     goes after 3, never before, and never in
+#                                     this repository: the engine publishes the
+#                                     contract, it does not edit its consumers.
+#
+# Step 3 is deliberately read-only today. The fault this exists to prevent was
+# a link silently pointing at a receiver that carries no engine; the cure must
+# not be a workflow that silently rewrites links across the estate. A human
+# reads the audit first, and the rewrite lands in the consumer's own repository
+# under its own governance.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - deeplink/**
+      - proofs/deeplink-receiver.proof.mjs
+      - .github/workflows/deeplink-receiver-audit.yml
+  schedule:
+    # Daily. A receiver does not have to change for a link to it to go stale:
+    # the V8 overlay never changed at all, it simply never carried the engine.
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 1. The engine's own gate. If this fails, nothing downstream may run.
+      - name: Verify, fail closed
+        run: node verify.mjs
+
+      # 2. The receiver contract, proven offline. No network. This is the step
+      #    that has to pass on a machine before any link is rewritten anywhere.
+      - name: Prove the receiver contract offline
+        run: node proofs/deeplink-receiver.proof.mjs
+
+      # 3. Report what the query finds. Read-only, and it prints the numbers
+      #    rather than a verdict.
+      - name: Audit the published rows, read-only
+        run: node tools/audit-receivers.mjs --report
+
+      - name: Publish the audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deeplink-receiver-audit
+          path: receiver-audit.json
+          if-no-files-found: warn

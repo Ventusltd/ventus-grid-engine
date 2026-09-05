@@ -1,0 +1,28 @@
+{
+  "schema": "ventus.grid-engine.deeplink-receivers.v1",
+  "note": "Which receiver a deep link must be built against. Published as data so a consumer reads it instead of hard-coding a route, and so a retired route can be retired once, here, rather than in every dashboard that ever copied it.",
+  "why_this_file_exists": "On 2026-09-05 the MAP button in Pipeline News v9.7 was measured pointing at https://globalgrid2050.com/repd_grid_atlasv8/ - a page carrying zero engine cartridges and no current.json, so no deep link arriving there could ever compute a nearest substation, a corridor estimate or a rating envelope. It was not intermittent and it was not a browser fault: the route was hard-coded in the consumer, in atlasUrlV9_5_1(), and the engine published no statement of which receiver was canonical for it to disagree with.",
+  "canonical": {
+    "id": "gridatlas-v9",
+    "route": "https://ventusltd.github.io/gridatlas/atlas/",
+    "carries_engine": true,
+    "evidence": "The served shell references the composition manifest (current.json) and its cartridges; measured 2026-09-05, 20 cartridge references and 3 current.json references in the shell.",
+    "computes": [
+      "nearest transmission substation at 400 kV and above",
+      "corridor estimate",
+      "ETYS topology and rating envelope",
+      "arrival identity from the REPD reference"
+    ]
+  },
+  "retired": [
+    {
+      "id": "repd-grid-atlas-v8",
+      "route": "https://globalgrid2050.com/repd_grid_atlasv8/",
+      "carries_engine": false,
+      "retired_utc": "202609050320",
+      "reason": "The V8 overlay. It is a real page and it still serves, so a link to it does not 404 - which is why this was invisible. It carries no cartridge, no current.json and no nearest-substation path, so an arrival there is silently inert. Do not build a deep link against it. It remains published for readers who want the V8 map itself.",
+      "measured": "21,045 bytes; cartridges 0, current.json 0, 'nearest' 0, 'corridor' 0"
+    }
+  ],
+  "rule": "Build every project deep link with buildDeepLink(project) and let the contract supply the base, or read canonical.route from this file. A consumer that hard-codes a receiver has taken on the job of noticing when that receiver stops carrying the engine, and no consumer in this estate has ever noticed."
+}
