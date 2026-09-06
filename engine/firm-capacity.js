@@ -186,14 +186,14 @@ export function assessAgainstFirm({ units, demandMva }) {
         utilisationOfFirm: demandMva / firm.value,
         utilisationOfInstalled: demandMva / installed,
         basis: withinFirm
-            ? `${demandMva} MVA sits inside the ${firm.value} MVA firm capacity: the site carries ` +
+            ? `${demandMva.toFixed(2)} MVA sits inside the ${firm.value} MVA firm capacity: the site carries ` +
               `this demand with any one unit out.`
             : withinInstalled
-                ? `${demandMva} MVA is inside the ${installed} MVA installed but BEYOND the ` +
+                ? `${demandMva.toFixed(2)} MVA is inside the ${installed} MVA installed but BEYOND the ` +
                   `${firm.value} MVA firm capacity, short by ${(demandMva - firm.value).toFixed(2)} MVA. ` +
                   `The site carries this demand only while nothing is out. This is the gap that most ` +
                   `often decides a connection, and it is invisible if you look only at the total.`
-                : `${demandMva} MVA exceeds even the ${installed} MVA installed capacity.`
+                : `${demandMva.toFixed(2)} MVA exceeds even the ${installed} MVA installed capacity.`
     };
 }
 
