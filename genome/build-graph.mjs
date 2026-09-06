@@ -72,6 +72,9 @@ const nodes = [
   { id: 'route-obstacles', label: 'engine/route-obstacles.js', type: 'canonical', rag: 'green',
     reason: 'AUTHORED 2026-09-06: the check a scalar corridor function could not make. corridor-estimate.forCable() takes one kilometre and never sees coordinates, so it printed 177.05 km of highway corridor for South Antrim to Western HVDC - 142 km of Irish Sea. This module classifies declared crossings, refuses a corridor factor across open water, and sizes trenchless crossings where the setback dominates. corridor-estimate is UNCHANGED and remains the first pass; the proof asserts it still returns 177.05 km over land.',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/route-obstacles.js' },
+  { id: 'interconnector-economics', label: 'engine/interconnector-economics.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: an interconnector as an edge between two systems, priced. Direction follows the spread, congestion rent is gross and never called profit, and fleet capacity separates the 10.3 GW that carries a BMRS code and is observable from the 7.65 GW that is a plan. Holds NO geometry: subsea routes are licensed (TeleGeography) and neither NESO nor National Grid publishes an alternative, so the estate does not draw them. The proof asserts no export carries a coordinate.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/interconnector-economics.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',
