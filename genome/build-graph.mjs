@@ -57,6 +57,9 @@ const nodes = [
   { id: 'published-fault-level', label: 'engine/published-fault-level.js', type: 'canonical', rag: 'green',
     reason: 'AUTHORED 2026-09-05: record() and quote() for a fault figure that is published, dated and named by exact metric; no callable computes a current or a headroom, and the proof asserts that absence. Vocabulary copied from data-grid-gb ingest_etys.py FAULT_COLUMNS.',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/published-fault-level.js' },
+  { id: 'electrification-demand', label: 'engine/electrification-demand.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: the arithmetic of the electrification paper made exact — average power, peak from a stated load factor, load factor measured from a published peak, nameplate at a capacity factor, and electricity for displaced fuel. Every worked example in the paper is recomputed by the proof. No callable returns headroom, connection availability, per-site uplift or adequacy, and the proof asserts that absence.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/electrification-demand.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',
