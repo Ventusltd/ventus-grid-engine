@@ -69,6 +69,9 @@ const nodes = [
   { id: 'connection-capacity', label: 'engine/connection-capacity.js', type: 'canonical', rag: 'green',
     reason: 'AUTHORED 2026-09-06: sizing against a STATED connection cap for developers, EPCs and heavy users. Exceedance over a profile, battery power from the peak excess and store from the area above the cap, solar clipping, and net position against separate import/export caps. A spike and a plateau share a peak and need eight times the store; the proof holds both.',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/connection-capacity.js' },
+  { id: 'route-obstacles', label: 'engine/route-obstacles.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: the check a scalar corridor function could not make. corridor-estimate.forCable() takes one kilometre and never sees coordinates, so it printed 177.05 km of highway corridor for South Antrim to Western HVDC - 142 km of Irish Sea. This module classifies declared crossings, refuses a corridor factor across open water, and sizes trenchless crossings where the setback dominates. corridor-estimate is UNCHANGED and remains the first pass; the proof asserts it still returns 177.05 km over land.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/route-obstacles.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',
