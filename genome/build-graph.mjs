@@ -78,6 +78,9 @@ const nodes = [
   { id: 'power-factor', label: 'engine/power-factor.js', type: 'canonical', rag: 'green',
     reason: 'AUTHORED 2026-09-06: the cheapest capacity anybody buys. 1,000 kW at 0.85 draws 1,176 kVA; corrected to 0.98 it draws 1,020 and releases 156 kVA - 13.3% of the site demand on its connection, for no reduction in consumption. Reactive power is computed from the identity rather than arccos/tan so unity is exactly zero. Refuses capacitor bank design, because a real bank needs a harmonic resonance study against the supply impedance.',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/power-factor.js' },
+  { id: 'voltage-drop', label: 'engine/voltage-drop.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: volts and watts along a run, which decides cable size on a long collection more often than ampacity does. Phase factor is sqrt(3) or 2 and never typed as 1.73; the reactance term is carried against sin(phi), because ignoring X on a large cable feeding a poorly corrected load under-states the drop by over a third. Losses take only R, and the loss load factor is required rather than derived from the load factor. Refuses cable selection and carries no conductor parameters, since a plausible default would be the dangerous thing.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/voltage-drop.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',

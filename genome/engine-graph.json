@@ -1,7 +1,7 @@
 {
   "schema": "ventus-grid-engine.genome.v1",
   "label": "ventus-grid-engine genome · the spider pattern applied to the engine’s own maths",
-  "generated_utc": "2026-09-06T03:09:40.994Z",
+  "generated_utc": "2026-09-06T03:13:22.279Z",
   "note": "Nodes and edges match the node shape used by the live Spider Sandbox (data-federation-map-for-globalgrid2050-all-repos/dashboard/sandbox/spider_full_po_test.html: SCOPES[key].nodes = [{label,type,rag,reason,gh,ext,child}], edges = [from,to,type]). Edges here are objects, not bare [from,to,type] tuples, because every edge in this genome must carry evidence; edge.type stays a plain string for compatibility with a receiver expecting the tuple shape (read edges[i].type, .from, .to as the tuple).",
   "focus_default": 0,
   "kind_labels": {
@@ -144,6 +144,13 @@
       "rag": "green",
       "reason": "AUTHORED 2026-09-06: the cheapest capacity anybody buys. 1,000 kW at 0.85 draws 1,176 kVA; corrected to 0.98 it draws 1,020 and releases 156 kVA - 13.3% of the site demand on its connection, for no reduction in consumption. Reactive power is computed from the identity rather than arccos/tan so unity is exactly zero. Refuses capacitor bank design, because a real bank needs a harmonic resonance study against the supply impedance.",
       "gh": "https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/power-factor.js"
+    },
+    {
+      "label": "engine/voltage-drop.js",
+      "type": "canonical",
+      "rag": "green",
+      "reason": "AUTHORED 2026-09-06: volts and watts along a run, which decides cable size on a long collection more often than ampacity does. Phase factor is sqrt(3) or 2 and never typed as 1.73; the reactance term is carried against sin(phi), because ignoring X on a large cable feeding a poorly corrected load under-states the drop by over a third. Losses take only R, and the loss load factor is required rather than derived from the load factor. Refuses cable selection and carries no conductor parameters, since a plausible default would be the dangerous thing.",
+      "gh": "https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/voltage-drop.js"
     },
     {
       "label": "sources/v9-extracts/sizing-arithmetic.mjs",
@@ -397,6 +404,7 @@
     "route-obstacles",
     "interconnector-economics",
     "power-factor",
+    "voltage-drop",
     "sizing-arithmetic-extract",
     "v8-haversine",
     "gridatlas-geodesy-module",
@@ -434,7 +442,7 @@
   "edges": [
     {
       "from": 0,
-      "to": 20,
+      "to": 21,
       "type": "supersedes",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -444,7 +452,7 @@
     },
     {
       "from": 4,
-      "to": 21,
+      "to": 22,
       "type": "supersedes",
       "evidence": {
         "file": "gridatlas/atlas/modules/202609011950-geodesy.js",
@@ -453,8 +461,8 @@
       }
     },
     {
-      "from": 21,
-      "to": 22,
+      "from": 22,
+      "to": 23,
       "type": "duplicates",
       "evidence": {
         "file": "gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js",
@@ -463,23 +471,13 @@
       }
     },
     {
-      "from": 22,
-      "to": 23,
+      "from": 23,
+      "to": 24,
       "type": "duplicates",
       "evidence": {
         "file": "gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js",
         "lines": "57 and 1544",
         "method": "docs/v9-constants.md finding 3: two EARTH_RADIUS_KM definitions in the same 6,277-line file"
-      }
-    },
-    {
-      "from": 22,
-      "to": 4,
-      "type": "should_import",
-      "evidence": {
-        "file": "genome/population-plan.md",
-        "lines": "§1, row 1",
-        "method": "manual review: this inline copy could be replaced by an import with no behaviour change (constants already agree)"
       }
     },
     {
@@ -489,11 +487,21 @@
       "evidence": {
         "file": "genome/population-plan.md",
         "lines": "§1, row 1",
-        "method": "same as copy #1 — second inline copy in the same file"
+        "method": "manual review: this inline copy could be replaced by an import with no behaviour change (constants already agree)"
       }
     },
     {
       "from": 24,
+      "to": 4,
+      "type": "should_import",
+      "evidence": {
+        "file": "genome/population-plan.md",
+        "lines": "§1, row 1",
+        "method": "same as copy #1 — second inline copy in the same file"
+      }
+    },
+    {
+      "from": 25,
       "to": 4,
       "type": "duplicates",
       "evidence": {
@@ -503,7 +511,7 @@
       }
     },
     {
-      "from": 24,
+      "from": 25,
       "to": 4,
       "type": "should_import",
       "evidence": {
@@ -513,8 +521,8 @@
       }
     },
     {
-      "from": 25,
-      "to": 27,
+      "from": 26,
+      "to": 28,
       "type": "duplicates",
       "evidence": {
         "file": "pipelinenews/tools/intelligence/cartridges/grid-proximity/build_payload.py",
@@ -523,8 +531,8 @@
       }
     },
     {
-      "from": 25,
-      "to": 27,
+      "from": 26,
+      "to": 28,
       "type": "should_import",
       "evidence": {
         "file": "genome/population-plan.md",
@@ -533,8 +541,8 @@
       }
     },
     {
-      "from": 26,
-      "to": 27,
+      "from": 27,
+      "to": 28,
       "type": "imports",
       "evidence": {
         "file": "pipelinenews/tools/intelligence/cartridges/grid-distance-column/build_payload.py",
@@ -544,7 +552,7 @@
     },
     {
       "from": 0,
-      "to": 27,
+      "to": 28,
       "type": "duplicates",
       "evidence": {
         "file": "engine/geo-core.js vs grid-distance-maths/src/geodesy.mjs",
@@ -554,7 +562,7 @@
     },
     {
       "from": 1,
-      "to": 28,
+      "to": 29,
       "type": "supersedes",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -564,7 +572,7 @@
     },
     {
       "from": 1,
-      "to": 29,
+      "to": 30,
       "type": "supersedes",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -573,8 +581,8 @@
       }
     },
     {
-      "from": 28,
-      "to": 29,
+      "from": 29,
+      "to": 30,
       "type": "duplicates",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -584,7 +592,7 @@
     },
     {
       "from": 1,
-      "to": 30,
+      "to": 31,
       "type": "supersedes",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -594,7 +602,7 @@
     },
     {
       "from": 2,
-      "to": 31,
+      "to": 32,
       "type": "supersedes",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -604,7 +612,7 @@
     },
     {
       "from": 2,
-      "to": 32,
+      "to": 33,
       "type": "supersedes",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -613,8 +621,8 @@
       }
     },
     {
-      "from": 31,
-      "to": 32,
+      "from": 32,
+      "to": 33,
       "type": "duplicates",
       "evidence": {
         "file": "globalgrid2050/repd_grid_atlasv8/ventus-corev8engine.js",
@@ -623,8 +631,8 @@
       }
     },
     {
-      "from": 33,
-      "to": 34,
+      "from": 34,
+      "to": 35,
       "type": "duplicates",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v{5,6}/.../gis-sld-v5-calculations.js",
@@ -633,8 +641,8 @@
       }
     },
     {
-      "from": 33,
-      "to": 35,
+      "from": 34,
+      "to": 36,
       "type": "duplicates",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v{5,7}/.../gis-sld-v5-calculations.js",
@@ -643,8 +651,8 @@
       }
     },
     {
-      "from": 33,
-      "to": 36,
+      "from": 34,
+      "to": 37,
       "type": "duplicates",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v{5,8}/.../gis-sld-v5-calculations.js",
@@ -653,8 +661,8 @@
       }
     },
     {
-      "from": 33,
-      "to": 37,
+      "from": 34,
+      "to": 38,
       "type": "duplicates",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v5 vs v8/bess-pcs-standalone",
@@ -663,8 +671,8 @@
       }
     },
     {
-      "from": 33,
-      "to": 38,
+      "from": 34,
+      "to": 39,
       "type": "drifts_from",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v5/gis-sld-v5-calculations.js:147 vs gridatlas/atlas/modules/202609012205-sizing-arithmetic.js:~230",
@@ -672,8 +680,8 @@
       }
     },
     {
-      "from": 34,
-      "to": 38,
+      "from": 35,
+      "to": 39,
       "type": "drifts_from",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v6/.../gis-sld-v5-calculations.js:147",
@@ -682,8 +690,8 @@
       }
     },
     {
-      "from": 35,
-      "to": 38,
+      "from": 36,
+      "to": 39,
       "type": "drifts_from",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v7/.../gis-sld-v5-calculations.js:147",
@@ -692,8 +700,8 @@
       }
     },
     {
-      "from": 36,
-      "to": 38,
+      "from": 37,
+      "to": 39,
       "type": "drifts_from",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v8/bess-gis-sld-financial-sandbox/gis-sld-v5-calculations.js:147",
@@ -702,8 +710,8 @@
       }
     },
     {
-      "from": 37,
-      "to": 38,
+      "from": 38,
+      "to": 39,
       "type": "drifts_from",
       "evidence": {
         "file": "globalgrid2050/solar-bess-topology-v8/bess-pcs-standalone/gis-sld-v5-calculations.js:147",
@@ -712,8 +720,8 @@
       }
     },
     {
-      "from": 19,
-      "to": 38,
+      "from": 20,
+      "to": 39,
       "type": "duplicates",
       "evidence": {
         "file": "sources/v9-maths-provenance.json",
@@ -723,7 +731,7 @@
     },
     {
       "from": 5,
-      "to": 39,
+      "to": 40,
       "type": "supersedes",
       "evidence": {
         "file": "gridatlas/atlas/modules/202609011950-substation-lookup.js",
@@ -732,8 +740,8 @@
       }
     },
     {
-      "from": 39,
-      "to": 40,
+      "from": 40,
+      "to": 41,
       "type": "duplicates",
       "evidence": {
         "file": "gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js",
@@ -742,7 +750,7 @@
       }
     },
     {
-      "from": 40,
+      "from": 41,
       "to": 5,
       "type": "should_import",
       "evidence": {
@@ -752,8 +760,8 @@
       }
     },
     {
-      "from": 40,
-      "to": 39,
+      "from": 41,
+      "to": 40,
       "type": "drifts_from",
       "evidence": {
         "file": "gridatlas/atlas/cartridges/202609041330-substation-intelligence-v9-63.js:6083-6092 vs atlas/modules/202609011950-substation-lookup.js:57-70",
@@ -761,7 +769,7 @@
       }
     },
     {
-      "from": 41,
+      "from": 42,
       "to": 5,
       "type": "duplicates",
       "evidence": {
@@ -771,7 +779,7 @@
       }
     },
     {
-      "from": 41,
+      "from": 42,
       "to": 5,
       "type": "should_import",
       "evidence": {
@@ -781,7 +789,7 @@
       }
     },
     {
-      "from": 42,
+      "from": 43,
       "to": 5,
       "type": "duplicates",
       "evidence": {
@@ -792,7 +800,7 @@
     },
     {
       "from": 6,
-      "to": 45,
+      "to": 46,
       "type": "supersedes",
       "evidence": {
         "file": "gridatlas/atlas/parts/202609041234-sld-sandbox-technology-buckets.js",
@@ -801,7 +809,7 @@
       }
     },
     {
-      "from": 45,
+      "from": 46,
       "to": 6,
       "type": "should_import",
       "evidence": {
@@ -811,7 +819,7 @@
       }
     },
     {
-      "from": 43,
+      "from": 44,
       "to": 6,
       "type": "duplicates",
       "evidence": {
@@ -821,7 +829,7 @@
       }
     },
     {
-      "from": 43,
+      "from": 44,
       "to": 6,
       "type": "should_import",
       "evidence": {
@@ -831,8 +839,8 @@
       }
     },
     {
-      "from": 44,
-      "to": 43,
+      "from": 45,
+      "to": 44,
       "type": "duplicates",
       "evidence": {
         "file": "pipelinenews/tools/intelligence/cartridges/wider-fleet/assets/wider-fleet.mjs",
@@ -841,7 +849,7 @@
       }
     },
     {
-      "from": 44,
+      "from": 45,
       "to": 6,
       "type": "should_import",
       "evidence": {
@@ -851,7 +859,7 @@
       }
     },
     {
-      "from": 46,
+      "from": 47,
       "to": 6,
       "type": "duplicates",
       "evidence": {
@@ -861,7 +869,7 @@
       }
     },
     {
-      "from": 47,
+      "from": 48,
       "to": 6,
       "type": "should_import",
       "evidence": {
@@ -871,8 +879,8 @@
       }
     },
     {
-      "from": 47,
-      "to": 43,
+      "from": 48,
+      "to": 44,
       "type": "drifts_from",
       "evidence": {
         "file": "gridatlas/atlas/parts/202609040229-place-global-search-arrival-identity.js:604 vs pipelinenews/.../atlas-pointer-deep-link.mjs:161",
@@ -881,7 +889,7 @@
     },
     {
       "from": 7,
-      "to": 48,
+      "to": 49,
       "type": "supersedes",
       "evidence": {
         "file": "gridatlas/atlas/modules/202609012245-network-topology.js",
@@ -891,7 +899,7 @@
     },
     {
       "from": 8,
-      "to": 49,
+      "to": 50,
       "type": "supersedes",
       "evidence": {
         "file": "gridatlas/atlas/modules/202609012245-electrical-distance.js",
@@ -901,7 +909,7 @@
     },
     {
       "from": 9,
-      "to": 50,
+      "to": 51,
       "type": "supersedes",
       "evidence": {
         "file": "gridatlas/atlas/modules/202609012250-rating-envelope.js",
@@ -911,7 +919,7 @@
     },
     {
       "from": 10,
-      "to": 51,
+      "to": 52,
       "type": "supersedes",
       "evidence": {
         "file": "gridatlas/atlas/modules/202609030205-corridor-estimate.js",
