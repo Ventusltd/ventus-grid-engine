@@ -1,7 +1,7 @@
 {
   "schema": "ventus-grid-engine.genome.v1",
   "label": "ventus-grid-engine genome · the spider pattern applied to the engine’s own maths",
-  "generated_utc": "2026-09-06T03:09:25.921Z",
+  "generated_utc": "2026-09-06T03:09:40.994Z",
   "note": "Nodes and edges match the node shape used by the live Spider Sandbox (data-federation-map-for-globalgrid2050-all-repos/dashboard/sandbox/spider_full_po_test.html: SCOPES[key].nodes = [{label,type,rag,reason,gh,ext,child}], edges = [from,to,type]). Edges here are objects, not bare [from,to,type] tuples, because every edge in this genome must carry evidence; edge.type stays a plain string for compatibility with a receiver expecting the tuple shape (read edges[i].type, .from, .to as the tuple).",
   "focus_default": 0,
   "kind_labels": {
