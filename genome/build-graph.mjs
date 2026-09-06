@@ -60,6 +60,9 @@ const nodes = [
   { id: 'electrification-demand', label: 'engine/electrification-demand.js', type: 'canonical', rag: 'green',
     reason: 'AUTHORED 2026-09-06: the arithmetic of the electrification paper made exact — average power, peak from a stated load factor, load factor measured from a published peak, nameplate at a capacity factor, and electricity for displaced fuel. Every worked example in the paper is recomputed by the proof. No callable returns headroom, connection availability, per-site uplift or adequacy, and the proof asserts that absence.',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/electrification-demand.js' },
+  { id: 'firm-capacity', label: 'engine/firm-capacity.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: N-1 firm capacity, apparent power from a stated power factor, and utilisation against a caller-supplied rating. Exposes the gap the paper names - a site at 42 MVA on two 30 MVA units is 70% of installed and 140% of firm. Refuses spare capacity, connection availability, cyclic ratings and P2/7 compliance; the proof asserts that absence.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/firm-capacity.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',
