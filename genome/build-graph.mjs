@@ -63,6 +63,12 @@ const nodes = [
   { id: 'firm-capacity', label: 'engine/firm-capacity.js', type: 'canonical', rag: 'green',
     reason: 'AUTHORED 2026-09-06: N-1 firm capacity, apparent power from a stated power factor, and utilisation against a caller-supplied rating. Exposes the gap the paper names - a site at 42 MVA on two 30 MVA units is 70% of installed and 140% of firm. Refuses spare capacity, connection availability, cyclic ratings and P2/7 compliance; the proof asserts that absence.',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/firm-capacity.js' },
+  { id: 'diversified-demand', label: 'engine/diversified-demand.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: After Diversity Maximum Demand, coincidence measured from a group peak rather than assumed, and average-across-a-window kept separate from peak-inside-a-window. The paper's 10 million vehicles read 2.85 GW annual average, 8.56 GW across an 8-hour window and 14 GW at 20% coincidence - the same vehicles, differing by a factor of five.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/diversified-demand.js' },
+  { id: 'connection-capacity', label: 'engine/connection-capacity.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: sizing against a STATED connection cap for developers, EPCs and heavy users. Exceedance over a profile, battery power from the peak excess and store from the area above the cap, solar clipping, and net position against separate import/export caps. A spike and a plateau share a peak and need eight times the store; the proof holds both.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/connection-capacity.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',
