@@ -75,6 +75,9 @@ const nodes = [
   { id: 'interconnector-economics', label: 'engine/interconnector-economics.js', type: 'canonical', rag: 'green',
     reason: 'AUTHORED 2026-09-06: an interconnector as an edge between two systems, priced. Direction follows the spread, congestion rent is gross and never called profit, and fleet capacity separates the 10.3 GW that carries a BMRS code and is observable from the 7.65 GW that is a plan. Holds NO geometry: subsea routes are licensed (TeleGeography) and neither NESO nor National Grid publishes an alternative, so the estate does not draw them. The proof asserts no export carries a coordinate.',
     gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/interconnector-economics.js' },
+  { id: 'power-factor', label: 'engine/power-factor.js', type: 'canonical', rag: 'green',
+    reason: 'AUTHORED 2026-09-06: the cheapest capacity anybody buys. 1,000 kW at 0.85 draws 1,176 kVA; corrected to 0.98 it draws 1,020 and releases 156 kVA - 13.3% of the site demand on its connection, for no reduction in consumption. Reactive power is computed from the identity rather than arccos/tan so unity is exactly zero. Refuses capacitor bank design, because a real bank needs a harmonic resonance study against the supply impedance.',
+    gh: 'https://github.com/Ventusltd/ventus-grid-engine/blob/main/engine/power-factor.js' },
 
   // ---- Staged, unpromoted (rag: blue) ----
   { id: 'sizing-arithmetic-extract', label: 'sources/v9-extracts/sizing-arithmetic.mjs', type: 'extract', rag: 'blue',
