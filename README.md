@@ -186,3 +186,22 @@ sources at extraction time were:
 | `globalgrid2050` | `7d00781b6993b9038a1a8bedf2c88a4eb0109ad4` |
 | `gridatlas` | `64268fd0` |
 | `pipelinenews` | `ade103ae` |
+
+
+---
+
+## Cable engines
+
+Ventus is a **cables and connectivity** company, and the clue is in the name. What this estate measures is **cables**: where one starts, where it ends, what route it can take, and what is publicly known about it. Every engine models a cable, and a project's class selects **which question** is asked, never **whether** a question is answered.
+
+| document | what it holds |
+| --- | --- |
+| [Cable engines](https://github.com/Ventusltd/gridmachine1/blob/main/CABLE-ENGINES.md) | the rule, the priority, and how a project is routed to an engine |
+| [Datasheets](https://github.com/Ventusltd/gridmachine1/blob/main/CABLE-ENGINE-DATASHEETS.md) | one contract per engine: question, endpoints, geometry, inputs, outputs, allowed silence |
+| [Engineering plan](https://github.com/Ventusltd/gridmachine1/blob/main/ENGINEERING-PLAN.md) | what gets fixed, in what order, and what is protected |
+| [Bug register](https://github.com/Ventusltd/gridmachine1/blob/main/BUGS.md) | numbered tickets with links, evidence and status |
+| [The capsule](https://github.com/Ventusltd/gridmachine1/blob/main/reports/20260907T230000Z-engine-capsule/README.md) | the working engines sealed with their hashes, and what makes them worth copying |
+
+The five engines: **substation finder within a radius**, **interconnector subsea link**, **offshore export cable to its onshore connection**, **400 kV overhead line and transmission connection**, and **132 kV distribution**. The first and fourth work today and are protected by their own passing receipts.
+
+**This repository is the engine estate.** The measurement lives here, and its proofs certify what is here rather than what a browser executes: an application that does not import a module gains nothing from that module's proofs. Confidence transfers only over inputs actually compared. The cable engine datasheets are the contracts these proofs should be written against.
