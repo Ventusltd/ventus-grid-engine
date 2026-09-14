@@ -42,6 +42,86 @@
       "source_spider": "spiders/species/genome-spider (lineage.mjs)",
       "description": "GridAtlas's current composition and its ancestry: which cartridges it composed, which parts/modules built each cartridge, and any part whose content has moved on since that cartridge was last built. Read LIVE from the spider's own published output on the same Pages origin, never from a copy - a copied graph goes stale the way a part goes uncomposed.",
       "verified": "2026-09-04 HTTP 200, 74 nodes / 411 edges over 15 of 58 generations"
+    },
+    {
+      "id": "modular",
+      "title": "Modular star",
+      "path": "https://ventusltd.github.io/stars/modular/graph.json",
+      "edges_path": null,
+      "source_spider": "stars/modular-star (build.mjs)",
+      "description": "Functions and classes found in two or more different files across the public Ventusltd repositories, wired to the repositories they live in and to other families sharing their name. Node ids are permanent numbers (family:N); GitHub opens the exact lines; External opens the code report (every place it is used, the live page, the numbered lines, copy). Rebuilt hourly on GitHub Actions.",
+      "verified": "2026-09-14 HTTP 200, 298 nodes / 996 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "periodic-table",
+      "title": "Periodic table",
+      "path": "https://ventusltd.github.io/stars/blocks/graph.json",
+      "edges_path": null,
+      "source_spider": "stars/modular-star (blocks.mjs)",
+      "description": "Every block of the estate with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
+      "verified": "2026-09-14 HTTP 200, 261 nodes / 714 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "proof-of-work",
+      "title": "Proof of work",
+      "path": "https://ventusltd.github.io/stars/proof/graph.json",
+      "edges_path": null,
+      "source_spider": "stars/modular-star (proof.mjs)",
+      "description": "What ran, when, what it produced and which checks it passed: the workflows, their latest runs and their artefacts.",
+      "verified": "2026-09-14 HTTP 200, 40 nodes / 68 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "structure",
+      "title": "Structure of the estate",
+      "path": "https://ventusltd.github.io/stars/structure/graph.json",
+      "edges_path": null,
+      "source_spider": "stars/modular-star (structure.mjs)",
+      "description": "The estate top-down: repositories, the blocks in each, and the engine modules in their canonical order.",
+      "verified": "2026-09-14 HTTP 200, 122 nodes / 337 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "chemistry",
+      "title": "Chemistry stars",
+      "path": "https://ventusltd.github.io/stars/spider/graphs/chemistry.json",
+      "edges_path": null,
+      "source_spider": "star-maker (chemistry.mjs), rebuilt by stars",
+      "description": "Which combinations of GridAtlas components always work, which fail, and the error each failure produces. Arithmetic over every recorded composition test.",
+      "verified": "2026-09-14 HTTP 200, 125 nodes / 2786 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "vedic",
+      "title": "Vedic stars",
+      "path": "https://ventusltd.github.io/stars/spider/graphs/vedic.json",
+      "edges_path": null,
+      "source_spider": "star-maker (vedic.mjs), rebuilt by stars",
+      "description": "The five-element classification of the code: how components group into broad classes, and whether each test respected its declared rules.",
+      "verified": "2026-09-14 HTTP 200, 305 nodes / 300 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "random",
+      "title": "Random stars",
+      "path": "https://ventusltd.github.io/stars/spider/graphs/random.json",
+      "edges_path": null,
+      "source_spider": "star-maker (random.mjs), rebuilt by stars",
+      "description": "Randomly chosen links between components, for tripping over dependencies nobody wrote down. Prompts to look, not findings.",
+      "verified": "2026-09-14 HTTP 200, 163 nodes / 150 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "generated-apps",
+      "title": "Generated apps",
+      "path": "https://ventusltd.github.io/code-generator/spider/graphs/apps.json",
+      "edges_path": null,
+      "source_spider": "code-generator (generate.mjs)",
+      "description": "Apps built from blocks of the periodic table, wired to the blocks they are made of. Amber apps still need values from their surroundings; the report lists them.",
+      "verified": "2026-09-14 HTTP 200, 9 nodes / 7 edges",
+      "registry": "https://ventusltd.github.io/code-generator/spider/features.yml"
     }
   ]
 }
