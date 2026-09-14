@@ -36,12 +36,35 @@ jobs:
           echo "proposed index.html sha256: $(sha256sum index.html | cut -c1-64)"
           echo "main     index.html sha256: $(sha256sum /tmp/base/index.html | cut -c1-64)"
 
-      - name: Existing receiver proof on the proposed page (file://)
+      # The existing receiver proof had never run in CI. Run it on BOTH pages, so a failure
+      # that main already has is not charged to the proposal. Both steps report; the final
+      # step compares them and fails only if the proposal fails a check main passes.
+      - name: Existing receiver proof on main's page (file://)
+        continue-on-error: true
         run: |
-          node spider/receiver.proof.mjs
-          rc=$?
-          echo "receiver proof rc=$rc"
-          exit $rc
+          cp index.html /tmp/proposed-index.html
+          cp /tmp/base/index.html index.html
+          set +e; node spider/receiver.proof.mjs > /tmp/receiver-main.log 2>&1; rc=$?; set -e
+          cp /tmp/proposed-index.html index.html
+          cat /tmp/receiver-main.log; echo "receiver proof on main rc=$rc"; exit $rc
+
+      - name: Existing receiver proof on the proposed page (file://)
+        continue-on-error: true
+        run: |
+          set +e; node spider/receiver.proof.mjs > /tmp/receiver-proposed.log 2>&1; rc=$?; set -e
+          cat /tmp/receiver-proposed.log; echo "receiver proof on proposed rc=$rc"; exit $rc
+
+      - name: Compare receiver proof failures (fail only on a new failure)
+        run: |
+          grep '^ - ' /tmp/receiver-main.log | sort > /tmp/f-main.txt || true
+          grep '^ - ' /tmp/receiver-proposed.log | sort > /tmp/f-proposed.txt || true
+          echo "failing on main:";     cat /tmp/f-main.txt
+          echo "failing on proposed:"; cat /tmp/f-proposed.txt
+          grep -q 'checks passed\|FAILED' /tmp/receiver-main.log || { echo "main proof did not run to a verdict"; exit 1; }
+          grep -q 'checks passed\|FAILED' /tmp/receiver-proposed.log || { echo "proposed proof did not run to a verdict"; exit 1; }
+          new=$(comm -13 /tmp/f-main.txt /tmp/f-proposed.txt)
+          if [ -n "$new" ]; then echo "NEW failures introduced by the proposal:"; echo "$new"; exit 1; fi
+          echo "no new receiver proof failures"
 
       - name: Click and link checks on main's page (expected to show the fault)
         continue-on-error: true
