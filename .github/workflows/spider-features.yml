@@ -1,0 +1,66 @@
+name: spider features
+
+# The Spider dashboard learns about new graphs on its own — but only graphs that are proven reachable,
+# and only after the engine's own gate has passed. Same step order as verify.yml and
+# deeplink-receiver-audit.yml: verify fail-closed first, then the read, then the write.
+#
+#   1. verify, fail closed      — the engine's own proofs, offline
+#   2. read the registries      — spider/sources.yml lists features.yml files published by other
+#                                 repositories; each listed graph is fetched and counted
+#   3. update spider/manifest.json — proven graphs are added or updated; hand-written entries are
+#                                 never changed; nothing is ever deleted; index.html is never touched
+#
+# GitHub Pages republishes the dashboard from main, so a new graph shows on the front door within
+# minutes of its publisher registering it.
+
+on:
+  schedule:
+    - cron: '9 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - spider/sources.yml
+      - spider/update_manifest.py
+      - .github/workflows/spider-features.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: spider-features
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 1. The engine's own gate. If this fails, nothing downstream may run.
+      - name: Verify, fail closed
+        run: node verify.mjs
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet pyyaml
+
+      # 2 and 3. Read the registries, prove each graph, update the manifest.
+      - name: Update the manifest from the registries
+        run: python spider/update_manifest.py
+
+      - name: Commit if the manifest changed
+        run: |
+          git add spider/manifest.json
+          if git diff --cached --quiet; then echo "Manifest unchanged."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -qm "spider: manifest updated from registries ($(date -u +%Y-%m-%dT%H:%MZ))"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
+          exit 1

@@ -1,0 +1,16 @@
+# Where the Spider dashboard learns about new graphs.
+#
+# Each registry is a features.yml published by another repository, listing graphs in the same shape as
+# the entries in manifest.json beside this file. spider/update_manifest.py (run by
+# .github/workflows/spider-features.yml) reads every registry, fetches each graph to prove it is reachable
+# and non-empty, and then adds it to manifest.json with a "verified" line — the same way the
+# gridatlas-lineage entry was added by hand. Entries written by hand in manifest.json are never changed;
+# entries this file brought in are updated when their registry changes, and never deleted.
+schema_version: spider-sources-v1
+registries:
+  - url: https://ventusltd.github.io/stars/spider/features.yml
+    owner: Ventusltd/stars
+    note: Reports built from recorded GridAtlas composition tests, and the modular star of all public Ventusltd code.
+  - url: https://ventusltd.github.io/code-generator/spider/features.yml
+    owner: Ventusltd/code-generator
+    note: Apps assembled from numbered parts of the modular star, wired to their parts and to the repositories that already use them.

@@ -64,3 +64,12 @@ own functions, and the reference's closing IIFE is replaced with an
 equivalent one (`wireReceiver()`) that does the same `loadRoot()` /
 `loadContents()` call and then layers the new graphs on top of the same
 `SCOPES` / card / FOCUS machinery, unchanged.
+
+## How new graphs arrive (added 2026-09-14)
+
+| file | what |
+|---|---|
+| `sources.yml` | the registries the dashboard reads: `features.yml` files published by other repositories (first: `Ventusltd/stars`), each listing graphs in the same shape as a `manifest.json` entry |
+| `update_manifest.py` | run hourly by `.github/workflows/spider-features.yml` after `node verify.mjs` passes: fetches every registered graph, and adds it to `manifest.json` only when it is reachable and non-empty, with a `verified` line like the one gridatlas-lineage carries. Hand-written entries are never changed; nothing is deleted; `index.html` is not touched |
+
+A manifest entry that carries a `registry` field was brought in this way and is kept up to date from that registry.
