@@ -45,7 +45,7 @@
     },
     {
       "id": "modular",
-      "title": "Modular star",
+      "title": "Reuse",
       "path": "https://ventusltd.github.io/stars/modular/graph.json",
       "edges_path": null,
       "source_spider": "stars/modular-star (build.mjs)",
@@ -55,17 +55,17 @@
     },
     {
       "id": "periodic-table",
-      "title": "Periodic table",
+      "title": "Inventory",
       "path": "https://ventusltd.github.io/stars/blocks/graph.json",
       "edges_path": null,
       "source_spider": "stars/modular-star (blocks.mjs)",
-      "description": "Every block of the estate with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
-      "verified": "2026-09-14 HTTP 200, 261 nodes / 714 edges",
+      "description": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
+      "verified": "2026-09-14 HTTP 200, 247 nodes / 621 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml"
     },
     {
       "id": "proof-of-work",
-      "title": "Proof of work",
+      "title": "Audit",
       "path": "https://ventusltd.github.io/stars/proof/graph.json",
       "edges_path": null,
       "source_spider": "stars/modular-star (proof.mjs)",
@@ -75,17 +75,17 @@
     },
     {
       "id": "structure",
-      "title": "Structure of the estate",
+      "title": "Structure",
       "path": "https://ventusltd.github.io/stars/structure/graph.json",
       "edges_path": null,
       "source_spider": "stars/modular-star (structure.mjs)",
-      "description": "The estate top-down: repositories, the blocks in each, and the engine modules in their canonical order.",
+      "description": "globalgrid2050 architecture development, top-down: repositories, the blocks in each, and the engine modules in their canonical order.",
       "verified": "2026-09-14 HTTP 200, 122 nodes / 337 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml"
     },
     {
       "id": "chemistry",
-      "title": "Chemistry stars",
+      "title": "Compatibility",
       "path": "https://ventusltd.github.io/stars/spider/graphs/chemistry.json",
       "edges_path": null,
       "source_spider": "star-maker (chemistry.mjs), rebuilt by stars",
@@ -95,17 +95,17 @@
     },
     {
       "id": "vedic",
-      "title": "Vedic stars",
+      "title": "Classification",
       "path": "https://ventusltd.github.io/stars/spider/graphs/vedic.json",
       "edges_path": null,
       "source_spider": "star-maker (vedic.mjs), rebuilt by stars",
-      "description": "The five-element classification of the code: how components group into broad classes, and whether each test respected its declared rules.",
+      "description": "The five classes of the code (structure, movement, computation, flow, data), what is never used, and whether each test loaded the map's parts in the declared order.",
       "verified": "2026-09-14 HTTP 200, 305 nodes / 300 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml"
     },
     {
       "id": "random",
-      "title": "Random stars",
+      "title": "Sampling",
       "path": "https://ventusltd.github.io/stars/spider/graphs/random.json",
       "edges_path": null,
       "source_spider": "star-maker (random.mjs), rebuilt by stars",
@@ -115,13 +115,23 @@
     },
     {
       "id": "generated-apps",
-      "title": "Generated apps",
+      "title": "Applications",
       "path": "https://ventusltd.github.io/code-generator/spider/graphs/apps.json",
       "edges_path": null,
       "source_spider": "code-generator (generate.mjs)",
       "description": "Apps built from blocks of the periodic table, wired to the blocks they are made of. Amber apps still need values from their surroundings; the report lists them.",
       "verified": "2026-09-14 HTTP 200, 9 nodes / 7 edges",
       "registry": "https://ventusltd.github.io/code-generator/spider/features.yml"
+    },
+    {
+      "id": "sense",
+      "title": "Assessment",
+      "path": "https://ventusltd.github.io/stars/sense/graph.json",
+      "edges_path": null,
+      "source_spider": "stars/modular-star (sense.mjs)",
+      "description": "The code universe charted into sense: what is canonical and what is a copy, what depends on what, what is proven together and what is untested, what is a decision rather than a fact. Ordered from the whole to the parts.",
+      "verified": "2026-09-14 HTTP 200, 142 nodes / 563 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
     }
   ]
 }
