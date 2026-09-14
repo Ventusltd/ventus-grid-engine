@@ -55,9 +55,12 @@ jobs:
       - name: Update the manifest from the registries
         run: python spider/update_manifest.py
 
+      - name: Write the front door from the manifest
+        run: python spider/overview.py
+
       - name: Commit if the manifest changed
         run: |
-          git add spider/manifest.json
+          git add spider/manifest.json spider/data/overview.json
           if git diff --cached --quiet; then echo "Manifest unchanged."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

@@ -1,0 +1,232 @@
+{
+  "schema": "overview-graph.v1",
+  "label": "GLOBALGRID2050 architecture",
+  "generated_utc": "2026-09-14T14:31:47Z",
+  "note": "Generated from spider/manifest.json by spider/overview.py; one card per registered graph.",
+  "counts": {
+    "graphs": 15
+  },
+  "nodes": [
+    {
+      "id": "overview",
+      "label": "GLOBALGRID2050 architecture",
+      "type": "estate",
+      "rag": "green",
+      "reason": "The map of maps: 15 graphs of the estate's code, its reuse, its blocks, its tests and its decisions. Tap a card's External road to open that graph.",
+      "gh": "https://github.com/Ventusltd",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/"
+    },
+    {
+      "id": "graph:federation",
+      "label": "Federation",
+      "type": "graph",
+      "rag": "green",
+      "reason": "The federation-spider's own root graph, copied verbatim from data-federation-map-for-globalgrid2050-all-repos so the page has something real to show on first load.",
+      "gh": "https://github.com/Ventusltd/ventus-grid-engine",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=federation"
+    },
+    {
+      "id": "graph:globalgrid2050-contents",
+      "label": "globalgrid2050 contents",
+      "type": "graph",
+      "rag": "green",
+      "reason": "The declared contents cartridge for the globalgrid2050 repo, copied verbatim.",
+      "gh": "https://github.com/Ventusltd/ventus-grid-engine",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=globalgrid2050-contents"
+    },
+    {
+      "id": "graph:engine-graph",
+      "label": "Engine population",
+      "type": "graph",
+      "rag": "green",
+      "reason": "The ventus-grid-engine population graph, emitted by a concurrently-running agent to genome/engine-graph.json.",
+      "gh": "https://github.com/Ventusltd/ventus-grid-engine",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=engine-graph"
+    },
+    {
+      "id": "graph:genome-spider",
+      "label": "genome-spider output",
+      "type": "graph",
+      "rag": "grey",
+      "reason": "Documented empty slot. Placeholder: no data published yet.",
+      "gh": "https://github.com/Ventusltd/ventus-grid-engine",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=genome-spider"
+    },
+    {
+      "id": "graph:gridatlas-lineage",
+      "label": "GridAtlas cartridge lineage",
+      "type": "graph",
+      "rag": "green",
+      "reason": "GridAtlas's current composition and its ancestry: which cartridges it composed, which parts/modules built each cartridge, and any part whose content has moved on since that cartridge was last built. Verified 2026-09-04 HTTP 200, 74 nodes / 411 edges over 15 of 58 generations.",
+      "gh": "https://github.com/Ventusltd/spiders",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=gridatlas-lineage"
+    },
+    {
+      "id": "graph:modular",
+      "label": "Reuse",
+      "type": "graph",
+      "rag": "green",
+      "reason": "Functions and classes found in two or more different files across the public Ventusltd repositories, wired to the repositories they live in and to other families sharing their name. Verified 2026-09-14 HTTP 200, 298 nodes / 996 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=modular"
+    },
+    {
+      "id": "graph:periodic-table",
+      "label": "Inventory",
+      "type": "graph",
+      "rag": "green",
+      "reason": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Verified 2026-09-14 HTTP 200, 247 nodes / 621 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=periodic-table"
+    },
+    {
+      "id": "graph:proof-of-work",
+      "label": "Audit",
+      "type": "graph",
+      "rag": "green",
+      "reason": "What ran, when, what it produced and which checks it passed: the workflows, their latest runs and their artefacts. Verified 2026-09-14 HTTP 200, 40 nodes / 68 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=proof-of-work"
+    },
+    {
+      "id": "graph:structure",
+      "label": "Structure",
+      "type": "graph",
+      "rag": "green",
+      "reason": "globalgrid2050 architecture development, top-down: repositories, the blocks in each, and the engine modules in their canonical order. Verified 2026-09-14 HTTP 200, 122 nodes / 337 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=structure"
+    },
+    {
+      "id": "graph:chemistry",
+      "label": "Compatibility",
+      "type": "graph",
+      "rag": "green",
+      "reason": "Which combinations of GridAtlas components always work, which fail, and the error each failure produces. Verified 2026-09-14 HTTP 200, 125 nodes / 2786 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=chemistry"
+    },
+    {
+      "id": "graph:vedic",
+      "label": "Classification",
+      "type": "graph",
+      "rag": "green",
+      "reason": "The five classes of the code (structure, movement, computation, flow, data), what is never used, and whether each test loaded the map's parts in the declared order. Verified 2026-09-14 HTTP 200, 305 nodes / 300 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=vedic"
+    },
+    {
+      "id": "graph:random",
+      "label": "Sampling",
+      "type": "graph",
+      "rag": "green",
+      "reason": "Randomly chosen links between components, for tripping over dependencies nobody wrote down. Verified 2026-09-14 HTTP 200, 163 nodes / 150 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=random"
+    },
+    {
+      "id": "graph:generated-apps",
+      "label": "Applications",
+      "type": "graph",
+      "rag": "green",
+      "reason": "Apps built from blocks of the periodic table, wired to the blocks they are made of and the work orders still open. Verified 2026-09-14 HTTP 200, 14 nodes / 12 edges.",
+      "gh": "https://github.com/Ventusltd/code-generator",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=generated-apps"
+    },
+    {
+      "id": "graph:sense",
+      "label": "Assessment",
+      "type": "graph",
+      "rag": "green",
+      "reason": "The code universe charted into sense: what is canonical and what is a copy, what depends on what, what is proven together and what is untested, what is a decision rather than a fact. Verified 2026-09-14 HTTP 200, 142 nodes / 548 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=sense"
+    },
+    {
+      "id": "graph:decisions",
+      "label": "Decisions",
+      "type": "graph",
+      "rag": "green",
+      "reason": "The judgements attached to the maps' permanent keys: one card per decision record, open (amber), decided (green) or superseded (grey), wired to the block, constant or function family it concerns. Verified 2026-09-14 HTTP 200, 33 nodes / 35 edges.",
+      "gh": "https://github.com/Ventusltd/stars",
+      "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=decisions"
+    }
+  ],
+  "edges": [
+    {
+      "from": "overview",
+      "to": "graph:federation",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:globalgrid2050-contents",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:engine-graph",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:genome-spider",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:gridatlas-lineage",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:modular",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:periodic-table",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:proof-of-work",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:structure",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:chemistry",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:vedic",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:random",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:generated-apps",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:sense",
+      "type": "contains"
+    },
+    {
+      "from": "overview",
+      "to": "graph:decisions",
+      "type": "contains"
+    }
+  ]
+}

@@ -3,6 +3,14 @@
   "note": "Lists graphs the ventus-grid-engine Spider Sandbox receiver can load. Each entry's path is relative to the repo root (same root index.html sits in). ?graph=<id> on the page URL selects one directly; otherwise the Federation graph loads by default and the others are reachable from its root cards via the existing '⊕ Contents' control.",
   "graphs": [
     {
+      "id": "overview",
+      "title": "GLOBALGRID2050 architecture",
+      "path": "./spider/data/overview.json",
+      "edges_path": null,
+      "source_spider": "spider/overview.py (generated from this manifest)",
+      "description": "The front door: one card per graph this manifest lists, each opening that graph. Written by spider/overview.py after every manifest update, so it never lists a graph the dashboard lacks."
+    },
+    {
       "id": "federation",
       "title": "Federation",
       "path": "./spider/data/nodes.json",
