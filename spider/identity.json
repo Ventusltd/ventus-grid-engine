@@ -1,0 +1,5821 @@
+{
+ "generated": "2026-09-14 by MSI Claude from the served graphs",
+ "note": "label (leading number stripped, lower-cased) -> the graphs it appears in, with each graph's own id, label, type and RAG. Additive data for a receiver to offer \"this card in other graphs\". Only labels present in two or more graphs are listed.",
+ "count": 282,
+ "labels": {
+  "_zonedrawcalcarea": {
+   "graphs": {
+    "modular": {
+     "id": "family:5611",
+     "label": "#5611 _zoneDrawCalcArea",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "#1793 _zoneDrawCalcArea",
+     "label": "#1793 _zoneDrawCalcArea",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1793 _zoneDrawCalcArea",
+     "label": "#1793 _zoneDrawCalcArea",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "_zonedrawcirclepoints": {
+   "graphs": {
+    "modular": {
+     "id": "family:5610",
+     "label": "#5610 _zoneDrawCirclePoints",
+     "type": "element",
+     "rag": "amber"
+    },
+    "vedic": {
+     "id": "#1792 _zoneDrawCirclePoints",
+     "label": "#1792 _zoneDrawCirclePoints",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "a airports": {
+   "graphs": {
+    "random": {
+     "id": "A airports",
+     "label": "A airports",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "A airports",
+     "label": "A airports",
+     "type": "element",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "a · airports": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:A",
+     "label": "A · Airports",
+     "type": "layer",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-36",
+     "label": "36 A · Airports",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:A",
+     "label": "A · Airports",
+     "type": "layer",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "A"
+  },
+  "assertstablegeometry": {
+   "graphs": {
+    "random": {
+     "id": "#4035 assertStableGeometry",
+     "label": "#4035 assertStableGeometry",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4035 assertStableGeometry",
+     "label": "#4035 assertStableGeometry",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "at · allowed technologies": {
+   "graphs": {
+    "decisions": {
+     "id": "block:At",
+     "label": "At · Allowed technologies",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:At",
+     "label": "At · Allowed technologies",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-1",
+     "label": "1 At · Allowed technologies",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:At",
+     "label": "At · Allowed technologies",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "At"
+  },
+  "auditprojectrows": {
+   "graphs": {
+    "modular": {
+     "id": "family:80245",
+     "label": "#80245 auditProjectRows",
+     "type": "element",
+     "rag": "amber"
+    },
+    "vedic": {
+     "id": "#8493 auditProjectRows",
+     "label": "#8493 auditProjectRows",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "authority": {
+   "graphs": {
+    "random": {
+     "id": "#5889 authority",
+     "label": "#5889 authority",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5889 authority",
+     "label": "#5889 authority",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "available": {
+   "graphs": {
+    "random": {
+     "id": "#7851 available",
+     "label": "#7851 available",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#7851 available",
+     "label": "#7851 available",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "buildatlasv9deeplink": {
+   "graphs": {
+    "random": {
+     "id": "#1532 buildAtlasV9DeepLink",
+     "label": "#1532 buildAtlasV9DeepLink",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1530 buildAtlasV9DeepLink",
+     "label": "#1530 buildAtlasV9DeepLink",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "buildreview": {
+   "graphs": {
+    "random": {
+     "id": "#9 buildReview",
+     "label": "#9 buildReview",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#9 buildReview",
+     "label": "#9 buildReview",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "cable-trench-or-drill": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/cable-trench-or-drill",
+     "label": "cable-trench-or-drill",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/cable-trench-or-drill",
+     "label": "cable-trench-or-drill",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "cc · connection capacity": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Cc",
+     "label": "Cc · Connection capacity",
+     "type": "engine",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-27",
+     "label": "27 Cc · Connection capacity",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Cc",
+     "label": "Cc · Connection capacity",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Cc"
+  },
+  "ce · cable corridor estimate": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Ce",
+     "label": "Ce · Cable corridor estimate",
+     "type": "engine",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-22",
+     "label": "22 Ce · Cable corridor estimate",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Ce",
+     "label": "Ce · Cable corridor estimate",
+     "type": "engine",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "Ce"
+  },
+  "cells": {
+   "graphs": {
+    "random": {
+     "id": "#980 cells",
+     "label": "#980 cells",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#980 cells",
+     "label": "#980 cells",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "centralstats": {
+   "graphs": {
+    "random": {
+     "id": "#3413 centralStats",
+     "label": "#3413 centralStats",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3413 centralStats",
+     "label": "#3413 centralStats",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "centre": {
+   "graphs": {
+    "random": {
+     "id": "#6554 centre",
+     "label": "#6554 centre",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#6554 centre",
+     "label": "#6554 centre",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "centroid": {
+   "graphs": {
+    "random": {
+     "id": "#1724 centroid",
+     "label": "#1724 centroid",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1724 centroid",
+     "label": "#1724 centroid",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "cg · cable trench geometry": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Cg",
+     "label": "Cg · Cable trench geometry",
+     "type": "app",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-50",
+     "label": "50 Cg · Cable trench geometry",
+     "type": "app",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Cg",
+     "label": "Cg · Cable trench geometry",
+     "type": "app",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Cg"
+  },
+  "chatgpt-audits": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/chatgpt-audits",
+     "label": "chatgpt-audits",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/chatgpt-audits",
+     "label": "chatgpt-audits",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "clampinteger": {
+   "graphs": {
+    "random": {
+     "id": "#1 clampInteger",
+     "label": "#1 clampInteger",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1 clampInteger",
+     "label": "#1 clampInteger",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "claude": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/claude",
+     "label": "claude",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/claude",
+     "label": "claude",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/claude",
+     "label": "claude",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "cleantext": {
+   "graphs": {
+    "random": {
+     "id": "#3616 cleanText",
+     "label": "#3616 cleanText",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3616 cleanText",
+     "label": "#3616 cleanText",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "clearwider": {
+   "graphs": {
+    "random": {
+     "id": "#1684 clearWider",
+     "label": "#1684 clearWider",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1684 clearWider",
+     "label": "#1684 clearWider",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "code-generator": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/code-generator",
+     "label": "code-generator",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/code-generator",
+     "label": "code-generator",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/code-generator",
+     "label": "code-generator",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "companies": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/companies",
+     "label": "companies",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/companies",
+     "label": "companies",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/companies",
+     "label": "companies",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "composition": {
+   "graphs": {
+    "random": {
+     "id": "#2966 composition",
+     "label": "#2966 composition",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#2966 composition",
+     "label": "#2966 composition",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "compute": {
+   "graphs": {
+    "random": {
+     "id": "#8552 compute",
+     "label": "#8552 compute",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#8552 compute",
+     "label": "#8552 compute",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "computestats": {
+   "graphs": {
+    "random": {
+     "id": "#1179 computeStats",
+     "label": "#1179 computeStats",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1179 computeStats",
+     "label": "#1179 computeStats",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "connections and capacity": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:connections",
+     "label": "Connections and capacity",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-connections",
+     "label": "Connections and capacity",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:connections",
+     "label": "Connections and capacity",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "consistency": {
+   "graphs": {
+    "random": {
+     "id": "#3411 consistency",
+     "label": "#3411 consistency",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3411 consistency",
+     "label": "#3411 consistency",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "constants and vocabularies": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:constants",
+     "label": "Constants and vocabularies",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-constants",
+     "label": "Constants and vocabularies",
+     "type": "purpose",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "category:constants",
+     "label": "Constants and vocabularies",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "creategeojsoncircle": {
+   "graphs": {
+    "modular": {
+     "id": "family:5654",
+     "label": "#5654 createGeoJSONCircle",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "#1822 createGeoJSONCircle",
+     "label": "#1822 createGeoJSONCircle",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1822 createGeoJSONCircle",
+     "label": "#1822 createGeoJSONCircle",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "crossing": {
+   "graphs": {
+    "modular": {
+     "id": "family:8786",
+     "label": "#8786 crossing",
+     "type": "library element",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4624 crossing",
+     "label": "#4624 crossing",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "csvcell": {
+   "graphs": {
+    "random": {
+     "id": "#1504 csvCell",
+     "label": "#1504 csvCell",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1504 csvCell",
+     "label": "#1504 csvCell",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "cvaa": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/cvaa",
+     "label": "cvaa",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/cvaa",
+     "label": "cvaa",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "d · datacentres": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:D",
+     "label": "D · Datacentres",
+     "type": "layer",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-37",
+     "label": "37 D · Datacentres",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:D",
+     "label": "D · Datacentres",
+     "type": "layer",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "D"
+  },
+  "data-centres-gb": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/data-centres-gb",
+     "label": "data-centres-gb",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/data-centres-gb",
+     "label": "data-centres-gb",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "data-federation-map-for-globalgrid2050-all-repos": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/data-federation-map-for-globalgrid2050-all-repos",
+     "label": "data-federation-map-for-globalgrid2050-all-repos",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/data-federation-map-for-globalgrid2050-all-repos",
+     "label": "data-federation-map-for-globalgrid2050-all-repos",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "data-gb-electricity": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/data-gb-electricity",
+     "label": "data-gb-electricity",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/data-gb-electricity",
+     "label": "data-gb-electricity",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "data-grid-gb": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/data-grid-gb",
+     "label": "data-grid-gb",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/data-grid-gb",
+     "label": "data-grid-gb",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/data-grid-gb",
+     "label": "data-grid-gb",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "data-gridatlas": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/data-gridatlas",
+     "label": "data-gridatlas",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/data-gridatlas",
+     "label": "data-gridatlas",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/data-gridatlas",
+     "label": "data-gridatlas",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "dc · data centres and offtakers data tools": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Dc",
+     "label": "Dc · Data centres and offtakers data tools",
+     "type": "tool",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-63",
+     "label": "63 Dc · Data centres and offtakers data tools",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Dc",
+     "label": "Dc · Data centres and offtakers data tools",
+     "type": "tool",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Dc"
+  },
+  "dd · diversified demand": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Dd",
+     "label": "Dd · Diversified demand",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-26",
+     "label": "26 Dd · Diversified demand",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Dd",
+     "label": "Dd · Diversified demand",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Dd"
+  },
+  "deep links and arrival": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:arrival",
+     "label": "Deep links and arrival",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-arrival",
+     "label": "Deep links and arrival",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:arrival",
+     "label": "Deep links and arrival",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "deepfreeze": {
+   "graphs": {
+    "modular": {
+     "id": "family:5167",
+     "label": "#5167 deepFreeze",
+     "type": "library element",
+     "rag": "green"
+    },
+    "random": {
+     "id": "#3725 deepFreeze",
+     "label": "#3725 deepFreeze",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3725 deepFreeze",
+     "label": "#3725 deepFreeze",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "deeplink/contract.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 6,
+     "label": "deeplink/contract.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:deeplink/contract.js",
+     "label": "deeplink/contract.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-deeplink-contract-js",
+     "label": "deeplink/contract.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:deeplink/contract.js",
+     "label": "deeplink/contract.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "doradiusareameasure": {
+   "graphs": {
+    "modular": {
+     "id": "family:5639",
+     "label": "#5639 doRadiusAreaMeasure",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "#1817 doRadiusAreaMeasure",
+     "label": "#1817 doRadiusAreaMeasure",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1817 doRadiusAreaMeasure",
+     "label": "#1817 doRadiusAreaMeasure",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "drawbend": {
+   "graphs": {
+    "random": {
+     "id": "#21 drawBend",
+     "label": "#21 drawBend",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#21 drawBend",
+     "label": "#21 drawBend",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "drawregional": {
+   "graphs": {
+    "random": {
+     "id": "#3840 drawRegional",
+     "label": "#3840 drawRegional",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3840 drawRegional",
+     "label": "#3840 drawRegional",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "drawtrench": {
+   "graphs": {
+    "random": {
+     "id": "#20 drawTrench",
+     "label": "#20 drawTrench",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#20 drawTrench",
+     "label": "#20 drawTrench",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "dt · the map button (deep-link contract)": {
+   "graphs": {
+    "generated-apps": {
+     "id": "block:Dt",
+     "label": "Dt · The MAP button (deep-link contract)",
+     "type": "block",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Dt",
+     "label": "Dt · The MAP button (deep-link contract)",
+     "type": "deeplink",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-47",
+     "label": "47 Dt · The MAP button (deep-link contract)",
+     "type": "deeplink",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Dt",
+     "label": "Dt · The MAP button (deep-link contract)",
+     "type": "deeplink",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Dt"
+  },
+  "ed · electrical distance": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Ed",
+     "label": "Ed · Electrical distance",
+     "type": "engine",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-20",
+     "label": "20 Ed · Electrical distance",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Ed",
+     "label": "Ed · Electrical distance",
+     "type": "engine",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "Ed"
+  },
+  "edit": {
+   "graphs": {
+    "random": {
+     "id": "#8471 edit",
+     "label": "#8471 edit",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#8471 edit",
+     "label": "#8471 edit",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ek · earth km": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Ek",
+     "label": "Ek · Earth km",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Ek",
+     "label": "Ek · Earth km",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-2",
+     "label": "2 Ek · Earth km",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Ek",
+     "label": "Ek · Earth km",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Ek"
+  },
+  "el · electrification demand": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:El",
+     "label": "El · Electrification demand",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-24",
+     "label": "24 El · Electrification demand",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:El",
+     "label": "El · Electrification demand",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "El"
+  },
+  "element": {
+   "graphs": {
+    "random": {
+     "id": "#5324 element",
+     "label": "#5324 element",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5324 element",
+     "label": "#5324 element",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "em · site menu bar": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Em",
+     "label": "Em · Site menu bar",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-58",
+     "label": "58 Em · Site menu bar",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Em",
+     "label": "Em · Site menu bar",
+     "type": "tool",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Em"
+  },
+  "encode": {
+   "graphs": {
+    "random": {
+     "id": "#4674 encode",
+     "label": "#4674 encode",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4674 encode",
+     "label": "#4674 encode",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/connection-capacity.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 15,
+     "label": "engine/connection-capacity.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/connection-capacity.js",
+     "label": "engine/connection-capacity.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-connection-capacity-js",
+     "label": "engine/connection-capacity.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/connection-capacity.js",
+     "label": "engine/connection-capacity.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/corridor-estimate.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 10,
+     "label": "engine/corridor-estimate.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/corridor-estimate.js",
+     "label": "engine/corridor-estimate.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-corridor-estimate-js",
+     "label": "engine/corridor-estimate.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/corridor-estimate.js",
+     "label": "engine/corridor-estimate.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/diversified-demand.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 14,
+     "label": "engine/diversified-demand.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/diversified-demand.js",
+     "label": "engine/diversified-demand.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-diversified-demand-js",
+     "label": "engine/diversified-demand.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/diversified-demand.js",
+     "label": "engine/diversified-demand.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/electrical-distance.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 8,
+     "label": "engine/electrical-distance.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/electrical-distance.js",
+     "label": "engine/electrical-distance.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-electrical-distance-js",
+     "label": "engine/electrical-distance.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/electrical-distance.js",
+     "label": "engine/electrical-distance.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/electrification-demand.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 12,
+     "label": "engine/electrification-demand.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/electrification-demand.js",
+     "label": "engine/electrification-demand.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-electrification-demand-js",
+     "label": "engine/electrification-demand.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/electrification-demand.js",
+     "label": "engine/electrification-demand.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/firm-capacity.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 13,
+     "label": "engine/firm-capacity.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/firm-capacity.js",
+     "label": "engine/firm-capacity.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-firm-capacity-js",
+     "label": "engine/firm-capacity.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/firm-capacity.js",
+     "label": "engine/firm-capacity.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/geo-area.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 1,
+     "label": "engine/geo-area.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/geo-area.js",
+     "label": "engine/geo-area.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-geo-area-js",
+     "label": "engine/geo-area.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/geo-area.js",
+     "label": "engine/geo-area.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/geo-core.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 0,
+     "label": "engine/geo-core.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/geo-core.js",
+     "label": "engine/geo-core.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-geo-core-js",
+     "label": "engine/geo-core.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/geo-core.js",
+     "label": "engine/geo-core.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/geo-geojson.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 3,
+     "label": "engine/geo-geojson.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/geo-geojson.js",
+     "label": "engine/geo-geojson.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-geo-geojson-js",
+     "label": "engine/geo-geojson.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/geo-geojson.js",
+     "label": "engine/geo-geojson.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/geo-shapes.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 2,
+     "label": "engine/geo-shapes.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/geo-shapes.js",
+     "label": "engine/geo-shapes.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-geo-shapes-js",
+     "label": "engine/geo-shapes.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/geo-shapes.js",
+     "label": "engine/geo-shapes.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/interconnector-economics.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 17,
+     "label": "engine/interconnector-economics.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/interconnector-economics.js",
+     "label": "engine/interconnector-economics.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-interconnector-economics-js",
+     "label": "engine/interconnector-economics.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/interconnector-economics.js",
+     "label": "engine/interconnector-economics.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/network-topology.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 7,
+     "label": "engine/network-topology.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/network-topology.js",
+     "label": "engine/network-topology.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-network-topology-js",
+     "label": "engine/network-topology.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/network-topology.js",
+     "label": "engine/network-topology.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/power-factor.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 18,
+     "label": "engine/power-factor.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/power-factor.js",
+     "label": "engine/power-factor.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-power-factor-js",
+     "label": "engine/power-factor.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/power-factor.js",
+     "label": "engine/power-factor.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/published-fault-level.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 11,
+     "label": "engine/published-fault-level.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/published-fault-level.js",
+     "label": "engine/published-fault-level.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-published-fault-level-js",
+     "label": "engine/published-fault-level.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/published-fault-level.js",
+     "label": "engine/published-fault-level.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/rating-envelope.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 9,
+     "label": "engine/rating-envelope.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/rating-envelope.js",
+     "label": "engine/rating-envelope.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-rating-envelope-js",
+     "label": "engine/rating-envelope.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/rating-envelope.js",
+     "label": "engine/rating-envelope.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/route-obstacles.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 16,
+     "label": "engine/route-obstacles.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/route-obstacles.js",
+     "label": "engine/route-obstacles.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-route-obstacles-js",
+     "label": "engine/route-obstacles.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/route-obstacles.js",
+     "label": "engine/route-obstacles.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/v9-geodesy.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 4,
+     "label": "engine/v9-geodesy.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/v9-geodesy.js",
+     "label": "engine/v9-geodesy.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-v9-geodesy-js",
+     "label": "engine/v9-geodesy.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/v9-geodesy.js",
+     "label": "engine/v9-geodesy.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/v9-nearest-search.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 5,
+     "label": "engine/v9-nearest-search.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/v9-nearest-search.js",
+     "label": "engine/v9-nearest-search.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-v9-nearest-search-js",
+     "label": "engine/v9-nearest-search.js",
+     "type": "canonical",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "module:engine/v9-nearest-search.js",
+     "label": "engine/v9-nearest-search.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "engine/voltage-drop.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 19,
+     "label": "engine/voltage-drop.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:engine/voltage-drop.js",
+     "label": "engine/voltage-drop.js",
+     "type": "engine canonical",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "home-engine-voltage-drop-js",
+     "label": "engine/voltage-drop.js",
+     "type": "canonical",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "module:engine/voltage-drop.js",
+     "label": "engine/voltage-drop.js",
+     "type": "module",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "envelope": {
+   "graphs": {
+    "random": {
+     "id": "#4843 envelope",
+     "label": "#4843 envelope",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4843 envelope",
+     "label": "#4843 envelope",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "evidence": {
+   "graphs": {
+    "random": {
+     "id": "#5253 evidence",
+     "label": "#5253 evidence",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5253 evidence",
+     "label": "#5253 evidence",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "fc · firm capacity": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Fc",
+     "label": "Fc · Firm capacity",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-25",
+     "label": "25 Fc · Firm capacity",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Fc",
+     "label": "Fc · Firm capacity",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Fc"
+  },
+  "fetcher": {
+   "graphs": {
+    "random": {
+     "id": "#346 fetcher",
+     "label": "#346 fetcher",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#346 fetcher",
+     "label": "#346 fetcher",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "fetchimpl": {
+   "graphs": {
+    "random": {
+     "id": "#4299 fetchImpl",
+     "label": "#4299 fetchImpl",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4299 fetchImpl",
+     "label": "#4299 fetchImpl",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "fetchjson": {
+   "graphs": {
+    "random": {
+     "id": "#3706 fetchJson",
+     "label": "#3706 fetchJson",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3734 fetchJson",
+     "label": "#3734 fetchJson",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "files": {
+   "graphs": {
+    "random": {
+     "id": "#2138 files",
+     "label": "#2138 files",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#2138 files",
+     "label": "#2138 files",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "finding": {
+   "graphs": {
+    "random": {
+     "id": "#5246 finding",
+     "label": "#5246 finding",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5246 finding",
+     "label": "#5246 finding",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "fittostatedcapacity": {
+   "graphs": {
+    "random": {
+     "id": "#3418 fitToStatedCapacity",
+     "label": "#3418 fitToStatedCapacity",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3418 fitToStatedCapacity",
+     "label": "#3418 fitToStatedCapacity",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "formatcapacityv9_2": {
+   "graphs": {
+    "random": {
+     "id": "#3789 formatCapacityV9_2",
+     "label": "#3789 formatCapacityV9_2",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3789 formatCapacityV9_2",
+     "label": "#3789 formatCapacityV9_2",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "formatlargestv9_2": {
+   "graphs": {
+    "random": {
+     "id": "#3790 formatLargestV9_2",
+     "label": "#3790 formatLargestV9_2",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3790 formatLargestV9_2",
+     "label": "#3790 formatLargestV9_2",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "g1 grid_132kv": {
+   "graphs": {
+    "random": {
+     "id": "G1 grid_132kv",
+     "label": "G1 grid_132kv",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "G1 grid_132kv",
+     "label": "G1 grid_132kv",
+     "type": "element",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "g1 · grid 132 kv": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:G1",
+     "label": "G1 · Grid 132 kV",
+     "type": "layer",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-38",
+     "label": "38 G1 · Grid 132 kV",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:G1",
+     "label": "G1 · Grid 132 kV",
+     "type": "layer",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "G1"
+  },
+  "g2 · grid 220 kv": {
+   "graphs": {
+    "decisions": {
+     "id": "block:G2",
+     "label": "G2 · Grid 220 kV",
+     "type": "layer",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:G2",
+     "label": "G2 · Grid 220 kV",
+     "type": "layer",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-39",
+     "label": "39 G2 · Grid 220 kV",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:G2",
+     "label": "G2 · Grid 220 kV",
+     "type": "layer",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "G2"
+  },
+  "g4 · grid 400 kv": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:G4",
+     "label": "G4 · Grid 400 kV",
+     "type": "layer",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-41",
+     "label": "41 G4 · Grid 400 kV",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:G4",
+     "label": "G4 · Grid 400 kV",
+     "type": "layer",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "G4"
+  },
+  "g6 · grid 66 kv": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:G6",
+     "label": "G6 · Grid 66 kV",
+     "type": "layer",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-42",
+     "label": "42 G6 · Grid 66 kV",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:G6",
+     "label": "G6 · Grid 66 kV",
+     "type": "layer",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "G6"
+  },
+  "ga · area and perimeter": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Ga",
+     "label": "Ga · Area and perimeter",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-14",
+     "label": "14 Ga · Area and perimeter",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Ga",
+     "label": "Ga · Area and perimeter",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ga"
+  },
+  "gc · distance and bearing": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Gc",
+     "label": "Gc · Distance and bearing",
+     "type": "engine",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Gc",
+     "label": "Gc · Distance and bearing",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-13",
+     "label": "13 Gc · Distance and bearing",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Gc",
+     "label": "Gc · Distance and bearing",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Gc"
+  },
+  "geodesy and distance": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:geodesy",
+     "label": "Geodesy and distance",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-geodesy",
+     "label": "Geodesy and distance",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:geodesy",
+     "label": "Geodesy and distance",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "geometry": {
+   "graphs": {
+    "random": {
+     "id": "#766 geometry",
+     "label": "#766 geometry",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#766 geometry",
+     "label": "#766 geometry",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "getcentralinverterdcmwdc": {
+   "graphs": {
+    "random": {
+     "id": "#1175 getCentralInverterDcMwdc",
+     "label": "#1175 getCentralInverterDcMwdc",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1175 getCentralInverterDcMwdc",
+     "label": "#1175 getCentralInverterDcMwdc",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "getinputs": {
+   "graphs": {
+    "random": {
+     "id": "#6 getInputs",
+     "label": "#6 getInputs",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#6 getInputs",
+     "label": "#6 getInputs",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "getlayerconfig": {
+   "graphs": {
+    "random": {
+     "id": "#8630 getLayerConfig",
+     "label": "#8630 getLayerConfig",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#8630 getLayerConfig",
+     "label": "#8630 getLayerConfig",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "gg · geojson helpers": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Gg",
+     "label": "Gg · GeoJSON helpers",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-16",
+     "label": "16 Gg · GeoJSON helpers",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Gg",
+     "label": "Gg · GeoJSON helpers",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Gg"
+  },
+  "gitblob": {
+   "graphs": {
+    "random": {
+     "id": "#4320 gitBlob",
+     "label": "#4320 gitBlob",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4320 gitBlob",
+     "label": "#4320 gitBlob",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "globalgrid2050": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/globalgrid2050",
+     "label": "globalgrid2050",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/globalgrid2050",
+     "label": "globalgrid2050",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/globalgrid2050",
+     "label": "globalgrid2050",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "gn · genome and spiders": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Gn",
+     "label": "Gn · Genome and spiders",
+     "type": "tool",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Gn",
+     "label": "Gn · Genome and spiders",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-62",
+     "label": "62 Gn · Genome and spiders",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Gn",
+     "label": "Gn · Genome and spiders",
+     "type": "tool",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Gn"
+  },
+  "gp · grid proximity panel": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Gp",
+     "label": "Gp · Grid proximity panel",
+     "type": "app",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-54",
+     "label": "54 Gp · Grid proximity panel",
+     "type": "app",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Gp",
+     "label": "Gp · Grid proximity panel",
+     "type": "app",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Gp"
+  },
+  "gr grid_275kv": {
+   "graphs": {
+    "random": {
+     "id": "Gr grid_275kv",
+     "label": "Gr grid_275kv",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Gr grid_275kv",
+     "label": "Gr grid_275kv",
+     "type": "element",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "gr · grid 275 kv": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Gr",
+     "label": "Gr · Grid 275 kV",
+     "type": "layer",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-40",
+     "label": "40 Gr · Grid 275 kV",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Gr",
+     "label": "Gr · Grid 275 kV",
+     "type": "layer",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "Gr"
+  },
+  "graph": {
+   "graphs": {
+    "modular": {
+     "id": "family:8780",
+     "label": "#8780 graph",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "#4621 graph",
+     "label": "#4621 graph",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4621 graph",
+     "label": "#4621 graph",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "gri · grid substations": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Gri",
+     "label": "Gri · Grid substations",
+     "type": "layer",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-43",
+     "label": "43 Gri · Grid substations",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Gri",
+     "label": "Gri · Grid substations",
+     "type": "layer",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": null
+  },
+  "grid network and electrical": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:network",
+     "label": "Grid network and electrical",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-network",
+     "label": "Grid network and electrical",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:network",
+     "label": "Grid network and electrical",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "grid-distance-maths": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/grid-distance-maths",
+     "label": "grid-distance-maths",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/grid-distance-maths",
+     "label": "grid-distance-maths",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/grid-distance-maths",
+     "label": "grid-distance-maths",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "gridatlas": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/gridatlas",
+     "label": "gridatlas",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/gridatlas",
+     "label": "gridatlas",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/gridatlas",
+     "label": "gridatlas",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "gridatlas 202609011950-geodesy.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 22,
+     "label": "gridatlas 202609011950-geodesy.js",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:gridatlas 202609011950-geodesy.js",
+     "label": "gridatlas 202609011950-geodesy.js",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-gridatlas-202609011950-geodesy-js",
+     "label": "gridatlas 202609011950-geodesy.js",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "gridatlas 202609011950-substation-lookup.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 40,
+     "label": "gridatlas 202609011950-substation-lookup.js",
+     "type": "fragment",
+     "rag": "grey"
+    },
+    "modular": {
+     "id": "engine:gridatlas 202609011950-substation-lookup.js",
+     "label": "gridatlas 202609011950-substation-lookup.js",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-gridatlas-202609011950-substation-lookup-js",
+     "label": "gridatlas 202609011950-substation-lookup.js",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "gridatlas 202609012245-electrical-distance.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 50,
+     "label": "gridatlas 202609012245-electrical-distance.js",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:gridatlas 202609012245-electrical-distance.js",
+     "label": "gridatlas 202609012245-electrical-distance.js",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-gridatlas-202609012245-electrical-distance-js",
+     "label": "gridatlas 202609012245-electrical-distance.js",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "gridatlas 202609012245-network-topology.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 49,
+     "label": "gridatlas 202609012245-network-topology.js",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:gridatlas 202609012245-network-topology.js",
+     "label": "gridatlas 202609012245-network-topology.js",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-gridatlas-202609012245-network-topology-js",
+     "label": "gridatlas 202609012245-network-topology.js",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "gridatlas 202609012250-rating-envelope.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 51,
+     "label": "gridatlas 202609012250-rating-envelope.js",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:gridatlas 202609012250-rating-envelope.js",
+     "label": "gridatlas 202609012250-rating-envelope.js",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-gridatlas-202609012250-rating-envelope-js",
+     "label": "gridatlas 202609012250-rating-envelope.js",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "gridatlas 202609030205-corridor-estimate.js": {
+   "graphs": {
+    "engine-graph": {
+     "id": 52,
+     "label": "gridatlas 202609030205-corridor-estimate.js",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:gridatlas 202609030205-corridor-estimate.js",
+     "label": "gridatlas 202609030205-corridor-estimate.js",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-gridatlas-202609030205-corridor-estimate-js",
+     "label": "gridatlas 202609030205-corridor-estimate.js",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "gs · circles and shapes on the map": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Gs",
+     "label": "Gs · Circles and shapes on the map",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-15",
+     "label": "15 Gs · Circles and shapes on the map",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Gs",
+     "label": "Gs · Circles and shapes on the map",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Gs"
+  },
+  "hasvalidatedmodel": {
+   "graphs": {
+    "random": {
+     "id": "#3748 hasValidatedModel",
+     "label": "#3748 hasValidatedModel",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3764 hasValidatedModel",
+     "label": "#3764 hasValidatedModel",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "head_sha": {
+   "graphs": {
+    "random": {
+     "id": "#401 head_sha",
+     "label": "#401 head_sha",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#401 head_sha",
+     "label": "#401 head_sha",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "hi · hit radius vertex px": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Hi",
+     "label": "Hi · Hit radius vertex px",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Hi",
+     "label": "Hi · Hit radius vertex px",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-4",
+     "label": "4 Hi · Hit radius vertex px",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Hi",
+     "label": "Hi · Hit radius vertex px",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Hi"
+  },
+  "hr hit_radius_edge_px": {
+   "graphs": {
+    "random": {
+     "id": "Hr HIT_RADIUS_EDGE_PX",
+     "label": "Hr HIT_RADIUS_EDGE_PX",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Hr HIT_RADIUS_EDGE_PX",
+     "label": "Hr HIT_RADIUS_EDGE_PX",
+     "type": "element",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": null
+  },
+  "hr · hit radius edge px": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Hr",
+     "label": "Hr · Hit radius edge px",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Hr",
+     "label": "Hr · Hit radius edge px",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-3",
+     "label": "3 Hr · Hit radius edge px",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Hr",
+     "label": "Hr · Hit radius edge px",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Hr"
+  },
+  "ie · interconnector economics": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Ie",
+     "label": "Ie · Interconnector economics",
+     "type": "engine",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-29",
+     "label": "29 Ie · Interconnector economics",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Ie",
+     "label": "Ie · Interconnector economics",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ie"
+  },
+  "indexnewsitems": {
+   "graphs": {
+    "random": {
+     "id": "#3812 indexNewsItems",
+     "label": "#3812 indexNewsItems",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3799 indexNewsItems",
+     "label": "#3799 indexNewsItems",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "initmap": {
+   "graphs": {
+    "random": {
+     "id": "#1220 initMap",
+     "label": "#1220 initMap",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1220 initMap",
+     "label": "#1220 initMap",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "installstyles": {
+   "graphs": {
+    "random": {
+     "id": "#1463 installStyles",
+     "label": "#1463 installStyles",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1463 installStyles",
+     "label": "#1463 installStyles",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "invariant": {
+   "graphs": {
+    "modular": {
+     "id": "family:1586",
+     "label": "#1586 invariant",
+     "type": "library element",
+     "rag": "green"
+    },
+    "random": {
+     "id": "#1476 invariant",
+     "label": "#1476 invariant",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1535 invariant",
+     "label": "#1535 invariant",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "io · industrial offtakers": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Io",
+     "label": "Io · Industrial offtakers",
+     "type": "layer",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-44",
+     "label": "44 Io · Industrial offtakers",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Io",
+     "label": "Io · Industrial offtakers",
+     "type": "layer",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Io"
+  },
+  "isretiredreceiver": {
+   "graphs": {
+    "modular": {
+     "id": "family:80243",
+     "label": "#80243 isRetiredReceiver",
+     "type": "element",
+     "rag": "amber"
+    },
+    "vedic": {
+     "id": "#8492 isRetiredReceiver",
+     "label": "#8492 isRetiredReceiver",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "l limit": {
+   "graphs": {
+    "random": {
+     "id": "L LIMIT",
+     "label": "L LIMIT",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "L LIMIT",
+     "label": "L LIMIT",
+     "type": "element",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": null
+  },
+  "l · limit": {
+   "graphs": {
+    "decisions": {
+     "id": "block:L",
+     "label": "L · Limit",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:L",
+     "label": "L · Limit",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-5",
+     "label": "5 L · Limit",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:L",
+     "label": "L · Limit",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "L"
+  },
+  "layout-tool": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/layout-tool",
+     "label": "layout-tool",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/layout-tool",
+     "label": "layout-tool",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "layoutsnapshot": {
+   "graphs": {
+    "random": {
+     "id": "#4281 layoutSnapshot",
+     "label": "#4281 layoutSnapshot",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4281 layoutSnapshot",
+     "label": "#4281 layoutSnapshot",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ln · live news discovery": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Ln",
+     "label": "Ln · Live news discovery",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-56",
+     "label": "56 Ln · Live news discovery",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Ln",
+     "label": "Ln · Live news discovery",
+     "type": "tool",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ln"
+  },
+  "log_message": {
+   "graphs": {
+    "random": {
+     "id": "#6974 log_message",
+     "label": "#6974 log_message",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#6974 log_message",
+     "label": "#6974 log_message",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "map cartridges": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:cartridges",
+     "label": "Map cartridges",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-cartridges",
+     "label": "Map cartridges",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:cartridges",
+     "label": "Map cartridges",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "map layers": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:layers",
+     "label": "Map layers",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-layers",
+     "label": "Map layers",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:layers",
+     "label": "Map layers",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "mb · atlas menu bar": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Mb",
+     "label": "Mb · Atlas menu bar",
+     "type": "cartridge",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-59",
+     "label": "59 Mb · Atlas menu bar",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Mb",
+     "label": "Mb · Atlas menu bar",
+     "type": "cartridge",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "Mb"
+  },
+  "megawatts": {
+   "graphs": {
+    "random": {
+     "id": "#6652 megawatts",
+     "label": "#6652 megawatts",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#6652 megawatts",
+     "label": "#6652 megawatts",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "migratefinanceunitstowp": {
+   "graphs": {
+    "random": {
+     "id": "#1197 migrateFinanceUnitsToWp",
+     "label": "#1197 migrateFinanceUnitsToWp",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1197 migrateFinanceUnitsToWp",
+     "label": "#1197 migrateFinanceUnitsToWp",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "mountmapcontrolslayout": {
+   "graphs": {
+    "random": {
+     "id": "#4114 mountMapControlsLayout",
+     "label": "#4114 mountMapControlsLayout",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4114 mountMapControlsLayout",
+     "label": "#4114 mountMapControlsLayout",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "mr · max resources": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Mr",
+     "label": "Mr · Max resources",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Mr",
+     "label": "Mr · Max resources",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-6",
+     "label": "6 Mr · Max resources",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Mr",
+     "label": "Mr · Max resources",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Mr"
+  },
+  "mt · max tries": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Mt",
+     "label": "Mt · Max tries",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Mt",
+     "label": "Mt · Max tries",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-7",
+     "label": "7 Mt · Max tries",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Mt",
+     "label": "Mt · Max tries",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Mt"
+  },
+  "nearest": {
+   "graphs": {
+    "modular": {
+     "id": "family:67981",
+     "label": "#67981 nearest",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "#4538 nearest",
+     "label": "#4538 nearest",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4538 nearest",
+     "label": "#4538 nearest",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "normaliseintegerfields": {
+   "graphs": {
+    "random": {
+     "id": "#5 normaliseIntegerFields",
+     "label": "#5 normaliseIntegerFields",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5 normaliseIntegerFields",
+     "label": "#5 normaliseIntegerFields",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "notify": {
+   "graphs": {
+    "random": {
+     "id": "#7945 notify",
+     "label": "#7945 notify",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#7945 notify",
+     "label": "#7945 notify",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "nt · grid network topology": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Nt",
+     "label": "Nt · Grid network topology",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-19",
+     "label": "19 Nt · Grid network topology",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Nt",
+     "label": "Nt · Grid network topology",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Nt"
+  },
+  "overlap": {
+   "graphs": {
+    "random": {
+     "id": "#8436 overlap",
+     "label": "#8436 overlap",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#8436 overlap",
+     "label": "#8436 overlap",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "pages and interface": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:interface",
+     "label": "Pages and interface",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-interface",
+     "label": "Pages and interface",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:interface",
+     "label": "Pages and interface",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "pair": {
+   "graphs": {
+    "random": {
+     "id": "#5490 pair",
+     "label": "#5490 pair",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5490 pair",
+     "label": "#5490 pair",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "panel": {
+   "graphs": {
+    "random": {
+     "id": "#5440 panel",
+     "label": "#5440 panel",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5440 panel",
+     "label": "#5440 panel",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "pf published-fault-level.js": {
+   "graphs": {
+    "random": {
+     "id": "Pf published-fault-level.js",
+     "label": "Pf published-fault-level.js",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Pf published-fault-level.js",
+     "label": "Pf published-fault-level.js",
+     "type": "element",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "pf · published fault level": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Pf",
+     "label": "Pf · Published fault level",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-23",
+     "label": "23 Pf · Published fault level",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Pf",
+     "label": "Pf · Published fault level",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Pf"
+  },
+  "pipeline news": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:news",
+     "label": "Pipeline News",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-news",
+     "label": "Pipeline News",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:news",
+     "label": "Pipeline News",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "pipelinenews": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/pipelinenews",
+     "label": "pipelinenews",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/pipelinenews",
+     "label": "pipelinenews",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/pipelinenews",
+     "label": "pipelinenews",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "pn · pipeline news app": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Pn",
+     "label": "Pn · Pipeline News app",
+     "type": "app",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-53",
+     "label": "53 Pn · Pipeline News app",
+     "type": "app",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Pn",
+     "label": "Pn · Pipeline News app",
+     "type": "app",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Pn"
+  },
+  "po · power factor": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Po",
+     "label": "Po · Power factor",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-30",
+     "label": "30 Po · Power factor",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Po",
+     "label": "Po · Power factor",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Po"
+  },
+  "pp power_plants": {
+   "graphs": {
+    "random": {
+     "id": "Pp power_plants",
+     "label": "Pp power_plants",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Pp power_plants",
+     "label": "Pp power_plants",
+     "type": "element",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "pp · power plants": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Pp",
+     "label": "Pp · Power plants",
+     "type": "layer",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-45",
+     "label": "45 Pp · Power plants",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Pp",
+     "label": "Pp · Power plants",
+     "type": "layer",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Pp"
+  },
+  "pr · proofs and checks": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Pr",
+     "label": "Pr · Proofs and checks",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-61",
+     "label": "61 Pr · Proofs and checks",
+     "type": "tool",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Pr",
+     "label": "Pr · Proofs and checks",
+     "type": "tool",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Pr"
+  },
+  "preparepage": {
+   "graphs": {
+    "random": {
+     "id": "#4272 preparePage",
+     "label": "#4272 preparePage",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4272 preparePage",
+     "label": "#4272 preparePage",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "presentsummary": {
+   "graphs": {
+    "random": {
+     "id": "#1680 presentSummary",
+     "label": "#1680 presentSummary",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1680 presentSummary",
+     "label": "#1680 presentSummary",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "projects": {
+   "graphs": {
+    "random": {
+     "id": "#5909 projects",
+     "label": "#5909 projects",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5909 projects",
+     "label": "#5909 projects",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "proofs and checks": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:proofs",
+     "label": "Proofs and checks",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-proofs",
+     "label": "Proofs and checks",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:proofs",
+     "label": "Proofs and checks",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "provisional": {
+   "graphs": {
+    "random": {
+     "id": "#3406 provisional",
+     "label": "#3406 provisional",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3406 provisional",
+     "label": "#3406 provisional",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ps · place search and arrival": {
+   "graphs": {
+    "generated-apps": {
+     "id": "block:Ps",
+     "label": "Ps · Place search and arrival",
+     "type": "block",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Ps",
+     "label": "Ps · Place search and arrival",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-48",
+     "label": "48 Ps · Place search and arrival",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Ps",
+     "label": "Ps · Place search and arrival",
+     "type": "cartridge",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ps"
+  },
+  "published": {
+   "graphs": {
+    "random": {
+     "id": "#3573 published",
+     "label": "#3573 published",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3573 published",
+     "label": "#3573 published",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "query": {
+   "graphs": {
+    "random": {
+     "id": "#537 query",
+     "label": "#537 query",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#537 query",
+     "label": "#537 query",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "quote": {
+   "graphs": {
+    "modular": {
+     "id": "family:80336",
+     "label": "#80336 quote",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "#8538 quote",
+     "label": "#8538 quote",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#8538 quote",
+     "label": "#8538 quote",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "r · railways": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:R",
+     "label": "R · Railways",
+     "type": "layer",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-46",
+     "label": "46 R · Railways",
+     "type": "layer",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:R",
+     "label": "R · Railways",
+     "type": "layer",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "R"
+  },
+  "ra · repd grid atlas core engine (v3 to v8)": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Ra",
+     "label": "Ra · REPD Grid Atlas core engine (v3 to v8)",
+     "type": "app",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-49",
+     "label": "49 Ra · REPD Grid Atlas core engine (v3 to v8)",
+     "type": "app",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Ra",
+     "label": "Ra · REPD Grid Atlas core engine (v3 to v8)",
+     "type": "app",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ra"
+  },
+  "re · line and transformer ratings": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Re",
+     "label": "Re · Line and transformer ratings",
+     "type": "engine",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-21",
+     "label": "21 Re · Line and transformer ratings",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Re",
+     "label": "Re · Line and transformer ratings",
+     "type": "engine",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "Re"
+  },
+  "readjson": {
+   "graphs": {
+    "random": {
+     "id": "#4318 readJson",
+     "label": "#4318 readJson",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4316 readJson",
+     "label": "#4316 readJson",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "readtext": {
+   "graphs": {
+    "random": {
+     "id": "#4315 readText",
+     "label": "#4315 readText",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4315 readText",
+     "label": "#4315 readText",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "recalcall": {
+   "graphs": {
+    "random": {
+     "id": "#1233 recalcAll",
+     "label": "#1233 recalcAll",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1233 recalcAll",
+     "label": "#1233 recalcAll",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "relation": {
+   "graphs": {
+    "random": {
+     "id": "#4646 relation",
+     "label": "#4646 relation",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4646 relation",
+     "label": "#4646 relation",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "release": {
+   "graphs": {
+    "random": {
+     "id": "#3606 release",
+     "label": "#3606 release",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3606 release",
+     "label": "#3606 release",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "renderfinancewarnings": {
+   "graphs": {
+    "random": {
+     "id": "#1201 renderFinanceWarnings",
+     "label": "#1201 renderFinanceWarnings",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1201 renderFinanceWarnings",
+     "label": "#1201 renderFinanceWarnings",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "renderissues": {
+   "graphs": {
+    "random": {
+     "id": "#14 renderIssues",
+     "label": "#14 renderIssues",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#14 renderIssues",
+     "label": "#14 renderIssues",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "rendernews": {
+   "graphs": {
+    "random": {
+     "id": "#3820 renderNews",
+     "label": "#3820 renderNews",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3848 renderNews",
+     "label": "#3848 renderNews",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "repdupdatedtimestamp": {
+   "graphs": {
+    "random": {
+     "id": "#3880 repdUpdatedTimestamp",
+     "label": "#3880 repdUpdatedTimestamp",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3880 repdUpdatedTimestamp",
+     "label": "#3880 repdUpdatedTimestamp",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "reset": {
+   "graphs": {
+    "random": {
+     "id": "#4076 reset",
+     "label": "#4076 reset",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4076 reset",
+     "label": "#4076 reset",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ri · repd ids": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Ri",
+     "label": "Ri · Repd ids",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Ri",
+     "label": "Ri · Repd ids",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-8",
+     "label": "8 Ri · Repd ids",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Ri",
+     "label": "Ri · Repd ids",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Ri"
+  },
+  "ro · route obstacles": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Ro",
+     "label": "Ro · Route obstacles",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-28",
+     "label": "28 Ro · Route obstacles",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Ro",
+     "label": "Ro · Route obstacles",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ro"
+  },
+  "rowobject": {
+   "graphs": {
+    "modular": {
+     "id": "family:8299",
+     "label": "#8299 rowObject",
+     "type": "library element",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3366 rowObject",
+     "label": "#3366 rowObject",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "rp repd_page": {
+   "graphs": {
+    "random": {
+     "id": "Rp REPD_PAGE",
+     "label": "Rp REPD_PAGE",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Rp REPD_PAGE",
+     "label": "Rp REPD_PAGE",
+     "type": "element",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": null
+  },
+  "rp · repd page": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Rp",
+     "label": "Rp · Repd page",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Rp",
+     "label": "Rp · Repd page",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-9",
+     "label": "9 Rp · Repd page",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Rp",
+     "label": "Rp · Repd page",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Rp"
+  },
+  "s · statuses": {
+   "graphs": {
+    "decisions": {
+     "id": "block:S",
+     "label": "S · Statuses",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:S",
+     "label": "S · Statuses",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-11",
+     "label": "11 S · Statuses",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:S",
+     "label": "S · Statuses",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "S"
+  },
+  "sa · satellite imagery": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Sa",
+     "label": "Sa · Satellite imagery",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-60",
+     "label": "60 Sa · Satellite imagery",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Sa",
+     "label": "Sa · Satellite imagery",
+     "type": "cartridge",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Sa"
+  },
+  "sb · solar and bess single-line sandbox": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Sb",
+     "label": "Sb · Solar and BESS single-line sandbox",
+     "type": "app",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-51",
+     "label": "51 Sb · Solar and BESS single-line sandbox",
+     "type": "app",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Sb",
+     "label": "Sb · Solar and BESS single-line sandbox",
+     "type": "app",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Sb"
+  },
+  "schedule": {
+   "graphs": {
+    "random": {
+     "id": "#4364 schedule",
+     "label": "#4364 schedule",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4364 schedule",
+     "label": "#4364 schedule",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "scope": {
+   "graphs": {
+    "random": {
+     "id": "#3403 scope",
+     "label": "#3403 scope",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3403 scope",
+     "label": "#3403 scope",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "select": {
+   "graphs": {
+    "random": {
+     "id": "#1567 select",
+     "label": "#1567 select",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1567 select",
+     "label": "#1567 select",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "selftest": {
+   "graphs": {
+    "random": {
+     "id": "#1533 selfTest",
+     "label": "#1533 selfTest",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1533 selfTest",
+     "label": "#1533 selfTest",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "setgaugeuniversev9_2": {
+   "graphs": {
+    "random": {
+     "id": "#3792 setGaugeUniverseV9_2",
+     "label": "#3792 setGaugeUniverseV9_2",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3792 setGaugeUniverseV9_2",
+     "label": "#3792 setGaugeUniverseV9_2",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "sha256hex": {
+   "graphs": {
+    "modular": {
+     "id": "family:8285",
+     "label": "#8285 sha256Hex",
+     "type": "element",
+     "rag": "amber"
+    },
+    "vedic": {
+     "id": "#1464 sha256Hex",
+     "label": "#1464 sha256Hex",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "sharedduckdbruntime": {
+   "graphs": {
+    "modular": {
+     "id": "family:8290",
+     "label": "#8290 sharedDuckDBRuntime",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "#3360 sharedDuckDBRuntime",
+     "label": "#3360 sharedDuckDBRuntime",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3360 sharedDuckDBRuntime",
+     "label": "#3360 sharedDuckDBRuntime",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "showpopup": {
+   "graphs": {
+    "random": {
+     "id": "#1222 showPopup",
+     "label": "#1222 showPopup",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1222 showPopup",
+     "label": "#1222 showPopup",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si substation-intelligence": {
+   "graphs": {
+    "random": {
+     "id": "Si substation-intelligence",
+     "label": "Si substation-intelligence",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Si substation-intelligence",
+     "label": "Si substation-intelligence",
+     "type": "element",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si · substation-intelligence": {
+   "graphs": {
+    "generated-apps": {
+     "id": "block:Si",
+     "label": "Si · substation-intelligence",
+     "type": "block",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Si",
+     "label": "Si · substation-intelligence",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-35",
+     "label": "35 Si · substation-intelligence",
+     "type": "cartridge",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Si",
+     "label": "Si · substation-intelligence",
+     "type": "cartridge",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Si"
+  },
+  "si(202609012045)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609012045)",
+     "label": "Si(202609012045)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609012045)",
+     "label": "Si(202609012045)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609030156)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609030156)",
+     "label": "Si(202609030156)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609030156)",
+     "label": "Si(202609030156)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609031316)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609031316)",
+     "label": "Si(202609031316)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609031316)",
+     "label": "Si(202609031316)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609031751)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609031751)",
+     "label": "Si(202609031751)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609031751)",
+     "label": "Si(202609031751)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609031809)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609031809)",
+     "label": "Si(202609031809)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609031809)",
+     "label": "Si(202609031809)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609032005)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609032005)",
+     "label": "Si(202609032005)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609032005)",
+     "label": "Si(202609032005)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609032041)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609032041)",
+     "label": "Si(202609032041)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609032041)",
+     "label": "Si(202609032041)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609040134)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609040134)",
+     "label": "Si(202609040134)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Si(202609040134)",
+     "label": "Si(202609040134)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609041956)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609041956)",
+     "label": "Si(202609041956)",
+     "type": "element",
+     "rag": "green"
+    },
+    "random": {
+     "id": "Si(202609041956)",
+     "label": "Si(202609041956)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609050249)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609050249)",
+     "label": "Si(202609050249)",
+     "type": "element",
+     "rag": "green"
+    },
+    "random": {
+     "id": "Si(202609050249)",
+     "label": "Si(202609050249)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609051329)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609051329)",
+     "label": "Si(202609051329)",
+     "type": "element",
+     "rag": "green"
+    },
+    "random": {
+     "id": "Si(202609051329)",
+     "label": "Si(202609051329)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "si(202609062358)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Si(202609062358)",
+     "label": "Si(202609062358)",
+     "type": "element",
+     "rag": "green"
+    },
+    "random": {
+     "id": "Si(202609062358)",
+     "label": "Si(202609062358)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "signalforprojectv9_2": {
+   "graphs": {
+    "random": {
+     "id": "#3801 signalForProjectV9_2",
+     "label": "#3801 signalForProjectV9_2",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3801 signalForProjectV9_2",
+     "label": "#3801 signalForProjectV9_2",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "signallabel": {
+   "graphs": {
+    "random": {
+     "id": "#3800 signalLabel",
+     "label": "#3800 signalLabel",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3800 signalLabel",
+     "label": "#3800 signalLabel",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "sld-sandbox-technology-buckets.js layer_id_for_bucket": {
+   "graphs": {
+    "engine-graph": {
+     "id": 46,
+     "label": "sld-sandbox-technology-buckets.js LAYER_ID_FOR_BUCKET",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:sld-sandbox-technology-buckets.js LAYER_ID_FOR_BUCKET",
+     "label": "sld-sandbox-technology-buckets.js LAYER_ID_FOR_BUCKET",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-sld-sandbox-technology-buckets-js-LAYER-ID-FOR-BUCKET",
+     "label": "sld-sandbox-technology-buckets.js LAYER_ID_FOR_BUCKET",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "sld-sandbox: error: grid-scope requires the geodesy module": {
+   "graphs": {
+    "chemistry": {
+     "id": "sld-sandbox: Error: grid-scope requires the geodesy module",
+     "label": "sld-sandbox: Error: grid-scope requires the geodesy module",
+     "type": "decay",
+     "rag": "red"
+    },
+    "modular": {
+     "id": "decay:grid-scope requires the geodesy module",
+     "label": "sld-sandbox: Error: grid-scope requires the geodesy module",
+     "type": "decay",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "sld-sandbox: error: sld-sandbox requires the sld-styles module": {
+   "graphs": {
+    "chemistry": {
+     "id": "sld-sandbox: Error: sld-sandbox requires the sld-styles module",
+     "label": "sld-sandbox: Error: sld-sandbox requires the sld-styles module",
+     "type": "decay",
+     "rag": "red"
+    },
+    "modular": {
+     "id": "decay:sld-sandbox requires the sld-styles module",
+     "label": "sld-sandbox: Error: sld-sandbox requires the sld-styles module",
+     "type": "decay",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "sm · solar min exclusive": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Sm",
+     "label": "Sm · Solar min exclusive",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:Sm",
+     "label": "Sm · Solar min exclusive",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-10",
+     "label": "10 Sm · Solar min exclusive",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Sm",
+     "label": "Sm · Solar min exclusive",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "Sm"
+  },
+  "solar, bess and cables": {
+   "graphs": {
+    "periodic-table": {
+     "id": "category:solar",
+     "label": "Solar, BESS and cables",
+     "type": "category",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "cat-solar",
+     "label": "Solar, BESS and cables",
+     "type": "purpose",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "category:solar",
+     "label": "Solar, BESS and cables",
+     "type": "category",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "solar-electrical-topology-analysis-engine-text-based": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/solar-electrical-topology-analysis-engine-text-based",
+     "label": "solar-electrical-topology-analysis-engine-text-based",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/solar-electrical-topology-analysis-engine-text-based",
+     "label": "solar-electrical-topology-analysis-engine-text-based",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "sourceid": {
+   "graphs": {
+    "random": {
+     "id": "#4942 sourceId",
+     "label": "#4942 sourceId",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4942 sourceId",
+     "label": "#4942 sourceId",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "sp · streaming-parquet-bridge": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Sp",
+     "label": "Sp · streaming-parquet-bridge",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-32",
+     "label": "32 Sp · streaming-parquet-bridge",
+     "type": "cartridge",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Sp",
+     "label": "Sp · streaming-parquet-bridge",
+     "type": "cartridge",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Sp"
+  },
+  "spiders": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/spiders",
+     "label": "spiders",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/spiders",
+     "label": "spiders",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/spiders",
+     "label": "spiders",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss",
+     "label": "Ss",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss",
+     "label": "Ss",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss sld-sandbox": {
+   "graphs": {
+    "random": {
+     "id": "Ss sld-sandbox",
+     "label": "Ss sld-sandbox",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Ss sld-sandbox",
+     "label": "Ss sld-sandbox",
+     "type": "element",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss · sld-sandbox": {
+   "graphs": {
+    "decisions": {
+     "id": "block:Ss",
+     "label": "Ss · sld-sandbox",
+     "type": "cartridge",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Ss",
+     "label": "Ss · sld-sandbox",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-34",
+     "label": "34 Ss · sld-sandbox",
+     "type": "cartridge",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Ss",
+     "label": "Ss · sld-sandbox",
+     "type": "cartridge",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ss"
+  },
+  "ss(202609012141)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609012141)",
+     "label": "Ss(202609012141)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609012141)",
+     "label": "Ss(202609012141)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609031751)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609031751)",
+     "label": "Ss(202609031751)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609031751)",
+     "label": "Ss(202609031751)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609032315)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609032315)",
+     "label": "Ss(202609032315)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609032315)",
+     "label": "Ss(202609032315)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609040021)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609040021)",
+     "label": "Ss(202609040021)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609040021)",
+     "label": "Ss(202609040021)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609040219)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609040219)",
+     "label": "Ss(202609040219)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609040219)",
+     "label": "Ss(202609040219)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609040337)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609040337)",
+     "label": "Ss(202609040337)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609040337)",
+     "label": "Ss(202609040337)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609040403)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609040403)",
+     "label": "Ss(202609040403)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609040403)",
+     "label": "Ss(202609040403)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609041244)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609041244)",
+     "label": "Ss(202609041244)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609041244)",
+     "label": "Ss(202609041244)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609050238)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609050238)",
+     "label": "Ss(202609050238)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609050238)",
+     "label": "Ss(202609050238)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609050354)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609050354)",
+     "label": "Ss(202609050354)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609050354)",
+     "label": "Ss(202609050354)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609070857)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609070857)",
+     "label": "Ss(202609070857)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609070857)",
+     "label": "Ss(202609070857)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609070913)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609070913)",
+     "label": "Ss(202609070913)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609070913)",
+     "label": "Ss(202609070913)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609071005)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609071005)",
+     "label": "Ss(202609071005)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609071005)",
+     "label": "Ss(202609071005)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609072329)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609072329)",
+     "label": "Ss(202609072329)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609072329)",
+     "label": "Ss(202609072329)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609080837)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609080837)",
+     "label": "Ss(202609080837)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609080837)",
+     "label": "Ss(202609080837)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "ss(202609080850)": {
+   "graphs": {
+    "chemistry": {
+     "id": "Ss(202609080850)",
+     "label": "Ss(202609080850)",
+     "type": "element",
+     "rag": "amber"
+    },
+    "random": {
+     "id": "Ss(202609080850)",
+     "label": "Ss(202609080850)",
+     "type": "chemistry",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "st · solar electrical topology (text engine)": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:St",
+     "label": "St · Solar electrical topology (text engine)",
+     "type": "app",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-52",
+     "label": "52 St · Solar electrical topology (text engine)",
+     "type": "app",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:St",
+     "label": "St · Solar electrical topology (text engine)",
+     "type": "app",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "St"
+  },
+  "star-maker": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/star-maker",
+     "label": "star-maker",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/star-maker",
+     "label": "star-maker",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "startcableroutemode": {
+   "graphs": {
+    "random": {
+     "id": "#3262 startCableRouteMode",
+     "label": "#3262 startCableRouteMode",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3262 startCableRouteMode",
+     "label": "#3262 startCableRouteMode",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "structure": {
+   "graphs": {
+    "random": {
+     "id": "Structure",
+     "label": "Structure",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "Structure",
+     "label": "Structure",
+     "type": "class",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "substation-intelligence cartridge, geodesy copy #1": {
+   "graphs": {
+    "engine-graph": {
+     "id": 23,
+     "label": "substation-intelligence cartridge, geodesy copy #1",
+     "type": "fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-substation-intelligence-cartridge-geodesy-copy-1",
+     "label": "substation-intelligence cartridge, geodesy copy #1",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "substation-intelligence cartridge, inline nearest()": {
+   "graphs": {
+    "engine-graph": {
+     "id": 41,
+     "label": "substation-intelligence cartridge, inline nearest()",
+     "type": "fragment",
+     "rag": "red"
+    },
+    "sense": {
+     "id": "copy-substation-intelligence-cartridge-inline-nearest-",
+     "label": "substation-intelligence cartridge, inline nearest()",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "success": {
+   "graphs": {
+    "random": {
+     "id": "#4569 success",
+     "label": "#4569 success",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#4569 success",
+     "label": "#4569 success",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "t technologies": {
+   "graphs": {
+    "random": {
+     "id": "T TECHNOLOGIES",
+     "label": "T TECHNOLOGIES",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "T TECHNOLOGIES",
+     "label": "T TECHNOLOGIES",
+     "type": "element",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": null
+  },
+  "t · technologies": {
+   "graphs": {
+    "decisions": {
+     "id": "block:T",
+     "label": "T · Technologies",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "periodic-table": {
+     "id": "block:T",
+     "label": "T · Technologies",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-12",
+     "label": "12 T · Technologies",
+     "type": "constant",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:T",
+     "label": "T · Technologies",
+     "type": "constant",
+     "rag": "amber"
+    }
+   },
+   "block_symbol": "T"
+  },
+  "teleprinter": {
+   "graphs": {
+    "periodic-table": {
+     "id": "repo:Ventusltd/teleprinter",
+     "label": "teleprinter",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/teleprinter",
+     "label": "teleprinter",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "testcode": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/testcode",
+     "label": "testcode",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/testcode",
+     "label": "testcode",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/testcode",
+     "label": "testcode",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "title": {
+   "graphs": {
+    "random": {
+     "id": "#5439 title",
+     "label": "#5439 title",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5439 title",
+     "label": "#5439 title",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "tool": {
+   "graphs": {
+    "random": {
+     "id": "#8398 tool",
+     "label": "#8398 tool",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#8398 tool",
+     "label": "#8398 tool",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "tp · teleprinter controls": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Tp",
+     "label": "Tp · Teleprinter controls",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-57",
+     "label": "57 Tp · Teleprinter controls",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Tp",
+     "label": "Tp · Teleprinter controls",
+     "type": "cartridge",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Tp"
+  },
+  "ug · uk-gazetteer-flyto": {
+   "graphs": {
+    "generated-apps": {
+     "id": "block:Ug",
+     "label": "Ug · uk-gazetteer-flyto",
+     "type": "block",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Ug",
+     "label": "Ug · uk-gazetteer-flyto",
+     "type": "cartridge",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-33",
+     "label": "33 Ug · uk-gazetteer-flyto",
+     "type": "cartridge",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Ug",
+     "label": "Ug · uk-gazetteer-flyto",
+     "type": "cartridge",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Ug"
+  },
+  "updatearrayrotationdisplay": {
+   "graphs": {
+    "random": {
+     "id": "#1241 updateArrayRotationDisplay",
+     "label": "#1241 updateArrayRotationDisplay",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1241 updateArrayRotationDisplay",
+     "label": "#1241 updateArrayRotationDisplay",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "updateexportcablelengthdisplay": {
+   "graphs": {
+    "random": {
+     "id": "#1240 updateExportCableLengthDisplay",
+     "label": "#1240 updateExportCableLengthDisplay",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1240 updateExportCableLengthDisplay",
+     "label": "#1240 updateExportCableLengthDisplay",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "updategaugesv9_2": {
+   "graphs": {
+    "random": {
+     "id": "#3793 updateGaugesV9_2",
+     "label": "#3793 updateGaugesV9_2",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3793 updateGaugesV9_2",
+     "label": "#3793 updateGaugesV9_2",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "updatemeasuredisplay": {
+   "graphs": {
+    "modular": {
+     "id": "family:5633",
+     "label": "#5633 updateMeasureDisplay",
+     "type": "element",
+     "rag": "amber"
+    },
+    "vedic": {
+     "id": "#1811 updateMeasureDisplay",
+     "label": "#1811 updateMeasureDisplay",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "updateresultsummary": {
+   "graphs": {
+    "random": {
+     "id": "#3869 updateResultSummary",
+     "label": "#3869 updateResultSummary",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3869 updateResultSummary",
+     "label": "#3869 updateResultSummary",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "updateselectedsubstationdisplay": {
+   "graphs": {
+    "random": {
+     "id": "#1232 updateSelectedSubstationDisplay",
+     "label": "#1232 updateSelectedSubstationDisplay",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1232 updateSelectedSubstationDisplay",
+     "label": "#1232 updateSelectedSubstationDisplay",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "validateasset": {
+   "graphs": {
+    "random": {
+     "id": "#1465 validateAsset",
+     "label": "#1465 validateAsset",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#1465 validateAsset",
+     "label": "#1465 validateAsset",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "validpayload": {
+   "graphs": {
+    "random": {
+     "id": "#3805 validPayload",
+     "label": "#3805 validPayload",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#3828 validPayload",
+     "label": "#3828 validPayload",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "vd · voltage drop": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Vd",
+     "label": "Vd · Voltage drop",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-31",
+     "label": "31 Vd · Voltage drop",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Vd",
+     "label": "Vd · Voltage drop",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Vd"
+  },
+  "ventus-corev8engine.js _zonedrawcalcarea (impl a)": {
+   "graphs": {
+    "engine-graph": {
+     "id": 29,
+     "label": "ventus-corev8engine.js _zoneDrawCalcArea (Impl A)",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:ventus-corev8engine.js _zoneDrawCalcArea (Impl A)",
+     "label": "ventus-corev8engine.js _zoneDrawCalcArea (Impl A)",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-ventus-corev8engine-js-zoneDrawCalcArea-Impl-A-",
+     "label": "ventus-corev8engine.js _zoneDrawCalcArea (Impl A)",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "ventus-corev8engine.js _zonedrawcirclepoints": {
+   "graphs": {
+    "engine-graph": {
+     "id": 32,
+     "label": "ventus-corev8engine.js _zoneDrawCirclePoints",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:ventus-corev8engine.js _zoneDrawCirclePoints",
+     "label": "ventus-corev8engine.js _zoneDrawCirclePoints",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-ventus-corev8engine-js-zoneDrawCirclePoints",
+     "label": "ventus-corev8engine.js _zoneDrawCirclePoints",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "ventus-corev8engine.js creategeojsoncircle": {
+   "graphs": {
+    "engine-graph": {
+     "id": 33,
+     "label": "ventus-corev8engine.js createGeoJSONCircle",
+     "type": "fragment",
+     "rag": "amber"
+    },
+    "modular": {
+     "id": "engine:ventus-corev8engine.js createGeoJSONCircle",
+     "label": "ventus-corev8engine.js createGeoJSONCircle",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-ventus-corev8engine-js-createGeoJSONCircle",
+     "label": "ventus-corev8engine.js createGeoJSONCircle",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "ventus-corev8engine.js doradiusareameasure (impl c)": {
+   "graphs": {
+    "engine-graph": {
+     "id": 31,
+     "label": "ventus-corev8engine.js doRadiusAreaMeasure (Impl C)",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:ventus-corev8engine.js doRadiusAreaMeasure (Impl C)",
+     "label": "ventus-corev8engine.js doRadiusAreaMeasure (Impl C)",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-ventus-corev8engine-js-doRadiusAreaMeasure-Impl-C-",
+     "label": "ventus-corev8engine.js doRadiusAreaMeasure (Impl C)",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "ventus-corev8engine.js haversine()": {
+   "graphs": {
+    "engine-graph": {
+     "id": 21,
+     "label": "ventus-corev8engine.js haversine()",
+     "type": "fragment",
+     "rag": "green"
+    },
+    "modular": {
+     "id": "engine:ventus-corev8engine.js haversine()",
+     "label": "ventus-corev8engine.js haversine()",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-ventus-corev8engine-js-haversine-",
+     "label": "ventus-corev8engine.js haversine()",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "ventus-corev8engine.js updatemeasuredisplay (impl b)": {
+   "graphs": {
+    "engine-graph": {
+     "id": 30,
+     "label": "ventus-corev8engine.js updateMeasureDisplay (Impl B)",
+     "type": "fragment",
+     "rag": "amber"
+    },
+    "modular": {
+     "id": "engine:ventus-corev8engine.js updateMeasureDisplay (Impl B)",
+     "label": "ventus-corev8engine.js updateMeasureDisplay (Impl B)",
+     "type": "engine fragment",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "copy-ventus-corev8engine-js-updateMeasureDisplay-Impl-B-",
+     "label": "ventus-corev8engine.js updateMeasureDisplay (Impl B)",
+     "type": "copy",
+     "rag": "red"
+    }
+   },
+   "block_symbol": null
+  },
+  "ventus-grid-engine": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/ventus-grid-engine",
+     "label": "ventus-grid-engine",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/ventus-grid-engine",
+     "label": "ventus-grid-engine",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/ventus-grid-engine",
+     "label": "ventus-grid-engine",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "vg · geodesy (v9 atlas copy)": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Vg",
+     "label": "Vg · Geodesy (v9 atlas copy)",
+     "type": "engine",
+     "rag": "grey"
+    },
+    "sense": {
+     "id": "block-17",
+     "label": "17 Vg · Geodesy (v9 atlas copy)",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Vg",
+     "label": "Vg · Geodesy (v9 atlas copy)",
+     "type": "engine",
+     "rag": "grey"
+    }
+   },
+   "block_symbol": "Vg"
+  },
+  "vn · nearest substation search": {
+   "graphs": {
+    "generated-apps": {
+     "id": "block:Vn",
+     "label": "Vn · Nearest substation search",
+     "type": "block",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "block:Vn",
+     "label": "Vn · Nearest substation search",
+     "type": "engine",
+     "rag": "green"
+    },
+    "sense": {
+     "id": "block-18",
+     "label": "18 Vn · Nearest substation search",
+     "type": "engine",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "block:Vn",
+     "label": "Vn · Nearest substation search",
+     "type": "engine",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Vn"
+  },
+  "wf · wider fleet panel": {
+   "graphs": {
+    "periodic-table": {
+     "id": "block:Wf",
+     "label": "Wf · Wider fleet panel",
+     "type": "app",
+     "rag": "amber"
+    },
+    "sense": {
+     "id": "block-55",
+     "label": "55 Wf · Wider fleet panel",
+     "type": "app",
+     "rag": "amber"
+    },
+    "structure": {
+     "id": "block:Wf",
+     "label": "Wf · Wider fleet panel",
+     "type": "app",
+     "rag": "green"
+    }
+   },
+   "block_symbol": "Wf"
+  },
+  "writesourcecodebundle": {
+   "graphs": {
+    "random": {
+     "id": "#8299 writeSourceCodeBundle",
+     "label": "#8299 writeSourceCodeBundle",
+     "type": "electron",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#8299 writeSourceCodeBundle",
+     "label": "#8299 writeSourceCodeBundle",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "writetext": {
+   "graphs": {
+    "random": {
+     "id": "#5547 writeText",
+     "label": "#5547 writeText",
+     "type": "vedic",
+     "rag": "green"
+    },
+    "vedic": {
+     "id": "#5547 writeText",
+     "label": "#5547 writeText",
+     "type": "function",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  },
+  "youengineer-code-review": {
+   "graphs": {
+    "modular": {
+     "id": "repo:Ventusltd/youengineer-code-review",
+     "label": "youengineer-code-review",
+     "type": "repo",
+     "rag": "green"
+    },
+    "periodic-table": {
+     "id": "repo:Ventusltd/youengineer-code-review",
+     "label": "youengineer-code-review",
+     "type": "repo",
+     "rag": "green"
+    },
+    "structure": {
+     "id": "repo:Ventusltd/youengineer-code-review",
+     "label": "youengineer-code-review",
+     "type": "repo",
+     "rag": "green"
+    }
+   },
+   "block_symbol": null
+  }
+ }
+}
