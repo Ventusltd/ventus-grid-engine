@@ -1,0 +1,57 @@
+name: review - receiver browser proof
+
+# Runs only on review/** branches. Nothing here deploys: Pages serves main.
+# It proves a proposed index.html change in real Chromium and WebKit, and runs
+# the same click and link checks against main's index.html, so the report shows
+# the fault before and the fix after.
+on:
+  push:
+    branches: ['review/**']
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install Playwright with Chromium and WebKit (not saved to package.json)
+        run: |
+          npm i --no-save playwright
+          npx playwright install --with-deps chromium webkit
+
+      - name: Prepare main's page beside the proposed page
+        run: |
+          git fetch -q --depth 1 origin main
+          mkdir -p /tmp/base
+          cp -r . /tmp/base/
+          git show FETCH_HEAD:index.html > /tmp/base/index.html
+          echo "proposed index.html sha256: $(sha256sum index.html | cut -c1-64)"
+          echo "main     index.html sha256: $(sha256sum /tmp/base/index.html | cut -c1-64)"
+
+      - name: Existing receiver proof on the proposed page (file://)
+        run: |
+          node spider/receiver.proof.mjs
+          rc=$?
+          echo "receiver proof rc=$rc"
+          exit $rc
+
+      - name: Click and link checks on main's page (expected to show the fault)
+        continue-on-error: true
+        run: |
+          (cd /tmp/base && python3 -m http.server 8001 >/dev/null 2>&1 &)
+          sleep 2
+          PAGE_URL=http://127.0.0.1:8001/index.html node spider/click-and-link-note.proof.mjs
+
+      - name: Click and link checks on the proposed page (must pass)
+        run: |
+          (python3 -m http.server 8000 >/dev/null 2>&1 &)
+          sleep 2
+          PAGE_URL=http://127.0.0.1:8000/index.html node spider/click-and-link-note.proof.mjs
