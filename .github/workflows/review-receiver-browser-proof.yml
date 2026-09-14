@@ -56,12 +56,15 @@ jobs:
 
       - name: Compare receiver proof failures (fail only on a new failure)
         run: |
-          grep '^ - ' /tmp/receiver-main.log | sort > /tmp/f-main.txt || true
-          grep '^ - ' /tmp/receiver-proposed.log | sort > /tmp/f-proposed.txt || true
+          grep -E '^[[:space:]]*- ' /tmp/receiver-main.log | sed -E 's/^[[:space:]]+//' | sort > /tmp/f-main.txt || true
+          grep -E '^[[:space:]]*- ' /tmp/receiver-proposed.log | sed -E 's/^[[:space:]]+//' | sort > /tmp/f-proposed.txt || true
           echo "failing on main:";     cat /tmp/f-main.txt
           echo "failing on proposed:"; cat /tmp/f-proposed.txt
           grep -q 'checks passed\|FAILED' /tmp/receiver-main.log || { echo "main proof did not run to a verdict"; exit 1; }
           grep -q 'checks passed\|FAILED' /tmp/receiver-proposed.log || { echo "proposed proof did not run to a verdict"; exit 1; }
+          # a FAILED log with an empty failure list means this parser is broken: refuse to pass
+          if grep -q FAILED /tmp/receiver-main.log && [ ! -s /tmp/f-main.txt ]; then echo "could not read main failures"; exit 1; fi
+          if grep -q FAILED /tmp/receiver-proposed.log && [ ! -s /tmp/f-proposed.txt ]; then echo "could not read proposed failures"; exit 1; fi
           new=$(comm -13 /tmp/f-main.txt /tmp/f-proposed.txt)
           if [ -n "$new" ]; then echo "NEW failures introduced by the proposal:"; echo "$new"; exit 1; fi
           echo "no new receiver proof failures"

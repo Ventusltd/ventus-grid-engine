@@ -25,7 +25,9 @@ for (const [engine, type] of [['chromium', pw.chromium], ['webkit', pw.webkit]])
     // Fix 1: a mouse click in the spider view re-centres
     await page.goto(`${PAGE}?graph=generated-apps`); await ready(page);
     await page.click('#spiderToggle'); await page.waitForTimeout(1200);
-    const before = await page.$eval('#focus', s => s.value);
+    const centreLabel = () => page.$eval('#overlay .place.center .card', c => c.textContent.trim().slice(0, 80)).catch(() => '');
+    const before = await centreLabel();
+    check(engine, 'spider view shows a centre card before the click', before !== '', `centre "${before}"`);
     const card = page.locator('#overlay .place:not(.center) .card').first();
     const n = await page.locator('#overlay .place:not(.center) .card').count();
     if (!n) { check(engine, 'spider view shows neighbour cards', false, '0 neighbour cards'); }
@@ -34,8 +36,8 @@ for (const [engine, type] of [['chromium', pw.chromium], ['webkit', pw.webkit]])
       const box = await card.boundingBox();
       await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
       await page.waitForTimeout(1000);
-      const after = await page.$eval('#focus', s => s.value);
-      check(engine, 'mouse click on a neighbour card re-centres', after !== before, `focus ${before} -> ${after}`);
+      const after = await centreLabel();
+      check(engine, 'mouse click on a neighbour card re-centres', before !== '' && after !== '' && after !== before, `centre "${before}" -> "${after}"`);
 
       // a drag must pan, not re-centre
       await page.waitForTimeout(600);
