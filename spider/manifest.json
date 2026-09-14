@@ -119,8 +119,8 @@
       "path": "https://ventusltd.github.io/code-generator/spider/graphs/apps.json",
       "edges_path": null,
       "source_spider": "code-generator (generate.mjs)",
-      "description": "Apps built from blocks of the periodic table, wired to the blocks they are made of. Amber apps still need values from their surroundings; the report lists them.",
-      "verified": "2026-09-14 HTTP 200, 9 nodes / 7 edges",
+      "description": "Apps built from blocks of the periodic table, wired to the blocks they are made of and the work orders still open. Amber apps still need values from their surroundings; the assembly page shows what loads.",
+      "verified": "2026-09-14 HTTP 200, 14 nodes / 12 edges",
       "registry": "https://ventusltd.github.io/code-generator/spider/features.yml"
     },
     {
@@ -130,7 +130,17 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (sense.mjs)",
       "description": "The code universe charted into sense: what is canonical and what is a copy, what depends on what, what is proven together and what is untested, what is a decision rather than a fact. Ordered from the whole to the parts.",
-      "verified": "2026-09-14 HTTP 200, 142 nodes / 563 edges",
+      "verified": "2026-09-14 HTTP 200, 142 nodes / 548 edges",
+      "registry": "https://ventusltd.github.io/stars/spider/features.yml"
+    },
+    {
+      "id": "decisions",
+      "title": "Decisions",
+      "path": "https://ventusltd.github.io/stars/decisions/graph.json",
+      "edges_path": null,
+      "source_spider": "stars/modular-star (decisions.mjs)",
+      "description": "The judgements attached to the maps' permanent keys: one card per decision record, open (amber), decided (green) or superseded (grey), wired to the block, constant or function family it concerns. A decided record is permission; an open record is a question. Records are made by clicks from the Decision issue form.",
+      "verified": "2026-09-14 HTTP 200, 33 nodes / 35 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml"
     }
   ]
