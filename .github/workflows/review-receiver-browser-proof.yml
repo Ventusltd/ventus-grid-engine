@@ -81,3 +81,7 @@ jobs:
           (python3 -m http.server 8000 >/dev/null 2>&1 &)
           sleep 2
           PAGE_URL=http://127.0.0.1:8000/index.html node spider/click-and-link-note.proof.mjs
+
+      # Lazy drill-in through child_path: serves its own fixture; a missing browser is a FAIL.
+      - name: Drill-in proof on the proposed page (must pass)
+        run: node spider/drill-in.proof.mjs

@@ -238,18 +238,23 @@ function resolveRef(ids,r){return ids[r]!==undefined?ids[r]:r;}
 function normaliseGenericGraph(raw){
   const rawNodes=Array.isArray(raw.nodes)?raw.nodes:(Array.isArray(raw.features)?raw.features.map(f=>({id:f.id,...(f.properties||{})})):[]);
   const ids={};
-  const nodes=rawNodes.map((n,i)=>{const id=n.id!==undefined?n.id:i;ids[id]=i;return {label:n.label||n.title||String(id),type:n.type||n.nodeKind||n.repo_type||"unknown",rag:n.rag||n.status||"grey",reason:n.reason||n.status_reason||n.path||"",gh:n.gh||null,ext:n.ext||null};});
+  const nodes=rawNodes.map((n,i)=>{const id=n.id!==undefined?n.id:i;ids[id]=i;return {label:n.label||n.title||String(id),type:n.type||n.nodeKind||n.repo_type||"unknown",rag:n.rag||n.status||"grey",reason:n.reason||n.status_reason||n.path||"",gh:n.gh||null,ext:n.ext||null,child_path:typeof n.child_path==="string"&&n.child_path?n.child_path:null};});
   const rawEdges=Array.isArray(raw.edges)?raw.edges:(Array.isArray(raw.links)?raw.links:[]);
   const edges=rawEdges.map(e=>Array.isArray(e)?[resolveRef(ids,e[0]),resolveRef(ids,e[1]),e[2]||"repo"]:[resolveRef(ids,e.from!==undefined?e.from:e.source),resolveRef(ids,e.to!==undefined?e.to:e.target),e.type||"repo"]).filter(e=>typeof e[0]==="number"&&typeof e[1]==="number");
   return {nodes,edges};
 }
 async function loadManifestScope(entry){
-  try{const r=await fetch(entry.path,{cache:"no-cache"});if(!r.ok)throw new Error(entry.path+" "+r.status);const raw=await r.json();const g=normaliseGenericGraph(raw);if(!g.nodes.length)throw new Error("empty");return {label:entry.title,nodes:g.nodes,edges:g.edges,live:true};}
+  try{const r=await fetch(entry.path,{cache:"no-cache"});if(!r.ok)throw new Error(entry.path+" "+r.status);const raw=await r.json();const g=normaliseGenericGraph(raw);if(!g.nodes.length)throw new Error("empty");return {label:entry.title,nodes:g.nodes,edges:g.edges,live:true,url:new URL(entry.path,location.href).href};}
   catch(e){return {...placeholderScope(entry.title,entry.path),live:false};}
 }
 async function wireReceiver(){
   let manifest=MANIFEST_FALLBACK;
-  try{const r=await fetch(RECEIVER_MANIFEST_PATH,{cache:"no-cache"});if(r.ok){const live=await r.json();if(Array.isArray(live.graphs)&&live.graphs.length)manifest=live;}}catch(e){}
+  const qp=new URLSearchParams(location.search);
+  /* ?manifest=<path> replaces spider/manifest.json for this load only. It exists so spider/drill-in.proof.mjs can register a fixture graph set; only a same-origin path is accepted, any other origin is ignored and the normal manifest loads. */
+  let manifestPath=RECEIVER_MANIFEST_PATH;
+  const manifestOverride=qp.get("manifest");
+  if(manifestOverride){try{const u=new URL(manifestOverride,location.href);if(u.origin===location.origin)manifestPath=u.href;}catch(e){}}
+  try{const r=await fetch(manifestPath,{cache:"no-cache"});if(r.ok){const live=await r.json();if(Array.isArray(live.graphs)&&live.graphs.length)manifest=live;}}catch(e){}
   /* Every graph the manifest lists, except the two the page builds itself.
      This read `g.id==="engine-graph"||g.id==="genome-spider"` - a hard-coded
      pair - so a manifest could add graphs for ever and the page would never
@@ -263,9 +268,11 @@ async function wireReceiver(){
     SCOPES[entry.id]=scope;
     SCOPES.root.nodes.push({label:entry.title,type:"unknown",rag:scope.live?"green":"grey",reason:entry.description||"",child:entry.id,gh:null,ext:null});
   }
-  const qp=new URLSearchParams(location.search);
   const want=qp.get("graph");
   let linkNote="";if(want){const key=want==="federation"?"root":want;if(SCOPES[key]){stack=key==="root"?[]:[{key:"root",current:0}];scopeKey=key;current=0;}else{linkNote=`The link asked for a graph named "${want}", which this page does not list; showing ${SCOPES.root.label}.`;}}
+  /* ?open=<child_path>[,<child_path>...] walks a drill-in chain on load, each path relative to the graph file before it. An unknown path stops the chain at the last good scope and the hint says so. */
+  const wantOpen=qp.get("open");
+  if(wantOpen){for(const p of wantOpen.split(",").map(s=>s.trim()).filter(Boolean)){try{drillInto(await fetchChildScope(p));}catch(e){linkNote+=(linkNote?" ":"")+`The link asked to open "${p}", which could not be fetched (${e.message}); showing ${S().label}.`;break;}}}
   /* ?focus=<node label> centres the graph on one module.
      ------------------------------------------------------------------------
      Written 202609050300 so the dashboards can link INTO the maths rather
@@ -283,10 +290,30 @@ async function wireReceiver(){
     if(i<0){const lc=wantFocus.toLowerCase();i=ns.findIndex(n=>String(n.label||"").toLowerCase()===lc);}
     if(i>=0)current=i;else linkNote+=(linkNote?" ":"")+`The link named a card "${wantFocus}", which this graph does not contain; showing its first card.`;
   }
+  /* 2026-09-14: a stale or mistyped link is still ignored, never an error, but the hint line says so, so a reader following it knows why the page is not where the link promised. The note is held in hintNote, which the wrapped setHint() below includes on every redraw (the first version appended a div after draw() and the ResizeObserver's redraw wiped it), until the reader's first action. */
+  if(linkNote)hintNote=linkNote;
   rebuildSelect();draw();
-  /* 2026-09-14: a stale or mistyped link is still ignored, never an error, but the hint line now says so once, so a reader following it knows why the page is not where the link promised. */
-  if(linkNote){const note=document.createElement("div");note.className="linknote";note.textContent=linkNote;elHint.appendChild(note);}
 }
+/* --- Lazy drill-in (2026-09-14). A node may carry child_path: the graph file it
+   opens, resolved against the URL of the graph file the node came from (the
+   scope's url; built-in scopes resolve against the page). Nothing is fetched
+   until "⊕ Open" is tapped; a fetched child is kept in SCOPES for the session,
+   keyed by its absolute URL, and entered with the same drillInto/stack/crumbs
+   the Contents drill-in uses, so the crumbs pop back. Everything here wraps or
+   reassigns; nothing above the receiver comment changes. --- */
+let hintNote="";
+const setHintReference=setHint;
+setHint=function(){setHintReference();if(hintNote){const d=document.createElement("div");d.className="linknote";d.textContent=hintNote;elHint.appendChild(d);}};
+function noteOnce(text){hintNote=text;setHint();}
+["pointerdown","keydown","change"].forEach(ev=>document.addEventListener(ev,()=>{if(hintNote){hintNote="";setHint();}},true));
+document.head.appendChild(Object.assign(document.createElement("style"),{textContent:".opengraph{align-self:flex-start;margin-top:3px;font-family:ui-monospace,monospace;font-size:.62rem;color:var(--cyan);border:1px solid rgba(0,229,255,.4);border-radius:999px;padding:4px 10px;background:rgba(0,229,255,.08);cursor:pointer}.opens{font-family:ui-monospace,monospace;font-size:.72rem;color:var(--cyan);flex:none}"}));
+function childUrl(node){return node&&node.child_path?new URL(node.child_path,S().url||location.href).href:null;}
+const cardInnerReference=cardInner;
+cardInner=function(node,opts={}){let html=cardInnerReference(node,opts);const u=childUrl(node);if(!u)return html;if(opts.center){const known=SCOPES[u];html=html.replace(/<\/div>$/,`<button class="opengraph" data-path="${node.child_path.replace(/"/g,"&quot;")}">⊕ Open${known?" ("+known.nodes.length+")":""}</button></div>`);}else{html=html.replace('<span class="dot"','<span class="opens" title="opens a graph">⊕</span><span class="dot"');}return html;};
+const drawReference=draw;
+draw=function(){drawReference();overlay.querySelectorAll(".opengraph").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();openChild(b.dataset.path);}));};
+async function fetchChildScope(path){const url=new URL(path,S().url||location.href).href;if(SCOPES[url])return url;const r=await fetch(url,{cache:"no-cache"});if(!r.ok)throw new Error("HTTP "+r.status);const raw=await r.json();const g=normaliseGenericGraph(raw);if(!g.nodes.length)throw new Error("no nodes");SCOPES[url]={label:raw.title||raw.label||raw.id||path.split("/").pop(),nodes:g.nodes,edges:g.edges,url,live:true};return url;}
+async function openChild(path){try{drillInto(await fetchChildScope(path));return true;}catch(e){noteOnce(`Could not open ${path} (${e.message}); the current graph is unchanged.`);return false;}}
 (async()=>{const src=await loadRoot();await loadContents();const tag=document.getElementById("srcTag");if(tag){tag.textContent=src;tag.classList.toggle("live",src==="live");}await wireReceiver();})();
 </script>
 </body>
