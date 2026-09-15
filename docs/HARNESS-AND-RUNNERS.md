@@ -42,7 +42,7 @@ Measured on a twenty-core laptop: one browser session on the map averages 51.6% 
 
 Everything below was used tonight from a cold start. This is Windows PowerShell 5.1, so no pipeline chain operators, no ternaries, and `wmic` is gone.
 
-**Where things live.** Runners on the SSD at `D:\gridatlas-ci`. The browser driver is already installed at `C:\Users\vikra\LocalCI\PipelineNews-GridAtlas\v004\node_modules\playwright` at version 1.58.2. The real-device bridge is `D:\android\platform-tools\adb.exe`. Nothing is installed globally and no service is registered.
+**Where things live.** Runners on the SSD at `D:\gridatlas-ci`. The browser driver is already installed in a local CI folder on the runner machine (playwright 1.58.2). The real-device bridge is `D:\android\platform-tools\adb.exe`. Nothing is installed globally and no service is registered.
 
 **Run one study. One session, opened and closed:**
 
