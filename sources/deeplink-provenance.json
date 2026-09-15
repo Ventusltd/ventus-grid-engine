@@ -4,19 +4,19 @@
   "note": "start_line/end_line refer to the ORIGINAL source file at head_sha, not to the extract file (which additionally carries a prepended provenance comment block). sha256_of_extract is the hash of the file actually written to disk in this staging directory (header comment included).",
   "repos": {
     "pipelinenews": {
-      "path": "C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\pipelinenews",
+      "path": "local checkout of Ventusltd/pipelinenews",
       "head_sha": "ade103ae2a2eec4f334e159b479f20b857d63515",
       "working_tree_clean_for_files_used": true,
       "note": "working tree has unrelated untracked build/ and releases/data/... artifacts from an in-progress 202609010145 build; none of the files copied here are affected"
     },
     "gridatlas": {
-      "path": "C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\gridatlas",
+      "path": "local checkout of Ventusltd/gridatlas",
       "head_sha": "64268fd06a0da54ddffbcdaaaee382e314e829f7",
       "working_tree_clean_for_files_used": true,
       "note": "working tree has unrelated untracked grid-run.err/.log, harvest-cache.json, tmp-debug-visibility.mjs; none of the files copied here are affected"
     },
     "globalgrid2050": {
-      "path": "C:\\Users\\vikra\\OneDrive\\Documents\\GitHub\\globalgrid2050",
+      "path": "local checkout of Ventusltd/globalgrid2050",
       "head_sha": "7d00781b6993b9038a1a8bedf2c88a4eb0109ad4",
       "note": "searched; hosts the STANDBY legacy receiver at repd_grid_atlasv8/ (ATLAS_TARGETS.legacy in the emitter) which is NOT the currently active target (ACTIVE_TARGET=\"ported\"). No emitter or receiver code was copied from this repo because the live emitter (pipelinenews) and live receiver (gridatlas/atlas) fully cover the contract; globalgrid2050's own tree only contains build mirrors/estate-scan copies of pipelinenews assets (pipelinenews_intelligence/*, homepage_versions/*), not a distinct source of truth."
     }
