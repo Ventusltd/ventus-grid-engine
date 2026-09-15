@@ -8,7 +8,12 @@ name: spider features
 #   2. read the registries      — spider/sources.yml lists features.yml files published by other
 #                                 repositories; each listed graph is fetched and counted
 #   3. update spider/manifest.json — proven graphs are added or updated; hand-written entries are
-#                                 never changed; nothing is ever deleted; index.html is never touched
+#                                 never changed; nothing is ever deleted; index.html is never touched;
+#                                 every entry's "measured" node/edge count is refreshed from what it serves
+#   4. check the manifest       — spider/manifest.proof.mjs fetches every graph and fails if a stated count
+#                                 differs from the served count or a path does not load (after first
+#                                 proving it fails its own negative fixture). Nothing is committed unless
+#                                 it passes.
 #
 # GitHub Pages republishes the dashboard from main, so a new graph shows on the front door within
 # minutes of its publisher registering it.
@@ -21,6 +26,9 @@ on:
     paths:
       - spider/sources.yml
       - spider/update_manifest.py
+      - spider/manifest.json
+      - spider/manifest.proof.mjs
+      - spider/fixtures/**
       - .github/workflows/spider-features.yml
   workflow_dispatch:
 
@@ -57,6 +65,10 @@ jobs:
 
       - name: Write the front door from the manifest
         run: python spider/overview.py
+
+      # 4. Every stated count equals the served count, and every path loads. Fail closed.
+      - name: Check the manifest against what every graph serves
+        run: node spider/manifest.proof.mjs
 
       - name: Commit if the manifest changed
         run: |

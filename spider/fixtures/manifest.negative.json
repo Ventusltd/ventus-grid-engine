@@ -1,0 +1,31 @@
+{
+  "schema_version": "receiver-manifest-v1",
+  "note": "Negative fixture for spider/manifest.proof.mjs. The checker must report 'stale-count' (its stated counts disagree with the 2 nodes / 1 edge fixtures/graph.json serves) and 'missing-path' (its path does not exist), and must NOT report 'control' (stated correctly). If it does anything else, the checker itself is broken and the proof fails before the real manifest is checked.",
+  "graphs": [
+    {
+      "id": "control",
+      "title": "Control",
+      "path": "./spider/fixtures/graph.json",
+      "edges_path": null,
+      "description": "Stated correctly: 2 nodes / 1 edges.",
+      "measured": { "nodes": 2, "edges": 1 }
+    },
+    {
+      "id": "stale-count",
+      "title": "Stale count",
+      "path": "./spider/fixtures/graph.json",
+      "edges_path": null,
+      "description": "A count typed by hand once and never refreshed.",
+      "verified": "2026-09-04 HTTP 200, 74 nodes / 411 edges",
+      "measured": { "nodes": 74, "edges": 411 }
+    },
+    {
+      "id": "missing-path",
+      "title": "Missing path",
+      "path": "./spider/fixtures/does-not-exist.json",
+      "edges_path": null,
+      "description": "A slot pointing at a file nobody publishes.",
+      "measured": { "nodes": 1, "edges": 0 }
+    }
+  ]
+}

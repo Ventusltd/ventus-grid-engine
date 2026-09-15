@@ -1,0 +1,5 @@
+{
+  "note": "Fixture for spider/manifest.proof.mjs: exactly 2 nodes and 1 edge.",
+  "nodes": [{ "id": "a", "label": "a" }, { "id": "b", "label": "b" }],
+  "edges": [{ "from": "a", "to": "b", "type": "fixture" }]
+}

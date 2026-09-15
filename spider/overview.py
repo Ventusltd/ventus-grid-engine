@@ -69,4 +69,10 @@ out = {
 }
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+# The overview is written after update_manifest.py measured it, so its own measured count is refreshed here,
+# from the file just written, rather than left one run behind.
+for g in manifest["graphs"]:
+    if g.get("id") == SELF_ID:
+        g["measured"] = {"nodes": len(nodes), "edges": len(edges)}
+MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(f"overview: {len(graphs)} graphs -> {OUT.relative_to(HERE.parent)}")

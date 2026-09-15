@@ -235,19 +235,19 @@ async function runSuite(label, browserType) {
         /* ── Manifest-driven graphs: engine-graph tolerates absence ─────────── */
 
         c('spider/manifest.json\'s "Engine population" graph is offered as a '
-            + 'FOCUS/root card even though genome/engine-graph.json does not exist '
-            + 'yet on this machine',
+            + 'FOCUS/root card even when the page is opened from file://, where '
+            + 'fetch() of genome/engine-graph.json is refused',
             await page.evaluate(() => SCOPES.root.nodes.some(n => n.label === 'Engine population')));
 
-        c('drilling into the not-yet-emitted engine graph shows a clear '
+        c('drilling into an engine graph the page could not load (file://) shows a clear '
             + 'placeholder card rather than an empty or broken view',
             await page.evaluate(() => {
                 const s = SCOPES['engine-graph'];
                 return !!s && s.nodes.length === 1 && /not yet emitted/.test(s.nodes[0].label);
             }));
 
-        c('spider/manifest.json documents the genome-spider slot even though '
-            + 'spiders/species/genome-spider does not exist yet',
+        c('the genome-spider graph (published by spiders/species/genome-spider as '
+            + 'nodes.json + edges.json) is offered as a root card from the manifest fallback',
             await page.evaluate(() => SCOPES.root.nodes.some(n => n.label === 'genome-spider output')));
     });
 

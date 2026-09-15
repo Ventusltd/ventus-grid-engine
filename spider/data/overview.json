@@ -1,7 +1,7 @@
 {
   "schema": "overview-graph.v1",
   "label": "GLOBALGRID2050 architecture",
-  "generated_utc": "2026-09-15T22:07:01Z",
+  "generated_utc": "2026-09-15T22:17:41Z",
   "note": "Generated from spider/manifest.json by spider/overview.py; one card per registered graph.",
   "counts": {
     "graphs": 15
@@ -39,7 +39,7 @@
       "label": "Engine population",
       "type": "graph",
       "rag": "green",
-      "reason": "The ventus-grid-engine population graph, emitted by a concurrently-running agent to genome/engine-graph.json.",
+      "reason": "The ventus-grid-engine population graph: the engine's canonical modules and the copies, drifts and should-imports they replace across the estate.",
       "gh": "https://github.com/Ventusltd/ventus-grid-engine",
       "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=engine-graph"
     },
@@ -47,9 +47,9 @@
       "id": "graph:genome-spider",
       "label": "genome-spider output",
       "type": "graph",
-      "rag": "grey",
-      "reason": "Documented empty slot. Placeholder: no data published yet.",
-      "gh": "https://github.com/Ventusltd/ventus-grid-engine",
+      "rag": "green",
+      "reason": "The estate genome published by spiders/species/genome-spider: repositories and their significant internal units (workflows, manifests, data products, scripts, proofs, modules, parts) as cards, wired by every dependency the spider could evidence (pinned actions, workflow checkouts, manifest paths, JSON provenance, imports, fetches).",
+      "gh": "https://github.com/Ventusltd/spiders",
       "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=genome-spider"
     },
     {
@@ -57,7 +57,7 @@
       "label": "GridAtlas cartridge lineage",
       "type": "graph",
       "rag": "green",
-      "reason": "GridAtlas's current composition and its ancestry: which cartridges it composed, which parts/modules built each cartridge, and any part whose content has moved on since that cartridge was last built. Verified 2026-09-04 HTTP 200, 74 nodes / 411 edges over 15 of 58 generations.",
+      "reason": "GridAtlas's current composition and its ancestry: which cartridges it composed, which parts/modules built each cartridge, and any part whose content has moved on since that cartridge was last built. Verified 2026-09-04 HTTP 200, first read live from the spider's published output (current counts: see measured).",
       "gh": "https://github.com/Ventusltd/spiders",
       "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=gridatlas-lineage"
     },
