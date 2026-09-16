@@ -96,11 +96,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (blocks.mjs)",
       "description": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
-      "verified": "2026-09-16 HTTP 200, 329 nodes / 993 edges",
+      "verified": "2026-09-16 HTTP 200, 331 nodes / 1001 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 329,
-        "edges": 993
+        "nodes": 331,
+        "edges": 1001
       }
     },
     {
@@ -124,11 +124,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (structure.mjs)",
       "description": "globalgrid2050 architecture development, top-down: repositories, the blocks in each, and the engine modules in their canonical order.",
-      "verified": "2026-09-16 HTTP 200, 125 nodes / 362 edges",
+      "verified": "2026-09-16 HTTP 200, 125 nodes / 361 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
         "nodes": 125,
-        "edges": 362
+        "edges": 361
       }
     },
     {
@@ -166,11 +166,11 @@
       "edges_path": null,
       "source_spider": "star-maker (random.mjs), rebuilt by stars",
       "description": "Randomly chosen links between components, for tripping over dependencies nobody wrote down. Prompts to look, not findings.",
-      "verified": "2026-09-16 HTTP 200, 168 nodes / 150 edges",
+      "verified": "2026-09-16 HTTP 200, 158 nodes / 149 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 168,
-        "edges": 150
+        "nodes": 158,
+        "edges": 149
       }
     },
     {
@@ -194,11 +194,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (sense.mjs)",
       "description": "The code universe charted into sense: what is canonical and what is a copy, what depends on what, what is proven together and what is untested, what is a decision rather than a fact. Ordered from the whole to the parts.",
-      "verified": "2026-09-16 HTTP 200, 142 nodes / 562 edges",
+      "verified": "2026-09-16 HTTP 200, 142 nodes / 561 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
         "nodes": 142,
-        "edges": 562
+        "edges": 561
       }
     },
     {
