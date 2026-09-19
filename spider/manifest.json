@@ -96,11 +96,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (blocks.mjs)",
       "description": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
-      "verified": "2026-09-19 HTTP 200, 350 nodes / 1088 edges",
+      "verified": "2026-09-19 HTTP 200, 353 nodes / 1091 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 350,
-        "edges": 1088
+        "nodes": 353,
+        "edges": 1091
       }
     },
     {
@@ -124,11 +124,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (structure.mjs)",
       "description": "globalgrid2050 architecture development, top-down: repositories, the blocks in each, and the engine modules in their canonical order.",
-      "verified": "2026-09-19 HTTP 200, 126 nodes / 366 edges",
+      "verified": "2026-09-19 HTTP 200, 126 nodes / 363 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
         "nodes": 126,
-        "edges": 366
+        "edges": 363
       }
     },
     {
@@ -194,11 +194,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (sense.mjs)",
       "description": "The code universe charted into sense: what is canonical and what is a copy, what depends on what, what is proven together and what is untested, what is a decision rather than a fact. Ordered from the whole to the parts.",
-      "verified": "2026-09-19 HTTP 200, 142 nodes / 568 edges",
+      "verified": "2026-09-19 HTTP 200, 142 nodes / 563 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
         "nodes": 142,
-        "edges": 568
+        "edges": 563
       }
     },
     {
