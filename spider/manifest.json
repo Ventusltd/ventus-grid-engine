@@ -96,11 +96,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (blocks.mjs)",
       "description": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
-      "verified": "2026-09-20 HTTP 200, 365 nodes / 1171 edges",
+      "verified": "2026-09-20 HTTP 200, 368 nodes / 1181 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 365,
-        "edges": 1171
+        "nodes": 368,
+        "edges": 1181
       }
     },
     {
