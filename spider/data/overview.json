@@ -1,7 +1,7 @@
 {
   "schema": "overview-graph.v1",
   "label": "GLOBALGRID2050 architecture",
-  "generated_utc": "2026-09-25T01:23:57Z",
+  "generated_utc": "2026-09-25T07:39:11Z",
   "note": "Generated from spider/manifest.json by spider/overview.py; one card per registered graph.",
   "counts": {
     "graphs": 15
@@ -75,7 +75,7 @@
       "label": "Inventory",
       "type": "graph",
       "rag": "green",
-      "reason": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Verified 2026-09-25 HTTP 200, 395 nodes / 1291 edges.",
+      "reason": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Verified 2026-09-25 HTTP 200, 406 nodes / 1316 edges.",
       "gh": "https://github.com/Ventusltd/stars",
       "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=periodic-table"
     },
@@ -93,7 +93,7 @@
       "label": "Structure",
       "type": "graph",
       "rag": "green",
-      "reason": "globalgrid2050 architecture development, top-down: repositories, the blocks in each, and the engine modules in their canonical order. Verified 2026-09-25 HTTP 200, 127 nodes / 368 edges.",
+      "reason": "globalgrid2050 architecture development, top-down: repositories, the blocks in each, and the engine modules in their canonical order. Verified 2026-09-25 HTTP 200, 131 nodes / 376 edges.",
       "gh": "https://github.com/Ventusltd/stars",
       "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=structure"
     },
