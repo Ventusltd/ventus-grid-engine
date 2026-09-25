@@ -28,7 +28,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const checks = [];
 const check = (name, ok, detail = '') => checks.push({ name, ok: Boolean(ok), detail });
 
-const page = readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const page = readFileSync(path.join(ROOT, 'spider-sandbox.html'), 'utf8');
 
 check('the receiver reads a focus parameter', /qp\.get\("focus"\)/.test(page), 'qp.get("focus")');
 check(

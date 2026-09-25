@@ -1,0 +1,35 @@
+name: Dashboard review
+on:
+  push:
+    branches: [dashboard-refresh-20260925]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Existing engine proofs
+        run: node verify.mjs
+      - name: Check generated dashboard
+        run: |
+          python tools/build-dashboard.py
+          git diff --exit-code -- index.html
+      - name: Install browser
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Browser review
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 > /tmp/dashboard-http.log 2>&1 &
+          node tests/dashboard-browser.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dashboard-browser-evidence
+          path: browser-evidence/

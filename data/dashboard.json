@@ -1,0 +1,10 @@
+{
+  "verified_on": "2026-09-25",
+  "entries": [
+    {"id":"faraday-pulse","label":"Faraday pulse","category":"Experiments","description":"Read the recorded pulse-propagation and memory experiments. Opens the Faraday experiment log, including experiments 18 and 19.","url":"https://ventusltd.github.io/faraday/"},
+    {"id":"dc-string-drawing","label":"DC string drawing","category":"Solar DC","description":"Explore modules, strings and inverter aggregation in the string-inverter topology workspace.","url":"https://globalgrid2050.com/solar-bess-topology-v7/dc-ac-lv-topology-review/index.html#topo_tab_string"},
+    {"id":"ac-block-diagram","label":"AC block diagram","category":"Solar AC","description":"Inspect inverter, skid and ring blocks in the topology workspace. A block diagram, not an SLD or a full electrical system.","url":"https://globalgrid2050.com/solar-bess-topology-v7/dc-ac-lv-topology-review/index.html#topo_scada"},
+    {"id":"deep-grid-engine","label":"Deep grid engine","category":"Engine map","description":"Explore the engine modules and their relationships in the Genome Sandbox.","url":"https://ventusltd.github.io/ventus-grid-engine/genome/"},
+    {"id":"spider-sandbox","label":"Spider Sandbox","category":"Connections","description":"Explore the existing repository and module relationship map.","url":"https://ventusltd.github.io/ventus-grid-engine/spider-sandbox.html"}
+  ]
+}
