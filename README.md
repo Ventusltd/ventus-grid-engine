@@ -34,6 +34,7 @@ This repository holds both, once, with proofs.
 | `geo-geojson.js` | GeoJSON shaping, kept out of the maths |
 | `v9-geodesy.js` | the V9 line: `distanceKm`, `representativePoint`, `voltagesKv`, `destinationPoint`, `initialBearingDeg` |
 | `v9-nearest-search.js` | `normalise` and `index` — name matching and nearest-node search |
+| `site-tile.js` | wireframe rule R5, the site tile: which 2,048 m lattice tiles a site or route touches, receipts, the polite schedule, refusal back-off, and the survey-year test ([docs/site-tile.md](docs/site-tile.md)) |
 
 `v9-geodesy.distanceKm` and the V8 `haversine` are **bit-identical** on every
 reference leg, and the proof asserts that exactly rather than to a tolerance.

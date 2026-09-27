@@ -18,6 +18,7 @@
     "./rating-envelope": "./engine/rating-envelope.js",
     "./corridor-estimate": "./engine/corridor-estimate.js",
     "./published-fault-level": "./engine/published-fault-level.js",
+    "./site-tile": "./engine/site-tile.js",
     "./deeplink": "./deeplink/contract.js"
   },
   "scripts": {
