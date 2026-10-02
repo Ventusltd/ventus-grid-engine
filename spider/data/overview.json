@@ -1,7 +1,7 @@
 {
   "schema": "overview-graph.v1",
   "label": "GLOBALGRID2050 architecture",
-  "generated_utc": "2026-10-02T01:35:03Z",
+  "generated_utc": "2026-10-02T08:23:38Z",
   "note": "Generated from spider/manifest.json by spider/overview.py; one card per registered graph.",
   "counts": {
     "graphs": 15
