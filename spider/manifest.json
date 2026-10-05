@@ -96,11 +96,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (blocks.mjs)",
       "description": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
-      "verified": "2026-10-05 HTTP 200, 608 nodes / 2151 edges",
+      "verified": "2026-10-05 HTTP 200, 612 nodes / 2170 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 608,
-        "edges": 2151
+        "nodes": 612,
+        "edges": 2170
       }
     },
     {
@@ -166,10 +166,10 @@
       "edges_path": null,
       "source_spider": "star-maker (random.mjs), rebuilt by stars",
       "description": "Randomly chosen links between components, for tripping over dependencies nobody wrote down. Prompts to look, not findings.",
-      "verified": "2026-10-05 HTTP 200, 172 nodes / 150 edges",
+      "verified": "2026-10-05 HTTP 200, 164 nodes / 150 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 172,
+        "nodes": 164,
         "edges": 150
       }
     },
