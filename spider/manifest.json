@@ -166,11 +166,11 @@
       "edges_path": null,
       "source_spider": "star-maker (random.mjs), rebuilt by stars",
       "description": "Randomly chosen links between components, for tripping over dependencies nobody wrote down. Prompts to look, not findings.",
-      "verified": "2026-10-09 HTTP 200, 163 nodes / 149 edges",
+      "verified": "2026-10-09 HTTP 200, 159 nodes / 150 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 163,
-        "edges": 149
+        "nodes": 159,
+        "edges": 150
       }
     },
     {
