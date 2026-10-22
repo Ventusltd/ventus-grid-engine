@@ -1,7 +1,7 @@
 {
   "schema": "overview-graph.v1",
   "label": "GLOBALGRID2050 architecture",
-  "generated_utc": "2026-10-22T01:26:06Z",
+  "generated_utc": "2026-10-22T07:28:08Z",
   "note": "Generated from spider/manifest.json by spider/overview.py; one card per registered graph.",
   "counts": {
     "graphs": 15
@@ -120,7 +120,7 @@
       "label": "Sampling",
       "type": "graph",
       "rag": "green",
-      "reason": "Randomly chosen links between components, for tripping over dependencies nobody wrote down. Verified 2026-10-22 HTTP 200, 164 nodes / 149 edges.",
+      "reason": "Randomly chosen links between components, for tripping over dependencies nobody wrote down. Verified 2026-10-22 HTTP 200, 177 nodes / 149 edges.",
       "gh": "https://github.com/Ventusltd/stars",
       "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=random"
     },
