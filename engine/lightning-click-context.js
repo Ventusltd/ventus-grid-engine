@@ -5,7 +5,7 @@
  * Reuses Grid Engine's actual geodesy, nearest search and MAP deep-link contract.
  * No DOM/network, no solver, no attempt to modify GridAtlas or Pipeline News.
  */
-import { distanceKm, voltagesKv } from './v9-geodesy.js';
+import { distanceKm, voltagesKv, representativePoint } from './v9-geodesy.js';
 import { index as indexSubstations } from './v9-nearest-search.js';
 import { buildDeepLink } from '../deeplink/contract.js';
 
@@ -32,10 +32,12 @@ const optical = f => {
 };
 const rowLocation = (row) => {
   const p=row?.location, geom=row?.geometry;
-  const lon= p?.lon ?? p?.longitude ?? (geom?.type==='Point'?geom.coordinates?.[0]:undefined)
-          ?? row?.longitude;
-  const lat= p?.lat ?? p?.latitude ?? (geom?.type==='Point'?geom.coordinates?.[1]:undefined)
-          ?? row?.latitude;
+  // Reuse the estate's existing polygon/MultiPolygon representative-point
+  // contract. The original GridAtlas OSM substation layer is GeoJSON and
+  // cannot be presumed to consist entirely of Point features.
+  const centre=representativePoint(geom);
+  const lon=p?.lon ?? p?.longitude ?? centre?.[0] ?? row?.longitude;
+  const lat=p?.lat ?? p?.latitude ?? centre?.[1] ?? row?.latitude;
   return validPoint(lon,lat)?{lon,lat}:null;
 };
 const positive = n => finite(n) && n>0;
@@ -131,6 +133,52 @@ export function createLightningContextEngine({substations=[],solarProjects=[]}={
     }
   });
 }
+/**
+ * Post-event diligence prompt, NOT evidence of damage or a diagnosed fault.
+ * Works only with a real optical observation and actually located source
+ * records. No site topology, overhead line or weather is inferred from pixels.
+ */
+export function postEventDiligence(context,{
+  selectedRepdRef=null,overheadLineProximity='unknown',wetWeather='unknown'
+}={}) {
+  if(!context?.event||context.event.kind!=='optical_lightning_flash')
+    throw new Error('Diligence requires actual selected optical-flash context');
+  if(!['unknown','nearby','not_reported_nearby'].includes(overheadLineProximity))
+    throw new RangeError('overheadLineProximity');
+  if(!['unknown','wet','dry'].includes(wetWeather))throw new RangeError('wetWeather');
+  const site=selectedRepdRef==null?null:context.nearby_solar
+    .find(p=>p.repd_ref===String(selectedRepdRef));
+  if(selectedRepdRef!=null&&!site)throw new Error('Select a genuine nearby REPD project');
+  const actions=[
+    'Review IMD alarm/event logs and insulation-resistance trend, where an IMD is installed.',
+    'Review inverter RCMU/residual-current and protection-trip logs around the observation time.',
+    'Check SPD status indicators and surge counters; inspect and replace operated units under site procedures.',
+    'Consider safe, suitably authorised insulation-resistance testing of DC strings and AC feeders.',
+    'Check earthing and bonding continuity, especially long AC runs and known overhead-line interfaces.',
+    'Inspect connectors and cable terminations; use thermography where appropriate.',
+    'Record weather and moisture conditions and compare with site-specific PV-to-earth leakage/capacitance history.'
+  ];
+  return {
+    schema:'ventus-grid-engine.post-event-diligence.v1',
+    observation:context.event,
+    site:site?{repd_ref:site.repd_ref,name:site.name,distance_km:site.km}:null,
+    assumed_inputs:{overheadLineProximity,wetWeather},
+    actions,
+    recommendation:'Observed lightning activity near a mapped asset: consider a post-event inspection as engineering diligence, not as a diagnosis.',
+    overhead_note:overheadLineProximity==='nearby'
+      ?'Overhead line/pylon proximity was explicitly supplied; consider earth-potential rise and conducted surge paths.'
+      :'Overhead line/pylon proximity UNKNOWN or not reported; it is NOT inferred from the optical flash.',
+    weather_note:wetWeather==='wet'
+      ?'Wet conditions explicitly supplied; review site-specific leakage and capacitance, not a universal multiplier.'
+      :'Weather not established by the optical observation; do not infer moisture or PV-to-earth capacitance.',
+    solver_status:'NOT_RUN',
+    causation_established:false,
+    other_possible_causes:['Grid switching transients','Equipment failure',
+      'Insulation ageing/degradation','Moisture ingress','Second IT earth fault'],
+    disclaimer:'EUMETSAT optical flash, NOT necessarily a ground strike or evidence any asset was hit. Other sources may cause surges, currents or damage. Inspection is a diligence recommendation, NOT a fault diagnosis.'
+  };
+}
+
 /**
  * Scenario SETUP, not an electrical calculation. A user must specify the actual
  * inverter earthing topology and hypothetical surge. Never infer from LI pixels.
