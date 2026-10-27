@@ -5,7 +5,7 @@
  * solar fixtures; does not pretend the mock sites are actual infrastructure.
  */
 import assert from 'node:assert/strict';
-import {createLightningContextEngine,lightningElectricalScenario,
+import {createLightningContextEngine,lightningElectricalScenario,postEventDiligence,
   solarMarkerRadiusPx,lightningMarker,caveat} from '../engine/lightning-click-context.js';
 import {parseDeepLink} from '../deeplink/contract.js';
 import {distanceKm} from '../engine/v9-geodesy.js';
@@ -122,5 +122,59 @@ eq(geoResult.nearby_solar[0].capacity_mw,840,'MW available for marker styling');
 eq(geoResult.substations[0].voltages_kv[0],400,'OSM voltage volts converted to kV');
 eq(geoResult.substations[0].source_site_id,'OSM-MOCK-400','feature id retained as source identity');
 eq(geoResult.nearby_solar[0].gridatlas_project_url.includes('repd_ref=12588'),true,'canonical MAP link for GeoJSON record');
+
+
+// The real original GridAtlas OSM layer can contain polygonal substations.
+// Use the EXISTING representativePoint algorithm, not a new haversine.
+const polygon={
+  type:'Feature',id:'OSM-POLYGON',
+  geometry:{type:'Polygon',coordinates:[[
+    [-4.213,55.374],[-4.211,55.374],[-4.211,55.376],
+    [-4.213,55.376],[-4.213,55.374]
+  ]]},
+  properties:{name:'SYNTHETIC-polygon-substation',voltage:'400000'}
+};
+const multi={
+  type:'Feature',id:'OSM-MULTIPOLYGON',
+  geometry:{type:'MultiPolygon',coordinates:[[
+    [[-4.215,55.374],[-4.213,55.374],[-4.213,55.376],
+     [-4.215,55.376],[-4.215,55.374]]
+  ]]},
+  properties:{name:'SYNTHETIC-multipolygon-substation',kv:'275'}
+};
+const line={
+  type:'Feature',id:'OSM-LINE-NOT-SUBSTATION',
+  geometry:{type:'LineString',coordinates:[[-4.21,55.374],[-4.20,55.375]]},
+  properties:{name:'SYNTHETIC-line',voltage:'400000'}
+};
+const polyEngine=createLightningContextEngine({substations:[polygon,multi,line]});
+const polyCtx=polyEngine.selectFlash(flash,{minimumKv:132});
+eq(polyEngine.dataset_summary.located_substations,2,'polygon and multipolygon located; line excluded');
+eq(polyCtx.substations.length,2,'existing geodesy returns both real polygon shapes');
+eq(polyCtx.substations[0].source_site_id,'OSM-POLYGON','polygon source identity preserved');
+eq(polyCtx.substations[0].voltages_kv[0],400,'OSM volts not misread as kV');
+eq(polyCtx.substations[1].voltages_kv[0],275,'explicit kV preserved');
+const diligence=postEventDiligence(geoResult,{selectedRepdRef:'12588'});
+eq(diligence.site.repd_ref,'12588','diligence selected genuine source REPD');
+eq(diligence.solver_status,'NOT_RUN','no electrical solver or fault current');
+eq(diligence.causation_established,false,'no optical flash to fault causality');
+yes(diligence.disclaimer.includes('NOT necessarily a ground strike'),'mandatory optical warning');
+yes(diligence.disclaimer.includes('Other sources'),'other causes acknowledged');
+yes(diligence.disclaimer.includes('diligence recommendation'),'inspection not diagnosis');
+yes(diligence.actions.some(x=>x.includes('IMD')),'IMD alarm review');
+yes(diligence.actions.some(x=>x.includes('RCMU')),'inverter RCMU review');
+yes(diligence.actions.some(x=>x.includes('SPD')),'SPD status and counters');
+yes(diligence.actions.some(x=>x.includes('insulation-resistance testing')),'AC/DC insulation testing');
+yes(diligence.actions.some(x=>x.includes('bonding continuity')),'earthing and bonding checks');
+yes(diligence.actions.some(x=>x.includes('thermography')),'cable/connector inspection');
+yes(diligence.actions.some(x=>x.includes('weather')),'weather and capacitance context');
+yes(diligence.overhead_note.includes('UNKNOWN'),'no invented pylon proximity');
+yes(diligence.weather_note.includes('not established'),'no invented wet weather');
+const informed=postEventDiligence(geoResult,{overheadLineProximity:'nearby',wetWeather:'wet'});
+yes(informed.overhead_note.includes('explicitly supplied'),'line proximity is user-provided');
+yes(informed.weather_note.includes('site-specific'),'no universal wet-array multiplier');
+refuses(()=>postEventDiligence(geoResult,{wetWeather:'rainy probably'}),/wetWeather/,'reject unverified weather class');
+refuses(()=>postEventDiligence(geoResult,{selectedRepdRef:'fake'}),/genuine nearby/,'no invented site identity');
+refuses(()=>postEventDiligence(null),/actual selected/,'requires authentic optical context');
 
 console.log('PASS — '+checks+' checks');
