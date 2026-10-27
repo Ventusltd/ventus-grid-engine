@@ -5,7 +5,7 @@
  * Reuses Grid Engine's actual geodesy, nearest search and MAP deep-link contract.
  * No DOM/network, no solver, no attempt to modify GridAtlas or Pipeline News.
  */
-import { distanceKm } from './v9-geodesy.js';
+import { distanceKm, voltagesKv } from './v9-geodesy.js';
 import { index as indexSubstations } from './v9-nearest-search.js';
 import { buildDeepLink } from '../deeplink/contract.js';
 
@@ -45,14 +45,18 @@ const capacityOf = project => {
   return positive(n)?n:null;
 };
 const solarProject = (project) => {
-  const t=String(project?.technology||'').toLowerCase();
+  // Real Pipeline News solar-part-00X.geojson has source fields inside
+  // Feature.properties; the compact project index has them at the root.
+  // Both are allowed, but identity and coordinates must genuinely exist.
+  const p=project?.type==='Feature' ? project.properties : project;
+  const t=String(p?.technology||p?.repd_technology||'').toLowerCase();
   if(!t.includes('solar'))return null;
   const location=rowLocation(project);
-  if(!location || project?.geometry_status && project.geometry_status!=='valid')return null;
-  const repdRef=String(project?.repd_ref??'').trim();
+  if(!location || (p?.geometry_status && p.geometry_status!=='valid'))return null;
+  const repdRef=String(p?.repd_ref??'').trim();
   if(!/^[0-9]+$/.test(repdRef))return null;
-  const mw=capacityOf(project);
-  return {repd_ref:repdRef,name:String(project.name||'Unnamed REPD solar project'),
+  const mw=capacityOf(p);
+  return {repd_ref:repdRef,name:String(p.name||'Unnamed REPD solar project'),
     location,capacity_mw:mw,technology:'solar'};
 };
 /**
@@ -71,9 +75,14 @@ export function createLightningContextEngine({substations=[],solarProjects=[]}={
   if(!Array.isArray(substations)||!Array.isArray(solarProjects))
     throw new TypeError('Expected bounded arrays of actual data');
   const locatedSubstations=substations.map(p=>{
+    // Accept the existing GridAtlas substation GeoJSON as well as the
+    // normalised Grid Engine point contract. Do not infer kV from magnitude.
     const location=rowLocation(p);
     if(!location)return null;
-    return {...p,location,voltages_kv:Array.isArray(p.voltages_kv)?p.voltages_kv:[]};
+    const meta=p.type==='Feature'?p.properties||{}:p;
+    const kv=Array.isArray(meta.voltages_kv)?meta.voltages_kv:voltagesKv(meta);
+    return {...meta,name:meta.name||p.name||null,code:meta.code||p.id||null,
+      location,voltages_kv:kv};
   }).filter(Boolean);
   const subIndex=indexSubstations(locatedSubstations);
   const solar=solarProjects.map(solarProject).filter(Boolean);
