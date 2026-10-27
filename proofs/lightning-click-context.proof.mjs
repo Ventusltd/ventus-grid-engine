@@ -97,4 +97,30 @@ eq(unknown.candidate_scenarios.find(x=>x.id==='floating_dc_string').applicable,f
 refuses(()=>lightningElectricalScenario(c,{acEarthing:'any'}),/acEarthing/,'unsupported topology not accepted');
 refuses(()=>lightningElectricalScenario(c,{selectedRepdRef:'404'}),/genuine nearby/,'cannot assert nonexistent site');
 yes(study.disclaimer.includes('NOT a measured strike'),'explicit not-an-event diagnosis');
+
+// The real public Pipeline News solar-part-00X.geojson format nests REPD
+// attributes inside Feature.properties. Regression: don't discard all farms.
+const solarGeoJSON={
+  type:'Feature',id:'GG2050-REPD-12588',
+  geometry:{type:'Point',coordinates:[-4.213,55.374]},
+  properties:{capacity_mw:840,name:'SYNTHETIC-GeoJSON-Solar',
+    repd_ref:'12588',repd_technology:'Solar Photovoltaics',technology:'solar'}
+};
+const substationGeoJSON={
+  type:'Feature',id:'OSM-MOCK-400',
+  geometry:{type:'Point',coordinates:[-4.210,55.374]},
+  properties:{name:'SYNTHETIC-GeoJSON-Substation',voltage:'400000'}
+};
+const geoEngine=createLightningContextEngine({
+  substations:[substationGeoJSON],
+  solarProjects:[solarGeoJSON]
+});
+const geoResult=geoEngine.selectFlash(flash);
+eq(geoResult.nearby_solar.length,1,'real Pipeline News Feature.properties schema is accepted');
+eq(geoResult.nearby_solar[0].repd_ref,'12588','real REPD ID retained from GeoJSON');
+eq(geoResult.nearby_solar[0].capacity_mw,840,'MW available for marker styling');
+eq(geoResult.substations[0].voltages_kv[0],400,'OSM voltage volts converted to kV');
+eq(geoResult.substations[0].source_site_id,'OSM-MOCK-400','feature id retained as source identity');
+eq(geoResult.nearby_solar[0].gridatlas_project_url.includes('repd_ref=12588'),true,'canonical MAP link for GeoJSON record');
+
 console.log('PASS — '+checks+' checks');
