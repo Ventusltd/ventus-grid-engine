@@ -14,6 +14,7 @@ const node={node_id:'test-node',lon:-1.35,lat:51.8};
 let invoked=0;
 const completed=await observer.run(id,()=>{invoked++;return {entity,origin:location,measurements:[{...node,km:distanceKm(location.lon,location.lat,node.lon,node.lat)}]};});
 assert.equal(invoked,1);
+assert.equal(api.distanceKm(location.lon,location.lat,node.lon,node.lat),distanceKm(location.lon,location.lat,node.lon,node.lat));
 assert.equal(completed.status,'completed');
 assert.equal(api.describeComputeReceipt(completed).unit,'km');
 assert.equal(JSON.stringify(api.describeComputeReceipt(completed)),JSON.stringify(describeComputeReceipt(completed)));
@@ -21,4 +22,4 @@ assert.match(api.describeComputeReceipt(completed).scope,/not an electrical conn
 assert.equal(describeComputeReceipt({status:'failed',reason:'dataset unavailable'}).distance_km,null);
 assert.equal(describeComputeReceipt(null).status,'not_requested');
 assert.equal(buildBrowserObserver(),buildBrowserObserver());
-console.log('browser observer PASS — 9 checks');
+console.log('browser observer PASS — 10 checks');

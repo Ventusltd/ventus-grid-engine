@@ -4,7 +4,9 @@
 browser bundle from the owned geodesy, compute observer and presentation module.
 Consumers must pin the source commit and output SHA256. The output exposes
 `globalThis.VentusGridCompute`; it does not fetch data or replace the consumer's
-nearest-search algorithm.
+nearest-search algorithm. It exposes the owned `distanceKm(lon1, lat1, lon2, lat2)`
+for real distance calculation in kilometres; consumers retain their selection
+and ranking logic.
 
 Call `request({entity, location})` for the current selection, then `run(id,
 actualCalculation)` at the actual computation call site. The callback must
