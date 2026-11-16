@@ -1,7 +1,7 @@
 {
   "schema": "overview-graph.v1",
   "label": "GLOBALGRID2050 architecture",
-  "generated_utc": "2026-11-16T09:26:54Z",
+  "generated_utc": "2026-11-16T20:17:55Z",
   "note": "Generated from spider/manifest.json by spider/overview.py; one card per registered graph.",
   "counts": {
     "graphs": 15
@@ -75,7 +75,7 @@
       "label": "Inventory",
       "type": "graph",
       "rag": "green",
-      "reason": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Verified 2026-11-16 HTTP 200, 728 nodes / 2796 edges.",
+      "reason": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Verified 2026-11-16 HTTP 200, 732 nodes / 2815 edges.",
       "gh": "https://github.com/Ventusltd/stars",
       "ext": "https://ventusltd.github.io/ventus-grid-engine/?graph=periodic-table"
     },
