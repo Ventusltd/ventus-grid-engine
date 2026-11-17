@@ -16,6 +16,8 @@
     "./v9-nearest-search": "./engine/v9-nearest-search.js",
     "./network-topology": "./engine/network-topology.js",
     "./electrical-distance": "./engine/electrical-distance.js",
+    "./journey-evidence": "./engine/journey-evidence.js",
+    "./edge-cover-journey": "./engine/edge-cover-journey.js",
     "./rating-envelope": "./engine/rating-envelope.js",
     "./corridor-estimate": "./engine/corridor-estimate.js",
     "./published-fault-level": "./engine/published-fault-level.js",
