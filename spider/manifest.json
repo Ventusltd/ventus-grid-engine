@@ -82,11 +82,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (build.mjs)",
       "description": "Functions and classes found in two or more different files across the public Ventusltd repositories, wired to the repositories they live in and to other families sharing their name. Node ids are permanent numbers (family:N); GitHub opens the exact lines; External opens the code report (every place it is used, the live page, the numbered lines, copy). Rebuilt hourly on GitHub Actions.",
-      "verified": "2026-11-18 HTTP 200, 302 nodes / 999 edges",
+      "verified": "2026-11-18 HTTP 200, 302 nodes / 1012 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
         "nodes": 302,
-        "edges": 999
+        "edges": 1012
       }
     },
     {
@@ -96,11 +96,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (blocks.mjs)",
       "description": "Every block of globalgrid2050 architecture development with a permanent number and a plain-language description, grouped by category and wired to the repositories it lives in. Underneath each block are its numbered functions. External opens the table page.",
-      "verified": "2026-11-18 HTTP 200, 763 nodes / 3035 edges",
+      "verified": "2026-11-18 HTTP 200, 766 nodes / 3057 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
-        "nodes": 763,
-        "edges": 3035
+        "nodes": 766,
+        "edges": 3057
       }
     },
     {
@@ -124,11 +124,11 @@
       "edges_path": null,
       "source_spider": "stars/modular-star (structure.mjs)",
       "description": "globalgrid2050 architecture development, top-down: repositories, the blocks in each, and the engine modules in their canonical order.",
-      "verified": "2026-11-18 HTTP 200, 136 nodes / 430 edges",
+      "verified": "2026-11-18 HTTP 200, 136 nodes / 432 edges",
       "registry": "https://ventusltd.github.io/stars/spider/features.yml",
       "measured": {
         "nodes": 136,
-        "edges": 430
+        "edges": 432
       }
     },
     {
